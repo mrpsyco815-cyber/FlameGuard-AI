@@ -2,6 +2,7 @@ from collections import Counter
 from pathlib import Path
 
 from backend.services.bass2_dataset import search_bass2_records
+from backend.services.evidence_intelligence import build_evidence_intelligence
 from backend.services.nasa_online import search_nasa_online
 from backend.services.research_summarizer import build_evidence_brief, tokenize
 from backend.services.subhan_research import search_subhan_research
@@ -49,6 +50,7 @@ def search_mission_research(
     subhan_passages_path=None,
     subhan_extended_path=None,
     fuel=None,
+    mission="spacecraft",
     min_local_passages=DEFAULT_MIN_LOCAL_PASSAGES,
     min_local_sources=DEFAULT_MIN_LOCAL_SOURCES,
     min_query_term_coverage=DEFAULT_MIN_QUERY_TERM_COVERAGE,
@@ -58,6 +60,8 @@ def search_mission_research(
         raise ValueError("Query must contain at least two characters.")
     if not isinstance(limit, int) or isinstance(limit, bool) or not 1 <= limit <= 100:
         raise ValueError("limit must be an integer between 1 and 100.")
+    if mission not in {"moon", "mars", "spacecraft"}:
+        raise ValueError("mission must be one of: moon, mars, spacecraft.")
     if not 0 <= min_query_term_coverage <= 1:
         raise ValueError("min_query_term_coverage must be between 0 and 1.")
 
@@ -168,6 +172,16 @@ def search_mission_research(
         if raw_online.get("error"):
             online_search["error"] = raw_online["error"]
 
+    evidence_intelligence = build_evidence_intelligence(
+        local_evidence=combined_local,
+        online_metadata=online_search.get("results", []),
+        bass2_results=bass2_matches,
+        query=query,
+        mission=mission,
+        fuel=fuel,
+        limit=limit,
+    )
+
     role_counts = Counter(
         item.get("evidence_role", "unclassified")
         for item in combined_local[:limit]
@@ -179,6 +193,7 @@ def search_mission_research(
 
     return {
         "query": query,
+        "mission": mission,
         "search_strategy": "subhan_local_first_then_project_local_then_nasa_ntrs",
         "fallback_triggered": fallback_triggered,
         "fallback_reason": reasons,
@@ -193,6 +208,7 @@ def search_mission_research(
             "evidence_modality_counts": dict(modality_counts),
         },
         "local_evidence": combined_local[:limit],
+        "evidence_intelligence": evidence_intelligence,
         "bass2_structured_experimental_data": {
             "query_relevant_record_count": len(bass2_matches),
             "results": [
