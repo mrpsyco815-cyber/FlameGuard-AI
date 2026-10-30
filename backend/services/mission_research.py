@@ -6,7 +6,6 @@ from backend.services.evidence_intelligence import build_evidence_intelligence
 from backend.services.nasa_online import search_nasa_online
 from backend.services.research_summarizer import build_evidence_brief, tokenize
 from backend.services.subhan_research import search_subhan_research
-from backend.services.supplemental_research_search import search_supplemental_research
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -81,15 +80,22 @@ def search_mission_research(
     legacy_results = [
         {
             **item,
-            "source_dataset": "existing_local_nasa_research_store",
+            "source_dataset": (
+                "supplemental_live_nasa_collection"
+                if item.get("record_origin") == "supplemental_research_collection"
+                else "existing_local_nasa_research_store"
+            ),
             "source_owner": "FlameGuard project",
         }
         for item in legacy_brief.get("results", [])
     ]
 
-    supplemental_results = search_supplemental_research(query, limit=100)
+    supplemental_results = [
+        item for item in legacy_results
+        if item.get("record_origin") == "supplemental_research_collection"
+    ]
     combined_local = _deduplicate_passages(
-        subhan["verified_core_evidence"] + legacy_results + supplemental_results
+        subhan["verified_core_evidence"] + legacy_results
     )
     local_source_ids = {
         str(item.get("source_id"))
