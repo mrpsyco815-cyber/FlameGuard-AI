@@ -161,11 +161,19 @@ def nasa_passage_search(
 def mission_research_search(
     q: str = Query(..., min_length=2, max_length=200),
     limit: int = Query(default=10, ge=1, le=50),
+    mission: str | None = Query(default=None, min_length=1, max_length=80),
     fuel: str | None = Query(default=None, min_length=1, max_length=100),
+    environment_context: str | None = Query(default=None, max_length=500),
 ):
-    """Search Subhan's local evidence first, then NASA NTRS if coverage is thin."""
+    """Search local project evidence first; query NASA NTRS when local coverage is thin."""
     try:
-        return search_mission_research(q, limit, fuel=fuel)
+        return search_mission_research(
+            q,
+            limit,
+            mission=mission,
+            fuel=fuel,
+            environment_context=environment_context,
+        )
     except ValueError as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
     except FileNotFoundError as exc:

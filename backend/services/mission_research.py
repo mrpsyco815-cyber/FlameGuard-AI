@@ -15,22 +15,60 @@ DEFAULT_MIN_LOCAL_SOURCES = 2
 DEFAULT_MIN_QUERY_TERM_COVERAGE = 0.6
 
 
+def _build_search_query(query, mission=None, fuel=None, environment_context=None):
+    """Add user-supplied mission context to retrieval without changing the raw question."""
+    parts = [query.strip()]
+    for value in (mission, fuel, environment_context):
+        if isinstance(value, str) and value.strip():
+            parts.append(value.strip())
+        elif isinstance(value, dict):
+            parts.extend(
+                f"{key} {value_part}"
+                for key, value_part in value.items()
+                if value_part is not None and str(value_part).strip()
+            )
+    return " ".join(dict.fromkeys(parts))
+
+
+def _provenance_entry(item):
+    return {
+        "source_dataset": item.get("source_dataset"),
+        "source_owner": item.get("source_owner"),
+        "source_id": item.get("source_id"),
+        "record_id": item.get("record_id"),
+        "citation_url": item.get("citation_url") or item.get("source_url"),
+        "pdf_page_number": item.get("pdf_page_number"),
+        "retrieved_at_utc": item.get("retrieved_at_utc"),
+    }
+
+
+def _add_provenance(target, item):
+    entry = _provenance_entry(item)
+    entries = target.setdefault("source_provenance", [])
+    if entry not in entries:
+        entries.append(entry)
+    presence = item.get("source_dataset") or item.get("source") or "unknown_source"
+    target.setdefault("source_presence", [])
+    if presence not in target["source_presence"]:
+        target["source_presence"].append(presence)
+
+
 def _deduplicate_passages(items):
+    """Deduplicate identical source/page excerpts while retaining every provenance record."""
     unique = {}
     for item in items:
         excerpt = " ".join(str(item.get("exact_source_excerpt") or "").casefold().split())
-        source_id = str(item.get("source_id") or "")
+        source_id = str(item.get("source_id") or item.get("citation_url") or item.get("record_id") or "")
         page = str(item.get("pdf_page_number") or "")
         key = (source_id.casefold(), page, excerpt)
         if key not in unique:
             unique[key] = dict(item)
-            unique[key]["source_presence"] = [item.get("source_dataset", "existing_local_store")]
-        else:
-            current = unique[key]
-            presence = item.get("source_dataset", "existing_local_store")
-            if presence not in current["source_presence"]:
-                current["source_presence"].append(presence)
+            unique[key]["source_presence"] = []
+            unique[key]["source_provenance"] = []
+        _add_provenance(unique[key], item)
+
     results = list(unique.values())
+    # This is lexical retrieval ordering only; scientific evidence ranking is a later phase.
     results.sort(
         key=lambda item: (
             -float(item.get("query_match_score") or 0),
@@ -49,29 +87,41 @@ def search_mission_research(
     subhan_passages_path=None,
     subhan_extended_path=None,
     fuel=None,
+    mission=None,
+    environment_context=None,
     min_local_passages=DEFAULT_MIN_LOCAL_PASSAGES,
     min_local_sources=DEFAULT_MIN_LOCAL_SOURCES,
     min_query_term_coverage=DEFAULT_MIN_QUERY_TERM_COVERAGE,
 ):
-    """Search Subhan's local data first, then project-local NASA passages, then NTRS."""
+    """Federated retrieval: Subhan + project-local NASA/BASS-II, then NTRS on thin coverage."""
     if not isinstance(query, str) or len(query.strip()) < 2:
         raise ValueError("Query must contain at least two characters.")
     if not isinstance(limit, int) or isinstance(limit, bool) or not 1 <= limit <= 100:
         raise ValueError("limit must be an integer between 1 and 100.")
     if not 0 <= min_query_term_coverage <= 1:
         raise ValueError("min_query_term_coverage must be between 0 and 1.")
+    if mission is not None and (not isinstance(mission, str) or len(mission) > 80):
+        raise ValueError("mission must be a string of at most 80 characters.")
+    if environment_context is not None and not isinstance(environment_context, (str, dict)):
+        raise ValueError("environment_context must be a string or an object.")
+    if isinstance(environment_context, str) and len(environment_context) > 500:
+        raise ValueError("environment_context must not exceed 500 characters.")
 
+    search_query = _build_search_query(query, mission, fuel, environment_context)
+
+    # 1. Search Subhan's verified passages and preliminary discovery index separately.
     subhan = search_subhan_research(
-        query,
+        search_query,
         limit=limit,
         core_path=subhan_core_path,
         passages_path=subhan_passages_path,
         extended_path=subhan_extended_path,
     )
 
+    # 2. Search the existing NASA primary research store.
     legacy_brief = build_evidence_brief(
         legacy_store_path or DEFAULT_STORE_PATH,
-        query,
+        search_query,
         limit=100,
     )
     legacy_results = [
@@ -83,7 +133,8 @@ def search_mission_research(
         for item in legacy_brief.get("results", [])
     ]
 
-    supplemental_results = search_supplemental_research(query, limit=100)
+    # 3. Search previously imported NASA passages (review status remains attached).
+    supplemental_results = search_supplemental_research(search_query, limit=100)
     combined_local = _deduplicate_passages(
         subhan["verified_core_evidence"] + legacy_results + supplemental_results
     )
@@ -93,7 +144,7 @@ def search_mission_research(
         if item.get("source_id")
     }
 
-    query_terms = tokenize(query)
+    query_terms = tokenize(search_query)
     matched_terms = {
         term
         for item in combined_local
@@ -109,21 +160,23 @@ def search_mission_research(
     if query_term_coverage < min_query_term_coverage:
         reasons.append("insufficient_query_term_coverage")
 
+    # 4. BASS-II is searched as structured experimental context, never mixed into PDF passages.
     bass2_matches = search_bass2_records(query=query, limit=limit, fuel=fuel)
 
+    # 5. Search the official NASA NTRS catalogue only when local evidence is insufficient.
     fallback_triggered = bool(reasons)
     online_search = {
         "performed": False,
         "source": "NASA NTRS",
         "status": "not_needed_local_coverage_sufficient",
-        "query": query,
+        "query": search_query,
         "count": 0,
         "results": [],
         "content_scope": "not_searched",
     }
 
     if fallback_triggered:
-        raw_online = search_nasa_online(query, limit)
+        raw_online = search_nasa_online(search_query, limit)
         online_results = raw_online.get("results", [])
         if not isinstance(online_results, list):
             online_results = []
@@ -133,6 +186,15 @@ def search_mission_research(
                 **item,
                 "record_type": "nasa_ntrs_catalog_metadata",
                 "source_presence": ["nasa_ntrs_online"],
+                "source_provenance": [{
+                    "source_dataset": "nasa_ntrs_online",
+                    "source_owner": "NASA",
+                    "source_id": item.get("nasa_id"),
+                    "record_id": item.get("nasa_id"),
+                    "citation_url": item.get("source_url"),
+                    "pdf_page_number": None,
+                    "retrieved_at_utc": item.get("retrieved_at_utc"),
+                }],
                 "evidence_scope": "bibliographic_metadata_and_abstract_only",
                 "full_text_retrieved": False,
                 "scientific_findings_verified": False,
@@ -151,8 +213,14 @@ def search_mission_research(
             local_match = local_by_source.get(nasa_id)
             if local_match:
                 local_match["online_catalog_metadata"] = metadata
-                if "nasa_ntrs_online" not in local_match["source_presence"]:
-                    local_match["source_presence"].append("nasa_ntrs_online")
+                _add_provenance(local_match, {
+                    "source_dataset": "nasa_ntrs_online",
+                    "source_owner": "NASA",
+                    "source_id": nasa_id,
+                    "record_id": nasa_id,
+                    "source_url": metadata.get("source_url"),
+                    "retrieved_at_utc": metadata.get("retrieved_at_utc"),
+                })
             else:
                 unique_online_metadata.append(metadata)
 
@@ -160,7 +228,7 @@ def search_mission_research(
             "performed": True,
             "source": raw_online.get("source", "NASA NTRS"),
             "status": "unavailable" if raw_online.get("error") else "completed",
-            "query": query,
+            "query": search_query,
             "count": len(unique_online_metadata),
             "results": unique_online_metadata,
             "content_scope": "bibliographic_metadata_and_abstract_only",
@@ -179,6 +247,12 @@ def search_mission_research(
 
     return {
         "query": query,
+        "search_query": search_query,
+        "search_context": {
+            "mission": mission,
+            "fuel": fuel,
+            "environment": environment_context,
+        },
         "search_strategy": "subhan_local_first_then_project_local_then_nasa_ntrs",
         "fallback_triggered": fallback_triggered,
         "fallback_reason": reasons,
@@ -233,13 +307,13 @@ def search_mission_research(
             "online_ntrs_unique_metadata_records": online_search["count"],
         },
         "limitations": [
-            "Subhan's 10-record verified core contains PDF-page-checked passages; independent scientific verification is not claimed.",
-            "Subhan's extended index is preliminary and is never treated as verified findings.",
-            "NASA NTRS fallback currently returns catalog metadata and abstracts, not analysed full-text PDFs.",
-            "NASA catalog metadata is attached to matching local source IDs instead of duplicated as a second finding.",
-            "BASS-II structured rows are returned separately and are not mixed with PDF evidence passages.",
-            "NASA documents must be explicitly imported through the NASA import endpoint; imported passages remain pending manual review and are searchable on later requests.",
-            "Lexical match scores indicate word overlap, not scientific quality, confidence, or mission safety.",
+            "Subhan verified-core passages were checked against stated PDF pages; independent scientific verification is not claimed.",
+            "Subhan extended-index entries are discovery metadata only and are never presented as verified findings.",
+            "NASA NTRS fallback returns catalogue metadata and abstracts, not analysed full-text PDFs.",
+            "NTRS metadata matching an existing source is attached as provenance rather than duplicated as a second finding.",
+            "BASS-II structured rows remain separate from PDF evidence passages; original values are not modified.",
+            "NASA documents require explicit import; imported passages remain review-pending and are searchable on later requests.",
+            "Lexical match scores indicate word overlap only, not scientific quality, confidence, or mission safety.",
             "This search is a research aid, not an operational fire-safety certification or safe/unsafe prediction.",
         ],
     }

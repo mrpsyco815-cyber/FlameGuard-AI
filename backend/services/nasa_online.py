@@ -1,11 +1,17 @@
-﻿import requests
+from datetime import datetime, timezone
+
+import requests
+
 
 NASA_NTRS_SEARCH_URL = "https://ntrs.nasa.gov/api/citations/search"
 
 
-def search_nasa_online(query: str, limit: int = 5) -> dict:
-    """Search NASA NTRS and return normalized bibliographic metadata."""
+def _utc_now():
+    return datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
 
+
+def search_nasa_online(query: str, limit: int = 5) -> dict:
+    """Search NASA NTRS and return catalogue metadata with retrieval provenance."""
     query = query.strip()
 
     if len(query) < 2:
@@ -25,11 +31,11 @@ def search_nasa_online(query: str, limit: int = 5) -> dict:
         response.raise_for_status()
         payload = response.json()
         records = payload.get("results", [])
+        retrieved_at_utc = _utc_now()
         results = []
 
         for record in records[:limit]:
             nasa_id = record.get("id")
-
             author_affiliations = record.get("authorAffiliations") or []
             authors = []
 
@@ -37,7 +43,6 @@ def search_nasa_online(query: str, limit: int = 5) -> dict:
                 meta = item.get("meta") or {}
                 author = meta.get("author") or {}
                 organization = meta.get("organization") or {}
-
                 name = author.get("name")
                 if name:
                     authors.append({
@@ -54,7 +59,6 @@ def search_nasa_online(query: str, limit: int = 5) -> dict:
                 ),
                 None,
             )
-
             center = record.get("center") or {}
 
             results.append({
@@ -76,12 +80,17 @@ def search_nasa_online(query: str, limit: int = 5) -> dict:
                 "document_available": record.get("disseminated") == "DOCUMENT_AND_METADATA",
                 "center": center.get("name"),
                 "verification_status": "metadata_retrieved",
+                "retrieved_at_utc": retrieved_at_utc,
+                "evidence_scope": "bibliographic_metadata_and_abstract_only",
+                "full_text_retrieved": False,
+                "scientific_findings_verified": False,
             })
 
         return {
             "source": "NASA NTRS",
             "query": query,
             "count": len(results),
+            "retrieved_at_utc": retrieved_at_utc,
             "results": results,
         }
 
