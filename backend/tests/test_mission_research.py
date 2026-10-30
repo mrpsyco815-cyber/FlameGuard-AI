@@ -94,6 +94,13 @@ class TestSubhanResearchIntegration(unittest.TestCase):
             "extended_path": self.extended,
         }
 
+    def mission_subhan_args(self):
+        return {
+            "subhan_core_path": self.core,
+            "subhan_passages_path": self.passages,
+            "subhan_extended_path": self.extended,
+        }
+
     def test_subhan_pdf_passage_citation_and_page_are_preserved(self):
         result = search_subhan_research("smoke alarm 981 seconds", **self.subhan_args())
         self.assertEqual(result["verified_core_evidence_count"], 1)
@@ -125,7 +132,7 @@ class TestSubhanResearchIntegration(unittest.TestCase):
         result = search_mission_research(
             "smoke alarm 981 seconds",
             legacy_store_path=self.legacy,
-            **self.subhan_args(),
+            **self.mission_subhan_args(),
         )
         online.assert_called_once()
         self.assertTrue(result["fallback_triggered"])
@@ -141,7 +148,7 @@ class TestSubhanResearchIntegration(unittest.TestCase):
         result = search_mission_research(
             "microgravity flame",
             legacy_store_path=self.legacy,
-            **self.subhan_args(),
+            **self.mission_subhan_args(),
         )
         online.assert_not_called()
         self.assertFalse(result["fallback_triggered"])
