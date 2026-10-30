@@ -5,6 +5,7 @@ from backend.services.bass2_dataset import search_bass2_records
 from backend.services.nasa_online import search_nasa_online
 from backend.services.research_summarizer import build_evidence_brief, tokenize
 from backend.services.subhan_research import search_subhan_research
+from backend.services.supplemental_research_search import search_supplemental_research
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -82,8 +83,9 @@ def search_mission_research(
         for item in legacy_brief.get("results", [])
     ]
 
+    supplemental_results = search_supplemental_research(query, limit=100)
     combined_local = _deduplicate_passages(
-        subhan["verified_core_evidence"] + legacy_results
+        subhan["verified_core_evidence"] + legacy_results + supplemental_results
     )
     local_source_ids = {
         str(item.get("source_id"))
@@ -219,11 +221,13 @@ def search_mission_research(
             "candidate_passage_count": legacy_brief["summary"]["candidate_passage_count"],
             "source_document_count": legacy_brief["summary"]["source_document_count"],
             "retrieval_method": legacy_brief["retrieval_method"],
+            "supplemental_live_nasa_matches": len(supplemental_results),
         },
         "online_search": online_search,
         "counts": {
             "subhan_verified_core_matches": subhan["verified_core_evidence_count"],
             "existing_local_matches": len(legacy_results),
+            "supplemental_live_nasa_matches": len(supplemental_results),
             "combined_unique_local_passages": len(combined_local),
             "query_relevant_bass2_records": len(bass2_matches),
             "online_ntrs_unique_metadata_records": online_search["count"],
@@ -234,7 +238,7 @@ def search_mission_research(
             "NASA NTRS fallback currently returns catalog metadata and abstracts, not analysed full-text PDFs.",
             "NASA catalog metadata is attached to matching local source IDs instead of duplicated as a second finding.",
             "BASS-II structured rows are returned separately and are not mixed with PDF evidence passages.",
-            "Online discoveries are not automatically added to the permanent local dataset.",
+            "NASA documents must be explicitly imported through the NASA import endpoint; imported passages remain pending manual review and are searchable on later requests.",
             "Lexical match scores indicate word overlap, not scientific quality, confidence, or mission safety.",
             "This search is a research aid, not an operational fire-safety certification or safe/unsafe prediction.",
         ],
