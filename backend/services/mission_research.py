@@ -146,6 +146,12 @@ def search_mission_research(
                 "source_presence": ["nasa_ntrs_online"],
                 "evidence_scope": "bibliographic_metadata_and_abstract_only",
                 "full_text_retrieved": False,
+                "import_available": bool(item.get("document_available") and str(item.get("nasa_id") or "").isdigit()),
+                "full_text_import_endpoint": (
+                    f"/research/import/{item.get('nasa_id')}"
+                    if item.get("document_available") and str(item.get("nasa_id") or "").isdigit()
+                    else None
+                ),
                 "scientific_findings_verified": False,
             }
             for item in online_results
