@@ -61,6 +61,17 @@ class TestSubhanResearchIntegration(unittest.TestCase):
                     "section_or_table": "Test conditions",
                     "experiment_context": "Saffire VI, microgravity.",
                 },
+                {
+                    "study_id": "saffire-vi-2024",
+                    "title": "Preliminary Results from the Saffire VI Experiment",
+                    "investigation": "SAFFIRE-VI",
+                    "evidence_text": "Microgravity flame spread test conditions were documented.",
+                    "source_url": "https://ntrs.nasa.gov/api/citations/20240002981/downloads/file.pdf",
+                    "file_name": "saffire-vi.pdf",
+                    "page": 9,
+                    "section_or_table": "Test conditions",
+                    "experiment_context": "Saffire VI, microgravity.",
+                },
             ],
         }
         extended = [{
