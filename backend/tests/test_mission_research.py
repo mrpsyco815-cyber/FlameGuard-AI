@@ -26,7 +26,7 @@ class TestSubhanResearchIntegration(unittest.TestCase):
         }]
         passages = {
             "records_with_evidence": 1,
-            "total_passages": 2,
+            "total_passages": 3,
             "evidence_passages": [
                 {
                     "study_id": "saffire-vi-2024",
@@ -48,6 +48,17 @@ class TestSubhanResearchIntegration(unittest.TestCase):
                     "file_name": "saffire-vi.pdf",
                     "page": 2,
                     "section_or_table": "Introduction",
+                    "experiment_context": "Saffire VI, microgravity.",
+                },
+                {
+                    "study_id": "saffire-vi-2024",
+                    "title": "Preliminary Results from the Saffire VI Experiment",
+                    "investigation": "SAFFIRE-VI",
+                    "evidence_text": "Microgravity flame spread test conditions were documented.",
+                    "source_url": "https://ntrs.nasa.gov/api/citations/20240002981/downloads/file.pdf",
+                    "file_name": "saffire-vi.pdf",
+                    "page": 9,
+                    "section_or_table": "Test conditions",
                     "experiment_context": "Saffire VI, microgravity.",
                 },
             ],
