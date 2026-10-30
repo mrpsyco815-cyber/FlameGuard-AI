@@ -164,6 +164,11 @@ class TestSubhanResearchIntegration(unittest.TestCase):
             "bibliographic_metadata_and_abstract_only",
         )
         self.assertFalse(result["online_search"]["results"][0]["full_text_retrieved"])
+        self.assertTrue(result["online_search"]["results"][0]["import_available"])
+        self.assertEqual(
+            result["online_search"]["results"][0]["full_text_import_endpoint"],
+            "/research/import/12345678901",
+        )
 
     @patch("backend.services.mission_research.search_nasa_online")
     def test_sufficient_local_coverage_skips_nasa_fallback(self, online):
