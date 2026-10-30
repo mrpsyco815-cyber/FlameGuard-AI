@@ -161,7 +161,7 @@ def search_mission_research(
         reasons.append("insufficient_query_term_coverage")
 
     # 4. BASS-II is searched as structured experimental context, never mixed into PDF passages.
-    bass2_matches = search_bass2_records(query=search_query, limit=limit, fuel=fuel)
+    bass2_matches = search_bass2_records(query=query, limit=limit, fuel=fuel)
 
     # 5. Search the official NASA NTRS catalogue only when local evidence is insufficient.
     fallback_triggered = bool(reasons)
