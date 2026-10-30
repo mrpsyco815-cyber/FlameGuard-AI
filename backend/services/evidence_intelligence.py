@@ -1,6 +1,8 @@
 import re
 from typing import Any
 
+from backend.services.research_summarizer import tokenize
+
 
 def _terms(value: Any) -> set[str]:
     return set(re.findall(r"[a-z0-9]+", str(value or "").casefold()))
@@ -31,7 +33,7 @@ def score_mission_relevance(
     fuel: str | None = None,
 ) -> dict[str, Any]:
     """Transparent retrieval relevance rubric; not scientific quality or safety."""
-    query_terms = _terms(query)
+    query_terms = tokenize(query)
     matched = set(item.get("matched_query_terms") or [])
     if not matched:
         matched = query_terms.intersection(_terms(item.get("exact_source_excerpt")))
@@ -40,7 +42,7 @@ def score_mission_relevance(
     context_text = _item_context(item)
     context_terms = _terms(context_text)
     mission_terms = {
-        "moon": {"moon", "lunar", "lunar_surface", "lander", "habitat"},
+        "moon": {"moon", "lunar", "lander", "habitat"},
         "mars": {"mars", "martian", "planetary", "transit", "habitat"},
         "spacecraft": {"spacecraft", "iss", "spaceflight", "orbital", "crew"},
     }[mission]
