@@ -188,10 +188,11 @@ def mission_research_search(
     q: str = Query(..., min_length=2, max_length=200),
     limit: int = Query(default=10, ge=1, le=50),
     fuel: str | None = Query(default=None, min_length=1, max_length=100),
+    mission: str = Query(default="spacecraft", pattern="^(moon|mars|spacecraft)$"),
 ):
     """Search Subhan data first, then local NASA research and NASA NTRS."""
     try:
-        return search_mission_research(q, limit, fuel=fuel)
+        return search_mission_research(q, limit, fuel=fuel, mission=mission)
     except ValueError as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
     except FileNotFoundError as exc:
