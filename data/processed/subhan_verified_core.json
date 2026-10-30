@@ -1,0 +1,878 @@
+[
+  {
+    "study_id": "bass-ii-2014-presentation",
+    "title": "Combustion of Solids in Microgravity: Results from the BASS-II Experiment",
+    "investigation": "BASS-II",
+    "abstract": null,
+    "plain_summary": "Study the ignition, flame growth, flame spread, and extinction limits for solid fuels burning in low-velocity forced flows in microgravity.",
+    "experiment_conditions": {
+      "platform": "ISS, Microgravity Science Glovebox (MSG)",
+      "fuel_or_material": "PMMA rods (0.25, 0.375, 0.5 in, black and clear), PMMA sheets, SIBAL fabric",
+      "flow": "Wind-tunnel max stated as 40 cm/s on p.3 and 0-55 cm/s on p.7 of the same file - UNRESOLVED",
+      "oxygen": "13.6% O2 steady spreading for 1/4-in PMMA rod in microgravity vs 16% O2 1g blowoff (p.18); MIST sub-test range 16-21% O2, 0.4-4 cm/s (p.14)",
+      "pressure": "1 atm in the SIBAL case on p.21 (18.7% O2)",
+      "gravity": "microgravity (ISS)"
+    },
+    "reported_findings": [
+      "Study the ignition, flame growth, flame spread, and extinction limits for solid fuels burning in low-velocity forced flows in microgravity.",
+      "Fuel samples were mounted inside a small wind tunnel which could impose airflow speeds up to 40 cm/s.",
+      "Three different diameters (0.25\", 0.375\", 0.5\") of black and clear PMMA rods were tested.",
+      "Oxygen concentrations between 16% to 21% and flow velocity between 0.4 cm/sec to 4 cm/sec were tested.",
+      "The 1g blowoff for the \u00bc\u201d rod is at 16% oxygen, whereas we obtained steady spreading at 13.6% oxygen in BASS-II.",
+      "Thus the material has a negative Oxygen Margin of Safety of 2.4% O2, and the normal gravity flammability limits should be de-rated by at least that much.",
+      "Examine how thermal and species fields can diverge and lead to microgravity flame extinguishment by varying fuel thickness.",
+      "Ignited at 5 cm/s flow at right end, then reduced to 2.2 cm/s gradually."
+    ],
+    "evidence_passages": [
+      {
+        "text": "Study the ignition, flame growth, flame spread, and extinction limits for solid fuels burning in low-velocity forced flows in microgravity.",
+        "page": 2,
+        "section_or_table": "Objectives",
+        "experiment_context": "BASS-II, ISS Microgravity Science Glovebox, solid fuels in general."
+      },
+      {
+        "text": "Fuel samples were mounted inside a small wind tunnel which could impose airflow speeds up to 40 cm/s.",
+        "page": 3,
+        "section_or_table": "Approach",
+        "experiment_context": "BASS-II, ISS, MSG wind tunnel; see conflict note: p.7 of the same file lists airflow speed 0 to 55 cm/s."
+      },
+      {
+        "text": "Three different diameters (0.25\", 0.375\", 0.5\") of black and clear PMMA rods were tested.",
+        "page": 14,
+        "section_or_table": "Material Ignition and Suppression Test",
+        "experiment_context": "PMMA rods, microgravity, BASS-II."
+      },
+      {
+        "text": "Oxygen concentrations between 16% to 21% and flow velocity between 0.4 cm/sec to 4 cm/sec were tested.",
+        "page": 14,
+        "section_or_table": "Material Ignition and Suppression Test",
+        "experiment_context": "PMMA rods, microgravity, BASS-II; this is the MIST sub-test range on this slide, not the full BASS-II range."
+      },
+      {
+        "text": "The 1g blowoff for the \u00bc\u201d rod is at 16% oxygen, whereas we obtained steady spreading at 13.6% oxygen in BASS-II.",
+        "page": 18,
+        "section_or_table": "Spacecraft Materials Microgravity Research on Flammability",
+        "experiment_context": "PMMA rod, 1/4 inch, concurrent (stagnation point) flow, microgravity vs 1g."
+      },
+      {
+        "text": "Thus the material has a negative Oxygen Margin of Safety of 2.4% O2, and the normal gravity flammability limits should be de-rated by at least that much.",
+        "page": 18,
+        "section_or_table": "Spacecraft Materials Microgravity Research on Flammability",
+        "experiment_context": "PMMA rod, BASS-II microgravity steady spreading at 13.6% O2 vs 1g blowoff at 16% O2."
+      },
+      {
+        "text": "Examine how thermal and species fields can diverge and lead to microgravity flame extinguishment by varying fuel thickness.",
+        "page": 12,
+        "section_or_table": "Residence Time Driven Flame Spread",
+        "experiment_context": "PMMA sheets 1 cm and 2 cm wide, 0.1 to 0.4 mm thick, microgravity, BASS-II."
+      },
+      {
+        "text": "Ignited at 5 cm/s flow at right end, then reduced to 2.2 cm/s gradually.",
+        "page": 21,
+        "section_or_table": "Growth and Extinction Limit",
+        "experiment_context": "SIBAL fabric 2.2 cm wide, 1 atm, 18.7% O2, concurrent flow, microgravity, BASS-II."
+      }
+    ],
+    "source_url": "https://ntrs.nasa.gov/api/citations/20160000593/downloads/20160000593.pdf",
+    "file_name": "bass-ii-20160000593.pdf",
+    "file_size": 2690087,
+    "publication_details": {
+      "source_file": "bass-ii-20160000593.pdf"
+    },
+    "license": null,
+    "doi": null,
+    "missing_fields": [
+      "abstract",
+      "doi",
+      "license"
+    ],
+    "verification_status": "verified_from_opened_pdf",
+    "moon_mars_rank": 2,
+    "moon_mars_rank_reason": "Small-sample solid-fuel flammability limits in ISS cabin-like flow, including a microgravity limit below the 1g limit. Core solid-fuel evidence, but small duct, not spacecraft scale.",
+    "comparison_keys": {
+      "fuel_or_material": "PMMA rods (0.25, 0.375, 0.5 in, black and clear), PMMA sheets, SIBAL fabric",
+      "platform": "ISS, Microgravity Science Glovebox (MSG)",
+      "gravity": "microgravity (ISS)"
+    },
+    "platform_type": "ISS flight"
+  },
+  {
+    "study_id": "saffire-vi-2024",
+    "title": "Preliminary Results from the Saffire VI Experiment",
+    "investigation": "SAFFIRE-VI",
+    "abstract": null,
+    "plain_summary": "Preliminary results are presented for one test of the last flight of the Spacecraft Fire Experiment (Saffire VI) which was conducted on an orbiting Cygnus spacecraft.",
+    "experiment_conditions": {
+      "platform": "Uncrewed Cygnus, Saffire VI enclosure",
+      "fuel_or_material": "SIBAL cotton/fiberglass 50 cm long, 41 cm wide; two-sided PMMA 1 cm; one-sided PMMA 0.5 cm; Nomex 7 cm (did not ignite)",
+      "flow": "20 cm/s concurrent (Table 1, VI paper p.3)",
+      "oxygen_pressure": "VI-2 SIBAL 31.0% O2 / 54.1 kPa; VI-3 two-sided PMMA 30.3% / 54.6 kPa; VI-4 one-sided PMMA 28.8% / 55.2 kPa",
+      "gravity": "microgravity"
+    },
+    "reported_findings": [
+      "Preliminary results are presented for one test of the last flight of the Spacecraft Fire Experiment (Saffire VI) which was conducted on an orbiting Cygnus spacecraft.",
+      "The final flight in the series of six experiments examined concurrent spread over large samples (all 41 cm wide) including a thin sheet of flammable fuel (cotton/fiberglass 50 cm long)",
+      "Overall, the temperature and pressure rise in the spacecraft were found to be less significant than the increase in carbon dioxide and carbon monoxide.",
+      "The Nomex sample did not ignite and so it will not be included in this paper.",
+      "The smoke from the fire event was readily detected by an ionization detector and a light scattering system but a typical alarm threshold was only achieved at 981 seconds.",
+      "As can be seen in Table 2, the allowable CO2 level was exceeded by both of the PMMA tests on Saffire VI.",
+      "Practical scale fires ranging from 1.5 to 3.2 kW were tested in unmanned spacecraft with free air volumes of 17 to 19 cubic meters.",
+      "The SIBAL sample (left image) achieved a steady size and spread rate quite rapidly where the two PMMA samples grew continuously until the flow speed was reduced."
+    ],
+    "evidence_passages": [
+      {
+        "text": "Preliminary results are presented for one test of the last flight of the Spacecraft Fire Experiment (Saffire VI) which was conducted on an orbiting Cygnus spacecraft.",
+        "page": 1,
+        "section_or_table": "Abstract",
+        "experiment_context": "Saffire VI, uncrewed Cygnus after ISS departure, microgravity."
+      },
+      {
+        "text": "The final flight in the series of six experiments examined concurrent spread over large samples (all 41 cm wide) including a thin sheet of flammable fuel (cotton/fiberglass 50 cm long)",
+        "page": 2,
+        "section_or_table": "Abstract / Introduction",
+        "experiment_context": "Saffire VI, concurrent flow, large samples 41 cm wide, cotton/fiberglass 50 cm long, microgravity."
+      },
+      {
+        "text": "Overall, the temperature and pressure rise in the spacecraft were found to be less significant than the increase in carbon dioxide and carbon monoxide.",
+        "page": 2,
+        "section_or_table": "Abstract / Introduction",
+        "experiment_context": "Saffire VI, spacecraft-scale fire, microgravity."
+      },
+      {
+        "text": "The Nomex sample did not ignite and so it will not be included in this paper.",
+        "page": 4,
+        "section_or_table": "Figure 3 caption / Results",
+        "experiment_context": "Saffire VI, Nomex fabric 7 cm long, oxidizer flow 20 cm/s, microgravity."
+      },
+      {
+        "text": "The smoke from the fire event was readily detected by an ionization detector and a light scattering system but a typical alarm threshold was only achieved at 981 seconds.",
+        "page": 6,
+        "section_or_table": "Conclusion",
+        "experiment_context": "Saffire VI fires, smoke detection at FFD; the 981 s figure is also discussed for VI-3 on p.5, microgravity."
+      },
+      {
+        "text": "As can be seen in Table 2, the allowable CO2 level was exceeded by both of the PMMA tests on Saffire VI.",
+        "page": 5,
+        "section_or_table": "Results (Table 2 discussion)",
+        "experiment_context": "Saffire VI PMMA tests VI-3 and VI-4, microgravity."
+      },
+      {
+        "text": "Practical scale fires ranging from 1.5 to 3.2 kW were tested in unmanned spacecraft with free air volumes of 17 to 19 cubic meters.",
+        "page": 6,
+        "section_or_table": "Table 2 / Conclusion",
+        "experiment_context": "Saffire IV-VI practical-scale fires, uncrewed Cygnus, microgravity."
+      },
+      {
+        "text": "The SIBAL sample (left image) achieved a steady size and spread rate quite rapidly where the two PMMA samples grew continuously until the flow speed was reduced.",
+        "page": 4,
+        "section_or_table": "Results and Their Fire Safety Implications",
+        "experiment_context": "Saffire VI, SIBAL fabric vs 1 cm two-sided and 0.5 cm one-sided PMMA, concurrent flow, microgravity."
+      }
+    ],
+    "source_url": "https://ntrs.nasa.gov/api/citations/20240002981/downloads/Saffire-ICES-2024-ICES-365-accepted%20final.pdf",
+    "file_name": "saffire-vi-ices-2024-365.pdf",
+    "file_size": 3066759,
+    "publication_details": {
+      "source_file": "saffire-vi-ices-2024-365.pdf"
+    },
+    "license": null,
+    "doi": null,
+    "missing_fields": [
+      "abstract",
+      "doi",
+      "license"
+    ],
+    "verification_status": "verified_from_opened_pdf",
+    "moon_mars_rank": 1,
+    "moon_mars_rank_reason": "Closest to an exploration atmosphere in the verified core: ~29-31% O2 at ~54-55 kPa, large samples, spacecraft-scale gas hazard data. Rank is for Moon/Mars comparison usefulness, not a safety verdict.",
+    "comparison_keys": {
+      "fuel_or_material": "SIBAL cotton/fiberglass 50 cm long, 41 cm wide; two-sided PMMA 1 cm; one-sided PMMA 0.5 cm; Nomex 7 cm (did not ignite)",
+      "platform": "Uncrewed Cygnus, Saffire VI enclosure",
+      "gravity": "microgravity"
+    },
+    "platform_type": "ISS flight"
+  },
+  {
+    "study_id": "saffire-iv-v-2021",
+    "title": "Fire Safety Implications of Preliminary Results from Saffire IV and V Experiments on Large Scale Spacecraft Fires",
+    "investigation": "SAFFIRE-IV and SAFFIRE-V (with Saffire I-III thin-sample conditions tabulated for comparison)",
+    "abstract": null,
+    "plain_summary": "However, despite having heat release rates up to 10 kW, the average vehicle conditions did not rise to unacceptable levels.",
+    "experiment_conditions": {
+      "platform": "Uncrewed Cygnus, Saffire IV/V",
+      "fuel_or_material": "SIBAL fabric, cotton jersey, PMMA (one-sided and two-sided)",
+      "flow": "20 cm/s concurrent; duct height 30 cm for IV/V vs 46 cm for I/III in Table 2 p.8 (VI paper p.2 implies 50 cm for I-III - UNRESOLVED for I-III)",
+      "oxygen_pressure": "IV-1 SIBAL 22.0% O2 / 100.0 kPa; V-2 cotton jersey 26.2% / 70.7 kPa; V-3 one-sided PMMA 25.4% O2",
+      "gravity": "microgravity"
+    },
+    "reported_findings": [
+      "However, despite having heat release rates up to 10 kW, the average vehicle conditions did not rise to unacceptable levels.",
+      "As expected, the spread rate increased (about 100%) with the reduced height flow duct compared to Saffire I and III.",
+      "Extinguishment of thin charring fuels at increased oxygen cannot be assumed to occur rapidly in quiescent conditions.",
+      "Extinguishment of bubbling polymers cannot be assumed to occur rapidly in quiescent conditions",
+      "The dimensions of the flow environment relative to the size of the flame can have a significant effect on the spread rate over thin materials.",
+      "In Saffire V-3, the one-sided PMMA sample flame (in 25.4% oxygen) grew to 11 cm after 450 seconds."
+    ],
+    "evidence_passages": [
+      {
+        "text": "However, despite having heat release rates up to 10 kW, the average vehicle conditions did not rise to unacceptable levels.",
+        "page": 2,
+        "section_or_table": "Abstract",
+        "experiment_context": "Saffire IV and V, large solid-fuel samples in Cygnus, microgravity."
+      },
+      {
+        "text": "As expected, the spread rate increased (about 100%) with the reduced height flow duct compared to Saffire I and III.",
+        "page": 8,
+        "section_or_table": "Results (Table 2 discussion)",
+        "experiment_context": "Thin SIBAL samples, Saffire IV duct height 30 cm vs Saffire I/III duct height 46 cm (Table 2, p.8), concurrent flow, microgravity."
+      },
+      {
+        "text": "Extinguishment of thin charring fuels at increased oxygen cannot be assumed to occur rapidly in quiescent conditions.",
+        "page": 11,
+        "section_or_table": "Summary of Results",
+        "experiment_context": "Saffire experiments, thin charring fuels, increased oxygen, quiescent (no-flow) conditions, microgravity."
+      },
+      {
+        "text": "Extinguishment of bubbling polymers cannot be assumed to occur rapidly in quiescent conditions",
+        "page": 11,
+        "section_or_table": "Summary of Results",
+        "experiment_context": "Saffire experiments, bubbling polymers (e.g. PMMA), quiescent conditions, microgravity."
+      },
+      {
+        "text": "The dimensions of the flow environment relative to the size of the flame can have a significant effect on the spread rate over thin materials.",
+        "page": 11,
+        "section_or_table": "Summary of Results",
+        "experiment_context": "Saffire experiments, thin materials, flow environment / duct size effect, microgravity."
+      },
+      {
+        "text": "In Saffire V-3, the one-sided PMMA sample flame (in 25.4% oxygen) grew to 11 cm after 450 seconds.",
+        "page": 9,
+        "section_or_table": "Results",
+        "experiment_context": "Saffire V-3, one-sided PMMA, 25.4% O2, microgravity. Note: this 25.4% value is for V-3 as stated on this page; it is not the V-2 cotton condition (26.2% O2, 70.7 kPa in Table 2)."
+      }
+    ],
+    "source_url": "https://ntrs.nasa.gov/api/citations/20210011521/downloads/ICES%202021-266%200503-2021%20final.pdf",
+    "file_name": "saffire-iv-v-ices-2021-266.pdf",
+    "file_size": 6518291,
+    "publication_details": {
+      "source_file": "saffire-iv-v-ices-2021-266.pdf"
+    },
+    "license": null,
+    "doi": null,
+    "missing_fields": [
+      "abstract",
+      "doi",
+      "license"
+    ],
+    "verification_status": "verified_from_opened_pdf",
+    "moon_mars_rank": 1,
+    "moon_mars_rank_reason": "Large spacecraft-scale fires with per-test exploration-atmosphere conditions (V: ~26% O2 / ~71 kPa) and a duct-size effect that changes spread rate. Directly comparable to SAFFIRE-VI.",
+    "comparison_keys": {
+      "fuel_or_material": "SIBAL fabric, cotton jersey, PMMA (one-sided and two-sided)",
+      "platform": "Uncrewed Cygnus, Saffire IV/V",
+      "gravity": "microgravity"
+    },
+    "platform_type": "ISS flight"
+  },
+  {
+    "study_id": "spice-dotson-2011",
+    "title": "Laminar smoke points of coflowing flames in microgravity",
+    "investigation": "SPICE",
+    "abstract": null,
+    "plain_summary": "Laminar smoke points were measured in nonbuoyant laminar jet diffusion flames in coflowing air.",
+    "experiment_conditions": {
+      "platform": "ISS, Microgravity Science Glovebox (MSG), 2009",
+      "fuel_or_material": "Gas-jet diffusion flames: ethylene, propane, propylene, propylene/nitrogen mixtures",
+      "flow": "Co-flow 5.4-65 cm/s; burners 0.41, 0.76, 1.6 mm",
+      "oxygen": "ISS cabin air estimated 20-23% O2 in this paper",
+      "gravity": "microgravity (ISS)"
+    },
+    "reported_findings": [
+      "Laminar smoke points were measured in nonbuoyant laminar jet diffusion flames in coflowing air.",
+      "Microgravity was obtained on board the International Space Station.",
+      "A total of 55 smoke points were found for ethylene, propane, propylene, and propylene/nitrogen mixtures.",
+      "Burner diameters were 0.41, 0.76, and 1.6 mm, and coflow velocities varied from 5.4 to 65 cm/s.",
+      "The Smoke Point in Coflow Experiment (SPICE) was operated in the Microgravity Science Glovebox on board the International Space Station (ISS) in 2009.",
+      "The oxygen mole fraction of ISS cabin air was maintained within an estimated range of 20-23%.",
+      "The flames generally reached steady conditions within 10 s of ignition, or within 5 s of a change in fuel or air flow rate.",
+      "Smoke points of 55 microgravity gas jet diffusion flames in coflowing air were measured in earth orbit."
+    ],
+    "evidence_passages": [
+      {
+        "text": "Laminar smoke points were measured in nonbuoyant laminar jet diffusion flames in coflowing air.",
+        "page": 1,
+        "section_or_table": "Abstract",
+        "experiment_context": "ISS, Microgravity Science Glovebox (MSG), SPICE gas-jet diffusion flames, ethylene/propane/propylene and propylene/nitrogen mixtures, burners 0.41/0.76/1.6 mm, coflow 5.4-65 cm/s, ISS cabin air O2 estimated 20-23% in this paper."
+      },
+      {
+        "text": "Microgravity was obtained on board the International Space Station.",
+        "page": 1,
+        "section_or_table": "Abstract",
+        "experiment_context": "ISS, Microgravity Science Glovebox (MSG), SPICE gas-jet diffusion flames, ethylene/propane/propylene and propylene/nitrogen mixtures, burners 0.41/0.76/1.6 mm, coflow 5.4-65 cm/s, ISS cabin air O2 estimated 20-23% in this paper."
+      },
+      {
+        "text": "A total of 55 smoke points were found for ethylene, propane, propylene, and propylene/nitrogen mixtures.",
+        "page": 1,
+        "section_or_table": "Abstract",
+        "experiment_context": "ISS, Microgravity Science Glovebox (MSG), SPICE gas-jet diffusion flames, ethylene/propane/propylene and propylene/nitrogen mixtures, burners 0.41/0.76/1.6 mm, coflow 5.4-65 cm/s, ISS cabin air O2 estimated 20-23% in this paper."
+      },
+      {
+        "text": "Burner diameters were 0.41, 0.76, and 1.6 mm, and coflow velocities varied from 5.4 to 65 cm/s.",
+        "page": 1,
+        "section_or_table": "Abstract",
+        "experiment_context": "ISS, Microgravity Science Glovebox (MSG), SPICE gas-jet diffusion flames, ethylene/propane/propylene and propylene/nitrogen mixtures, burners 0.41/0.76/1.6 mm, coflow 5.4-65 cm/s, ISS cabin air O2 estimated 20-23% in this paper."
+      },
+      {
+        "text": "The Smoke Point in Coflow Experiment (SPICE) was operated in the Microgravity Science Glovebox on board the International Space Station (ISS) in 2009.",
+        "page": 3,
+        "section_or_table": "3. Experimental methods",
+        "experiment_context": "ISS, Microgravity Science Glovebox (MSG), SPICE gas-jet diffusion flames, ethylene/propane/propylene and propylene/nitrogen mixtures, burners 0.41/0.76/1.6 mm, coflow 5.4-65 cm/s, ISS cabin air O2 estimated 20-23% in this paper."
+      },
+      {
+        "text": "The oxygen mole fraction of ISS cabin air was maintained within an estimated range of 20-23%.",
+        "page": 3,
+        "section_or_table": "3. Experimental methods",
+        "experiment_context": "ISS, Microgravity Science Glovebox (MSG), SPICE gas-jet diffusion flames, ethylene/propane/propylene and propylene/nitrogen mixtures, burners 0.41/0.76/1.6 mm, coflow 5.4-65 cm/s, ISS cabin air O2 estimated 20-23% in this paper."
+      },
+      {
+        "text": "The flames generally reached steady conditions within 10 s of ignition, or within 5 s of a change in fuel or air flow rate.",
+        "page": 3,
+        "section_or_table": "4. Results and discussion",
+        "experiment_context": "ISS, Microgravity Science Glovebox (MSG), SPICE gas-jet diffusion flames, ethylene/propane/propylene and propylene/nitrogen mixtures, burners 0.41/0.76/1.6 mm, coflow 5.4-65 cm/s, ISS cabin air O2 estimated 20-23% in this paper."
+      },
+      {
+        "text": "Smoke points of 55 microgravity gas jet diffusion flames in coflowing air were measured in earth orbit.",
+        "page": 5,
+        "section_or_table": "5. Conclusions",
+        "experiment_context": "ISS, Microgravity Science Glovebox (MSG), SPICE gas-jet diffusion flames, ethylene/propane/propylene and propylene/nitrogen mixtures, burners 0.41/0.76/1.6 mm, coflow 5.4-65 cm/s, ISS cabin air O2 estimated 20-23% in this paper."
+      }
+    ],
+    "source_url": "https://www.grace.umd.edu/~pbs/2011%20Dotson%20et%20al.%20FSJ.pdf",
+    "file_name": "spice-dotson-fsj-2011.pdf",
+    "file_size": 355194,
+    "publication_details": {
+      "source_file": "spice-dotson-fsj-2011.pdf"
+    },
+    "license": null,
+    "doi": "10.1016/j.firesaf.2011.08.002",
+    "missing_fields": [
+      "abstract",
+      "license"
+    ],
+    "verification_status": "verified_from_opened_pdf",
+    "moon_mars_rank": 3,
+    "moon_mars_rank_reason": "Gas-jet smoke-point evidence (55 smoke points). Useful for soot/smoke context only; gas-jet smoke points are NOT solid-material spread limits.",
+    "comparison_keys": {
+      "fuel_or_material": "Gas-jet diffusion flames: ethylene, propane, propylene, propylene/nitrogen mixtures",
+      "platform": "ISS, Microgravity Science Glovebox (MSG), 2009",
+      "gravity": "microgravity (ISS)"
+    },
+    "platform_type": "ISS flight"
+  },
+  {
+    "study_id": "spice-nasa-summary",
+    "title": "Smoke Point in Co-flow Experiment (SPICE)",
+    "investigation": "SPICE",
+    "abstract": null,
+    "plain_summary": "SPICE will determine the laminar smoke point properties of non-buoyant jet diffusion flames (i.e., the properties of the largest laminar jet diffusion flames that do not emit soot) for several fuels under different nozzle diameter/co-flow velocity configurations.",
+    "experiment_conditions": {
+      "platform": "ISS, microgravity (NASA summary)",
+      "fuel_or_material": "Gas-jet flames: propylene, propane, ethylene mixtures",
+      "flow": "Nozzle diameter / co-flow configurations (summary only, no per-test table in this 2-page PDF)",
+      "oxygen": "Not stated in this summary",
+      "gravity": "microgravity"
+    },
+    "reported_findings": [
+      "SPICE will determine the laminar smoke point properties of non-buoyant jet diffusion flames (i.e., the properties of the largest laminar jet diffusion flames that do not emit soot) for several fuels under different nozzle diameter/co-flow velocity configurations.",
+      "The smoke point is a simple measurement that has been found useful to study the influence of flow and fuel properties on the sooting propensity of flames.",
+      "The Smoke Point In Co-flow Experiment (SPICE) determines the point at which gas-jet flames (similar to a butane-lighter flame) begin to emit soot (dark carbonaceous particulate formed inside the flame) in microgravity.",
+      "This investigation completed 250 combustion tests with various fuel mixtures, including propylene, propane, and ethylene, in microgravity.",
+      "Researchers identified more than 70 smoke points, which yielded estimates of soot-forming conditions and flame dimensions."
+    ],
+    "evidence_passages": [
+      {
+        "text": "SPICE will determine the laminar smoke point properties of non-buoyant jet diffusion flames (i.e., the properties of the largest laminar jet diffusion flames that do not emit soot) for several fuels under different nozzle diameter/co-flow velocity configurations.",
+        "page": 1,
+        "section_or_table": "Introduction",
+        "experiment_context": "SPICE gas-jet flames in microgravity, as described in the NASA SPICE summary PDF; this summary gives investigation-level counts, not the Dotson 2009 subset and not the PSI-107 Version 4 record totals."
+      },
+      {
+        "text": "The smoke point is a simple measurement that has been found useful to study the influence of flow and fuel properties on the sooting propensity of flames.",
+        "page": 1,
+        "section_or_table": "Introduction",
+        "experiment_context": "SPICE gas-jet flames in microgravity, as described in the NASA SPICE summary PDF; this summary gives investigation-level counts, not the Dotson 2009 subset and not the PSI-107 Version 4 record totals."
+      },
+      {
+        "text": "The Smoke Point In Co-flow Experiment (SPICE) determines the point at which gas-jet flames (similar to a butane-lighter flame) begin to emit soot (dark carbonaceous particulate formed inside the flame) in microgravity.",
+        "page": 1,
+        "section_or_table": "Science Objectives",
+        "experiment_context": "SPICE gas-jet flames in microgravity, as described in the NASA SPICE summary PDF; this summary gives investigation-level counts, not the Dotson 2009 subset and not the PSI-107 Version 4 record totals."
+      },
+      {
+        "text": "This investigation completed 250 combustion tests with various fuel mixtures, including propylene, propane, and ethylene, in microgravity.",
+        "page": 2,
+        "section_or_table": "Science Results",
+        "experiment_context": "SPICE gas-jet flames in microgravity, as described in the NASA SPICE summary PDF; this summary gives investigation-level counts, not the Dotson 2009 subset and not the PSI-107 Version 4 record totals."
+      },
+      {
+        "text": "Researchers identified more than 70 smoke points, which yielded estimates of soot-forming conditions and flame dimensions.",
+        "page": 2,
+        "section_or_table": "Science Results",
+        "experiment_context": "SPICE gas-jet flames in microgravity, as described in the NASA SPICE summary PDF; this summary gives investigation-level counts, not the Dotson 2009 subset and not the PSI-107 Version 4 record totals."
+      }
+    ],
+    "source_url": "https://www.nasa.gov/wp-content/uploads/2025/07/smoke-point-in-co-flow-experiment-spice.pdf?emrc=f30479",
+    "file_name": "spice-nasa-summary-2025.pdf",
+    "file_size": 114770,
+    "publication_details": {
+      "source_file": "spice-nasa-summary-2025.pdf"
+    },
+    "license": null,
+    "doi": null,
+    "missing_fields": [
+      "abstract",
+      "doi",
+      "license"
+    ],
+    "verification_status": "verified_from_opened_pdf",
+    "moon_mars_rank": 3,
+    "moon_mars_rank_reason": "Investigation-level summary only (250 tests / >70 smoke points). Use only for investigation context, never as a per-test value.",
+    "comparison_keys": {
+      "fuel_or_material": "Gas-jet flames: propylene, propane, ethylene mixtures",
+      "platform": "ISS, microgravity (NASA summary)",
+      "gravity": "microgravity"
+    },
+    "platform_type": "ISS flight"
+  },
+  {
+    "study_id": "sofie-gel-li-extinction",
+    "title": "Extinction of solid diffusion flame in microgravity: details of quenching and blowoff processes",
+    "investigation": "SoFIE-GEL",
+    "abstract": null,
+    "plain_summary": "Long duration microgravity experiments aboard the International Space Station determine diffusion flame extinction limits of PMMA spheres.",
+    "experiment_conditions": {
+      "platform": "ISS, SoFIE-GEL",
+      "fuel_or_material": "PMMA sphere, 4 cm diameter",
+      "flow": "Forced flow 0.2-80 cm/s",
+      "oxygen": "13-28% O2 at 1 atm (abstract); Table 1 cases: 14.21%, 14.99%, 13.54%, 20.77%, 14.37% O2",
+      "gravity": "microgravity (ISS)"
+    },
+    "reported_findings": [
+      "Long duration microgravity experiments aboard the International Space Station determine diffusion flame extinction limits of PMMA spheres.",
+      "Upon ignition from an electrically-heated coil, the 4-cm-diameter samples are exposed to forced flows ranging from 0.2 to 80 cm/s and an oxygen ranging from 13 to 28% in one atmosphere total pressure.",
+      "Extinction is reached as oxygen concentration gradually decreases by natural depletion.",
+      "Quenching at low velocity is observed with the flame tip shrinking upstream and blowoff is observed when a hole forms in the flame at the forward flow stagnation point.",
+      "Five tests are presented as listed in Table 1.",
+      "In quenching, the flame tip shrinks toward the upstream, in blowoff, the flame base retreats toward the downstream.",
+      "Quenching starts with the flame tip shrinking toward the stagnation region.",
+      "This is the first report on the experimental findings from a recent microgravity experiment aboard the International Space Station studying the burning of a 4-cm diameter PMMA sphere."
+    ],
+    "evidence_passages": [
+      {
+        "text": "Long duration microgravity experiments aboard the International Space Station determine diffusion flame extinction limits of PMMA spheres.",
+        "page": 1,
+        "section_or_table": "Abstract",
+        "experiment_context": "ISS, SoFIE-GEL, 4-cm-diameter PMMA sphere, forced flow 0.2-80 cm/s, O2 13-28% at 1 atm in this manuscript's abstract, extinction by gradual O2 depletion."
+      },
+      {
+        "text": "Upon ignition from an electrically-heated coil, the 4-cm-diameter samples are exposed to forced flows ranging from 0.2 to 80 cm/s and an oxygen ranging from 13 to 28% in one atmosphere total pressure.",
+        "page": 1,
+        "section_or_table": "Abstract",
+        "experiment_context": "ISS, SoFIE-GEL, 4-cm-diameter PMMA sphere, forced flow 0.2-80 cm/s, O2 13-28% at 1 atm in this manuscript's abstract, extinction by gradual O2 depletion."
+      },
+      {
+        "text": "Extinction is reached as oxygen concentration gradually decreases by natural depletion.",
+        "page": 1,
+        "section_or_table": "Abstract",
+        "experiment_context": "ISS, SoFIE-GEL, 4-cm-diameter PMMA sphere, forced flow 0.2-80 cm/s, O2 13-28% at 1 atm in this manuscript's abstract, extinction by gradual O2 depletion."
+      },
+      {
+        "text": "Quenching at low velocity is observed with the flame tip shrinking upstream and blowoff is observed when a hole forms in the flame at the forward flow stagnation point.",
+        "page": 1,
+        "section_or_table": "Abstract",
+        "experiment_context": "ISS, SoFIE-GEL, 4-cm-diameter PMMA sphere, forced flow 0.2-80 cm/s, O2 13-28% at 1 atm in this manuscript's abstract, extinction by gradual O2 depletion."
+      },
+      {
+        "text": "Five tests are presented as listed in Table 1.",
+        "page": 3,
+        "section_or_table": "3. Experimental results / Table 1",
+        "experiment_context": "ISS, SoFIE-GEL, 4-cm-diameter PMMA sphere, forced flow 0.2-80 cm/s, O2 13-28% at 1 atm in this manuscript's abstract, extinction by gradual O2 depletion. Table 1 cases: Case 1 quenching 4.83 cm/s, 14.21% O2; Case 2 blowoff 34.28 cm/s, 14.99% O2; Case 3 intermediate 11.50 cm/s, 13.54% O2; Case 4 quenching 0.44 cm/s, 20.77% O2; Case 5 blowoff 49.68 cm/s, 14.37% O2."
+      },
+      {
+        "text": "In quenching, the flame tip shrinks toward the upstream, in blowoff, the flame base retreats toward the downstream.",
+        "page": 5,
+        "section_or_table": "3.3 Extinction at intermediate flow velocities and flow strain rates",
+        "experiment_context": "ISS, SoFIE-GEL, 4-cm-diameter PMMA sphere, forced flow 0.2-80 cm/s, O2 13-28% at 1 atm in this manuscript's abstract, extinction by gradual O2 depletion."
+      },
+      {
+        "text": "Quenching starts with the flame tip shrinking toward the stagnation region.",
+        "page": 7,
+        "section_or_table": "4. Summary and discussions",
+        "experiment_context": "ISS, SoFIE-GEL, 4-cm-diameter PMMA sphere, forced flow 0.2-80 cm/s, O2 13-28% at 1 atm in this manuscript's abstract, extinction by gradual O2 depletion."
+      },
+      {
+        "text": "This is the first report on the experimental findings from a recent microgravity experiment aboard the International Space Station studying the burning of a 4-cm diameter PMMA sphere.",
+        "page": 7,
+        "section_or_table": "4. Summary and discussions",
+        "experiment_context": "ISS, SoFIE-GEL, 4-cm-diameter PMMA sphere, forced flow 0.2-80 cm/s, O2 13-28% at 1 atm in this manuscript's abstract, extinction by gradual O2 depletion."
+      }
+    ],
+    "source_url": "https://ntrs.nasa.gov/api/citations/20240007628/downloads/GELsymposiumfinalRev1.pdf",
+    "file_name": "gel-li-extinction-ntrs-20240007628.pdf",
+    "file_size": 2663061,
+    "publication_details": {
+      "source_file": "gel-li-extinction-ntrs-20240007628.pdf"
+    },
+    "license": null,
+    "doi": null,
+    "missing_fields": [
+      "abstract",
+      "doi",
+      "license"
+    ],
+    "verification_status": "verified_from_opened_pdf",
+    "moon_mars_rank": 2,
+    "moon_mars_rank_reason": "Solid-sphere extinction map in microgravity with per-test quenching/blowoff values. Directly relevant to solid-fuel limits, but single geometry (sphere).",
+    "comparison_keys": {
+      "fuel_or_material": "PMMA sphere, 4 cm diameter",
+      "platform": "ISS, SoFIE-GEL",
+      "gravity": "microgravity (ISS)"
+    },
+    "platform_type": "ISS flight"
+  },
+  {
+    "study_id": "sofie-gel-taskbook-fy2026",
+    "title": "Task Book Report - Flame Spread and Extinction Over Solid Materials (SoFIE-GEL)",
+    "investigation": "SoFIE-GEL",
+    "abstract": null,
+    "plain_summary": "GEL (Growth and Extinction) is the first sub-project recently carried out in ISS.",
+    "experiment_conditions": {
+      "platform": "ISS, SoFIE-GEL, 13 Jan 2023 - 7 Mar 2024",
+      "fuel_or_material": "PMMA spheres, 4 cm diameter, concurrent flow",
+      "flow": "Varying flow (Task Book, no per-test table in this 2-page report)",
+      "oxygen": "Varying oxygen and pressure (Task Book, no per-test table)",
+      "gravity": "microgravity (ISS)"
+    },
+    "reported_findings": [
+      "GEL (Growth and Extinction) is the first sub-project recently carried out in ISS.",
+      "The GEL experiment was carried out aboard ISS from January 13, 2023, to March 7, 2024.",
+      "In this concurrent flow experiment, 4-cm diameter PMMA spheres were burnt under varying flow, oxygen concentration, and pressure conditions.",
+      "Microgravity experiments on the extinction of bulk solid spheres in forced flow were carried out in ISS.",
+      "Based on the measured oxygen depletion rate, the overall sphere burning rate was considerably lower than that measured in equivalent ground tests."
+    ],
+    "evidence_passages": [
+      {
+        "text": "GEL (Growth and Extinction) is the first sub-project recently carried out in ISS.",
+        "page": 2,
+        "section_or_table": "Task Description",
+        "experiment_context": "ISS, SoFIE-GEL, 4-cm-diameter PMMA spheres, concurrent flow, varying flow, O2 and pressure, 13 Jan 2023 - 7 Mar 2024 as printed in the Task Book."
+      },
+      {
+        "text": "The GEL experiment was carried out aboard ISS from January 13, 2023, to March 7, 2024.",
+        "page": 2,
+        "section_or_table": "Task Description",
+        "experiment_context": "ISS, SoFIE-GEL, 4-cm-diameter PMMA spheres, concurrent flow, varying flow, O2 and pressure, 13 Jan 2023 - 7 Mar 2024 as printed in the Task Book."
+      },
+      {
+        "text": "In this concurrent flow experiment, 4-cm diameter PMMA spheres were burnt under varying flow, oxygen concentration, and pressure conditions.",
+        "page": 2,
+        "section_or_table": "Task Progress",
+        "experiment_context": "ISS, SoFIE-GEL, 4-cm-diameter PMMA spheres, concurrent flow, varying flow, O2 and pressure, 13 Jan 2023 - 7 Mar 2024 as printed in the Task Book."
+      },
+      {
+        "text": "Microgravity experiments on the extinction of bulk solid spheres in forced flow were carried out in ISS.",
+        "page": 2,
+        "section_or_table": "Research Impact / Earth Benefits",
+        "experiment_context": "ISS, SoFIE-GEL, 4-cm-diameter PMMA spheres, concurrent flow, varying flow, O2 and pressure, 13 Jan 2023 - 7 Mar 2024 as printed in the Task Book."
+      },
+      {
+        "text": "Based on the measured oxygen depletion rate, the overall sphere burning rate was considerably lower than that measured in equivalent ground tests.",
+        "page": 2,
+        "section_or_table": "Task Progress",
+        "experiment_context": "ISS, SoFIE-GEL, 4-cm-diameter PMMA spheres, concurrent flow, varying flow, O2 and pressure, 13 Jan 2023 - 7 Mar 2024 as printed in the Task Book."
+      }
+    ],
+    "source_url": "https://taskbook.nasaprs.com/tbp/tbpdf.cfm?id=D1259B57C2702453C950346E397E5134",
+    "file_name": "gel-taskbook-fy2026.pdf",
+    "file_size": 87989,
+    "publication_details": {
+      "source_file": "gel-taskbook-fy2026.pdf"
+    },
+    "license": null,
+    "doi": null,
+    "missing_fields": [
+      "abstract",
+      "doi",
+      "license"
+    ],
+    "verification_status": "verified_from_opened_pdf",
+    "moon_mars_rank": 3,
+    "moon_mars_rank_reason": "Programme-level confirmation of GEL dates, geometry and concurrent flow, but no per-test numbers in this 2-page report. Use only as context for the GEL extinction manuscript.",
+    "comparison_keys": {
+      "fuel_or_material": "PMMA spheres, 4 cm diameter, concurrent flow",
+      "platform": "ISS, SoFIE-GEL, 13 Jan 2023 - 7 Mar 2024",
+      "gravity": "microgravity (ISS)"
+    },
+    "platform_type": "ISS flight"
+  },
+  {
+    "study_id": "same-final-report-2010",
+    "title": "Smoke Aerosol Measurement Experiment (SAME) - Final Report",
+    "investigation": "SAME",
+    "abstract": null,
+    "plain_summary": "Four materials, typical of those found in spacecraft, were tested including cellulose (lamp wick), Kapton, silicone rubber, and Teflon.",
+    "experiment_conditions": {
+      "platform": "ISS, Microgravity Science Glovebox (MSG), Expedition 15, Sep-early Oct 2007",
+      "fuel_or_material": "Cellulose (lamp wick), Kapton, silicone rubber, Teflon, dibutyl-phthalate on porous wick; heated below ignition, not burned",
+      "flow": "Smoke aging chamber 10-1800 s (transport simulation, not a flow speed)",
+      "oxygen": "Not a combustion test - materials heated below ignition",
+      "gravity": "microgravity (ISS)"
+    },
+    "reported_findings": [
+      "Four materials, typical of those found in spacecraft, were tested including cellulose (lamp wick), Kapton, silicone rubber, and Teflon.",
+      "The transport time from the smoke source to the detector was simulated by holding the smoke in an aging chamber for times ranging from 10 seconds to 1800 seconds.",
+      "Therefore, a new procedure was developed, the moment method, from which the characteristics of the particle size distribution can be inferred using a minimum number of portable instrument.",
+      "The experimental results show that, for the materials tested, a substantial portion of the smoke particles are below 500 nm in diameter.",
+      "The smoke transport model demonstrated that mixing dominates the smoke transport and that consequently detection time lags are longer than in normal gravity.",
+      "These were comprised of six samples each of 5 materials: Teflon\u2122, Kapton\u2122, silicone rubber, cellulose, and dibutyl-phthalate deposited on a porous wick.",
+      "Results from the moment instruments for baseline runs (no aging) and 720 second aging runs are summarized in Table 1."
+    ],
+    "evidence_passages": [
+      {
+        "text": "Four materials, typical of those found in spacecraft, were tested including cellulose (lamp wick), Kapton, silicone rubber, and Teflon.",
+        "page": 2,
+        "section_or_table": "Abstract",
+        "experiment_context": "SAME, ISS MSG, Expedition 15; overheated spacecraft materials, heated below ignition"
+      },
+      {
+        "text": "The transport time from the smoke source to the detector was simulated by holding the smoke in an aging chamber for times ranging from 10 seconds to 1800 seconds.",
+        "page": 2,
+        "section_or_table": "Abstract",
+        "experiment_context": "SAME, ISS MSG, Expedition 15; smoke aging 10-1800 s"
+      },
+      {
+        "text": "Therefore, a new procedure was developed, the moment method, from which the characteristics of the particle size distribution can be inferred using a minimum number of portable instrument.",
+        "page": 2,
+        "section_or_table": "Abstract",
+        "experiment_context": "SAME, ISS MSG; moment method for particle size distribution"
+      },
+      {
+        "text": "The experimental results show that, for the materials tested, a substantial portion of the smoke particles are below 500 nm in diameter.",
+        "page": 3,
+        "section_or_table": "Abstract (continued)",
+        "experiment_context": "SAME, ISS MSG, Expedition 15; all materials tested"
+      },
+      {
+        "text": "The smoke transport model demonstrated that mixing dominates the smoke transport and that consequently detection time lags are longer than in normal gravity.",
+        "page": 3,
+        "section_or_table": "Abstract (continued)",
+        "experiment_context": "SAME, ISS MSG; smoke transport model vs normal gravity"
+      },
+      {
+        "text": "These were comprised of six samples each of 5 materials: Teflon\u2122, Kapton\u2122, silicone rubber, cellulose, and dibutyl-phthalate deposited on a porous wick.",
+        "page": 21,
+        "section_or_table": "4. Flight Tests",
+        "experiment_context": "SAME, ISS MSG, September-early October 2007; 30 samples total"
+      },
+      {
+        "text": "Results from the moment instruments for baseline runs (no aging) and 720 second aging runs are summarized in Table 1.",
+        "page": 25,
+        "section_or_table": "5. Test Results and Discussion / Table 1",
+        "experiment_context": "SAME flight tests; baseline vs 720 s aging; Table 1 geometric/arithmetic/average-mass diameters"
+      }
+    ],
+    "source_url": "https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=904707",
+    "file_name": "same-nist-final-report.pdf",
+    "file_size": 2453003,
+    "publication_details": {
+      "source_file": "same-nist-final-report.pdf"
+    },
+    "license": null,
+    "doi": null,
+    "missing_fields": [
+      "abstract",
+      "doi",
+      "license"
+    ],
+    "verification_status": "verified_from_opened_pdf",
+    "moon_mars_rank": 2,
+    "moon_mars_rank_reason": "Smoke detection evidence: particle sizes below 500 nm and longer detection lags in microgravity. Relevant to Moon/Mars detection, not to spread limits.",
+    "comparison_keys": {
+      "fuel_or_material": "Cellulose (lamp wick), Kapton, silicone rubber, Teflon, dibutyl-phthalate on porous wick; heated below ignition, not burned",
+      "platform": "ISS, Microgravity Science Glovebox (MSG), Expedition 15, Sep-early Oct 2007",
+      "gravity": "microgravity (ISS)"
+    },
+    "platform_type": "ISS flight"
+  },
+  {
+    "study_id": "flex-methanol-2013",
+    "title": "Methanol Droplet Combustion in Oxygen-Inert Environments in Microgravity",
+    "investigation": "FLEX",
+    "abstract": null,
+    "plain_summary": "The experiments also show that the limiting oxygen index for methanol in these diluent gases is around 12% to 13% oxygen by volume.",
+    "experiment_conditions": {
+      "platform": "ISS, Combustion Integrated Rack (CIR)",
+      "fuel_or_material": "Methanol droplets, 1.5-4 mm (1.5-4.5 mm in results text)",
+      "flow": "Droplet combustion, no forced flow stated in abstract",
+      "oxygen": "LOI around 12-13% O2 by volume; tests at 0.7 and 1 atm, O2 30% down to 12%, CO2/He diluents 0-70%",
+      "gravity": "microgravity (ISS)"
+    },
+    "reported_findings": [
+      "The experiments also show that the limiting oxygen index for methanol in these diluent gases is around 12% to 13% oxygen by volume.",
+      "The initial droplet size varied between approximately 1.5 mm and 4 mm to capture both diffusive extinction brought about by insufficient residence time at the flame and radiative extinction caused by excessive heat loss from the flame zone.",
+      "More than 100 droplets have been burned.",
+      "Over one hundred methanol droplet tests in varying diluent concentrations and at primarily two different ambient pressures (0.7 and 1 atm) have been performed to date.",
+      "Considering the number of independent parameters involved, namely different initial droplet diameters, various oxygen and diluent concentrations, the simplified theoretical model predicts the flame-standoff ratio reasonably well.",
+      "This figure contains over 100 data points, covering a range of oxygen concentration, CO2 and He diluent concentrations, and initial droplet sizes, at two different pressure."
+    ],
+    "evidence_passages": [
+      {
+        "text": "The experiments also show that the limiting oxygen index for methanol in these diluent gases is around 12% to 13% oxygen by volume.",
+        "page": 1,
+        "section_or_table": "Abstract",
+        "experiment_context": "FLEX, ISS CIR; methanol droplets in O2-N2-CO2 and O2-N2-He, 0.7 and 1 atm"
+      },
+      {
+        "text": "The initial droplet size varied between approximately 1.5 mm and 4 mm to capture both diffusive extinction brought about by insufficient residence time at the flame and radiative extinction caused by excessive heat loss from the flame zone.",
+        "page": 1,
+        "section_or_table": "Abstract",
+        "experiment_context": "FLEX, ISS CIR; methanol droplets 1.5-4 mm"
+      },
+      {
+        "text": "More than 100 droplets have been burned.",
+        "page": 2,
+        "section_or_table": "1. Introduction",
+        "experiment_context": "FLEX, ISS; methanol droplet data"
+      },
+      {
+        "text": "Over one hundred methanol droplet tests in varying diluent concentrations and at primarily two different ambient pressures (0.7 and 1 atm) have been performed to date.",
+        "page": 5,
+        "section_or_table": "3. Results",
+        "experiment_context": "FLEX, ISS CIR; methanol, O2 30% to 12%, CO2/He 0-70%, initial diameter 1.5-4.5 mm"
+      },
+      {
+        "text": "Considering the number of independent parameters involved, namely different initial droplet diameters, various oxygen and diluent concentrations, the simplified theoretical model predicts the flame-standoff ratio reasonably well.",
+        "page": 8,
+        "section_or_table": "3. Results / Figure 4 discussion",
+        "experiment_context": "FLEX, ISS CIR; methanol flame-standoff ratio, diluent-substituted environments"
+      },
+      {
+        "text": "This figure contains over 100 data points, covering a range of oxygen concentration, CO2 and He diluent concentrations, and initial droplet sizes, at two different pressure.",
+        "page": 9,
+        "section_or_table": "3.3 Flame Extinction / Figure 5 discussion",
+        "experiment_context": "FLEX, ISS CIR; methanol extinction diameter vs initial diameter, Fig. 5"
+      }
+    ],
+    "source_url": "https://ntrs.nasa.gov/api/citations/20130014061/downloads/20130014061.pdf",
+    "file_name": "flex-methanol-ntrs-20130014061.pdf",
+    "file_size": 2314383,
+    "publication_details": {
+      "source_file": "flex-methanol-ntrs-20130014061.pdf"
+    },
+    "license": null,
+    "doi": null,
+    "missing_fields": [
+      "abstract",
+      "doi",
+      "license"
+    ],
+    "verification_status": "verified_from_opened_pdf",
+    "moon_mars_rank": 3,
+    "moon_mars_rank_reason": "Droplet LOI evidence (methanol 12-13% O2). Useful for droplet/liquid-fuel context only; droplet LOI is NOT a solid-material spread limit.",
+    "comparison_keys": {
+      "fuel_or_material": "Methanol droplets, 1.5-4 mm (1.5-4.5 mm in results text)",
+      "platform": "ISS, Combustion Integrated Rack (CIR)",
+      "gravity": "microgravity (ISS)"
+    },
+    "platform_type": "ISS flight"
+  },
+  {
+    "study_id": "flex-detailed-results-2015",
+    "title": "Detailed Results From the Flame Extinguishment Experiment (FLEX) March 2009 to December 2011",
+    "investigation": "FLEX",
+    "abstract": null,
+    "plain_summary": "It also presents the results of the first 284 tests performed.",
+    "experiment_conditions": {
+      "platform": "ISS, CIR / Multi-user Droplet Combustion Apparatus (MDCA), Mar 2009-Dec 2011",
+      "fuel_or_material": "Methanol and n-heptane droplets",
+      "flow": "Droplet combustion; first 284 tests",
+      "oxygen": "LOI objective; most tests 0.7-1 atm, many in air; observed LOI slightly lower than initially expected (no single LOI value stated in executive summary)",
+      "gravity": "microgravity (ISS)"
+    },
+    "reported_findings": [
+      "It also presents the results of the first 284 tests performed.",
+      "The intent is not to interpret the experimental results but rather to make them available to the entire scientific community for possible future interpretations.",
+      "The fuels studied in these experiments were methanol and n-heptane.",
+      "Most of the tests were conducted at pressures between 0.7 and 1 atm, and many of the tests were in air.",
+      "A principle objective was to determine the limiting oxygen index (LOI), the oxygen percentage below which combustion would not occur.",
+      "Both radiative and diffusive extinctions occurred during the testing.",
+      "Observed LOI values for these fuels appear to be slightly lower than initially expected."
+    ],
+    "evidence_passages": [
+      {
+        "text": "It also presents the results of the first 284 tests performed.",
+        "page": 7,
+        "section_or_table": "Executive Summary",
+        "experiment_context": "FLEX, ISS CIR/MDCA, March 2009-December 2011"
+      },
+      {
+        "text": "The intent is not to interpret the experimental results but rather to make them available to the entire scientific community for possible future interpretations.",
+        "page": 7,
+        "section_or_table": "Executive Summary",
+        "experiment_context": "FLEX, ISS CIR/MDCA; first 284 tests"
+      },
+      {
+        "text": "The fuels studied in these experiments were methanol and n-heptane.",
+        "page": 8,
+        "section_or_table": "Executive Summary",
+        "experiment_context": "FLEX, ISS CIR/MDCA; methanol and n-heptane droplets"
+      },
+      {
+        "text": "Most of the tests were conducted at pressures between 0.7 and 1 atm, and many of the tests were in air.",
+        "page": 8,
+        "section_or_table": "Executive Summary",
+        "experiment_context": "FLEX, ISS CIR/MDCA; pressures 0.7-1 atm, many in air"
+      },
+      {
+        "text": "A principle objective was to determine the limiting oxygen index (LOI), the oxygen percentage below which combustion would not occur.",
+        "page": 8,
+        "section_or_table": "Executive Summary",
+        "experiment_context": "FLEX, ISS CIR/MDCA; LOI objective, fire safety in spacecraft"
+      },
+      {
+        "text": "Both radiative and diffusive extinctions occurred during the testing.",
+        "page": 8,
+        "section_or_table": "Executive Summary",
+        "experiment_context": "FLEX, ISS CIR/MDCA; methanol and n-heptane"
+      },
+      {
+        "text": "Observed LOI values for these fuels appear to be slightly lower than initially expected.",
+        "page": 8,
+        "section_or_table": "Executive Summary",
+        "experiment_context": "FLEX, ISS CIR/MDCA; methanol and n-heptane LOI"
+      }
+    ],
+    "source_url": "https://ntrs.nasa.gov/api/citations/20150023456/downloads/20150023456.pdf",
+    "file_name": "flex-detailed-results-ntrs-20150023456.pdf",
+    "file_size": 42900650,
+    "publication_details": {
+      "source_file": "flex-detailed-results-ntrs-20150023456.pdf"
+    },
+    "license": null,
+    "doi": null,
+    "missing_fields": [
+      "abstract",
+      "doi",
+      "license"
+    ],
+    "verification_status": "verified_from_opened_pdf",
+    "moon_mars_rank": 3,
+    "moon_mars_rank_reason": "Large droplet test archive (first 284 tests) with LOI objective, but the report itself states it does not interpret results. Use as a test archive, not as interpreted limits.",
+    "comparison_keys": {
+      "fuel_or_material": "Methanol and n-heptane droplets",
+      "platform": "ISS, CIR / Multi-user Droplet Combustion Apparatus (MDCA), Mar 2009-Dec 2011",
+      "gravity": "microgravity (ISS)"
+    },
+    "platform_type": "ISS flight"
+  }
+]

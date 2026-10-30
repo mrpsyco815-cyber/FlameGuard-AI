@@ -1,0 +1,210 @@
+﻿nasa_id,title,pdf_page_number,original_category,evidence_role,evidence_modality,research_context,comparison_context,passage_category,review_status,scientific_findings_verified,classification_basis,text,source_url
+20000024924,Experimental Verification of Material Flammability in Space,5,candidate_background,experimental_comparative_result,experiment,ground_test,,candidate_result,requires_manual_review,False,Experimental material-property comparison.,"Nominal   values   are V,,, <0.3  cm/s  for Delrin,   0.5 cm/s  for PMMA,  and  0.3  to
+0.5 cm/s  for  polyethylene:   These  values  are lower  than  those  obtained   in prior  ground   testing.",https://ntrs.nasa.gov/citations/20000024924
+20000024924,Experimental Verification of Material Flammability in Space,5,candidate_background,experimental_quantitative_result,experiment,spaceflight_or_microgravity,,candidate_result,requires_manual_review,False,Numerical experimental result detected.,"In general,   as the  concurrent   flow  velocity  V decreases,   the  flame-spread    rate  V, decreases,   from  an average   (for  all
+three  materials)   ofV_: = 0.5-0.75  mm/s  at V = 8.5 cm/s  to V,: = 0.05-0.01  mm/s  at V = 0.3-0.5  cm/s.",https://ntrs.nasa.gov/citations/20000024924
+20000024924,Experimental Verification of Material Flammability in Space,7,candidate_background,experimental_quantitative_result,experiment,spaceflight_or_microgravity,,candidate_result,requires_manual_review,False,Numerical experimental result detected.,"Preliminary    results  of polyethylene-insulation      flammability    in microgravity   were  obtained   in the NASA  Wire
+Insulation   Flammability   (WIF)  experiment   during  the Space  Shuttle   flight  STS-50   (refs.",https://ntrs.nasa.gov/citations/20000024924
+20000024924,Experimental Verification of Material Flammability in Space,7,candidate_background,experimental_quantitative_result,experiment,spaceflight_or_microgravity,,candidate_result,requires_manual_review,False,Numerical experimental result detected.,"The  flame-spread    rate  of the downstream    flame  edge   is higher   (I .6 mm/s}
+than  the  flame-spread    rate  of the upstream   flame  border   ( 1.2 mm/s);   therefore   the  length  of the flame  increases   over
+time.",https://ntrs.nasa.gov/citations/20000024924
+20000024924,Experimental Verification of Material Flammability in Space,7,candidate_background,experimental_quantitative_result,experiment,spaceflight_or_microgravity,,candidate_result,requires_manual_review,False,Numerical experimental result detected.,"Then,  the
+flame-spread    rate  is constant   at 0.66  to 0.70  mm/s,  approximately    one-half   the rate  in concurrent    flow.",https://ntrs.nasa.gov/citations/20000024924
+20000024924,Experimental Verification of Material Flammability in Space,7,candidate_background,experimental_quantitative_result,experiment,spaceflight_or_microgravity,,candidate_result,requires_manual_review,False,Numerical experimental result detected.,"However,   one  of the most  important   results   is that,  in microgravity,    the extinction   of the  polyethylene
+occurs  almost  immediately   when  the  flow  of relatively  low oxygen   concentration    (C  = 21  percent)   stops.",https://ntrs.nasa.gov/citations/20000024924
+20000024924,Experimental Verification of Material Flammability in Space,8,candidate_method,experimental_comparative_result,experiment,ground_test,,candidate_result,requires_manual_review,False,Experimental material-property comparison.,"Measurements    of V,m and  Vvare  possible   in the microgravity   environment    of spacecraft,   however,    if the
+ material   is flammable   in the given  oxygen   concentration    in the  spacecraft   compartment    at the time  of the space
+ experiment   and  if the flow  velocity   in the  apparatus  chamber    is higher  than  a limiting   velocity   for the  material.",https://ntrs.nasa.gov/citations/20000024924
+20000024924,Experimental Verification of Material Flammability in Space,11,candidate_method,experimental_comparative_result,experiment,ground_test,,candidate_result,requires_manual_review,False,Experimental material-property comparison.,"1.3.2 Procedure   and  Results   of Narrow  Channel   Testing.--The    Narrow  Channel   test  in the  apparatus   on  fig-
+ure  1.7 evaluates   material   flammability    in terms  of  V,,,,, determined    at a prescribed   oxygen   concentration   C   (greater
+than  C,,m).",https://ntrs.nasa.gov/citations/20000024924
+20000024924,Experimental Verification of Material Flammability in Space,12,candidate_background,experimental_quantitative_result,experiment,spaceflight_or_microgravity,,candidate_result,requires_manual_review,False,Numerical experimental result detected.,"When  velocity   is  1.1 cm/s,  both combustion   and  extinction   are observed.",https://ntrs.nasa.gov/citations/20000024924
+20000024924,Experimental Verification of Material Flammability in Space,13,candidate_result,experimental_comparative_result,experiment,ground_test,,candidate_result,requires_manual_review,False,Experimental material-property comparison.,"Besides,   the Narrow-Channel     testing  demonstrated     that  the  viscosity   of molten   Delrin   is higher  than  the
+viscosity   of molten PMMA.",https://ntrs.nasa.gov/citations/20000024924
+20000024924,Experimental Verification of Material Flammability in Space,13,candidate_background,experimental_comparative_result,experiment,ground_test,,candidate_result,requires_manual_review,False,Experimental material-property comparison.,"The  rates  of material   burning-out    for  Russian-made  PMMA  and  polyethylene    are  less than  0.05  mm/s  at a flow
+velocity  V = 10 cm/s  and C, x= 21 percent,    i.e., 5 to 10 times  lower  than  the  flame-spread    rates  measured   for  the
+melting   materials   that  were  tested.",https://ntrs.nasa.gov/citations/20000024924
+20000024924,Experimental Verification of Material Flammability in Space,14,candidate_method,experimental_quantitative_result,experiment,spaceflight_or_microgravity,,candidate_result,requires_manual_review,False,Numerical experimental result detected.,"Table   1.4  shows  the results  of the flame-spread    rate V_ measurements    along  the  surface  of the samples  when
+they  are  positioned    vertically.",https://ntrs.nasa.gov/citations/20000024924
+20000024924,Experimental Verification of Material Flammability in Space,14,candidate_method,experimental_quantitative_result,experiment,spaceflight_or_microgravity,,candidate_result,requires_manual_review,False,Numerical experimental result detected.,"These  measurements    were  obtained   during  the  initial  phase  of combustion    (the  first
+15 to 20 sec  alter  ignition),  when  the samples    still  keep  their  original   shape.",https://ntrs.nasa.gov/citations/20000024924
+20000024924,Experimental Verification of Material Flammability in Space,15,candidate_background,experimental_comparative_result,experiment,ground_test,,candidate_result,requires_manual_review,False,Experimental material-property comparison.,"The  results  of the  previous   Skorost   testing  of PMMA  on Mir suggest   that  values  shown  in  table  1.2 and on  fig-
+ure  1.14 may  be higher  than  actual  data  obtained   in Skorost  during  the space   test.",https://ntrs.nasa.gov/citations/20000024924
+20000024924,Experimental Verification of Material Flammability in Space,19,candidate_background,experimental_quantitative_result,experiment,spaceflight_or_microgravity,,candidate_result,requires_manual_review,False,Numerical experimental result detected.,"The  flow  velocity  was measured    at a low  power  supplied   to Skorost  from  the Mir
+Power  Supply  System   (25.9  V), as was  the  case on Mir during  the space  experiment.",https://ntrs.nasa.gov/citations/20000024924
+20000024924,Experimental Verification of Material Flammability in Space,20,candidate_background,experimental_comparative_result,experiment,ground_test,,candidate_result,requires_manual_review,False,Experimental material-property comparison.,which   is three  times  higher  than  the rate  of 0.036  mm/s  measured   for Delrin  sample   #1.,https://ntrs.nasa.gov/citations/20000024924
+20000024924,Experimental Verification of Material Flammability in Space,20,candidate_result,experimental_observation,experiment,spaceflight_or_microgravity,,candidate_result,requires_manual_review,False,Direct observation statement detected.,A flame  of a light  blue  color  was  observed   during  the  test when  the flow  velocity  was  1 cm/s.,https://ntrs.nasa.gov/citations/20000024924
+20000024924,Experimental Verification of Material Flammability in Space,20,candidate_result,experimental_observation,experiment,spaceflight_or_microgravity,,candidate_result,requires_manual_review,False,Direct observation statement detected.,A  bright  flame  of a light  blue  color  was  observed  when  the flow  velocity  was 7 cm/s   (fig.,https://ntrs.nasa.gov/citations/20000024924
+20000024924,Experimental Verification of Material Flammability in Space,22,candidate_background,experimental_comparative_result,experiment,ground_test,,candidate_result,requires_manual_review,False,Experimental material-property comparison.,"The  flame-propagation      rate VF÷ obtained   in the ground   testing  appeared   to be lower
+than  V_:""from  the space  experiment   on Mir.",https://ntrs.nasa.gov/citations/20000024924
+20000024924,Experimental Verification of Material Flammability in Space,22,candidate_method,experimental_quantitative_result,experiment,spaceflight_or_microgravity,,candidate_result,requires_manual_review,False,Numerical experimental result detected.,"Table  3.1
+shows  the  results  of  r, measurements,    where  r_ is the time  of flame  extinction   at flow  shutoff   in the Skorost
+
+NASA/CR--    1999-209405                                 18",https://ntrs.nasa.gov/citations/20000024924
+20000024924,Experimental Verification of Material Flammability in Space,23,candidate_background,experimental_quantitative_result,experiment,spaceflight_or_microgravity,,candidate_result,requires_manual_review,False,Numerical experimental result detected.,"= 13 to 24 sec  for Delrin,  which   is several  times  lower  than  the  extinction   time  in the ground   test (_ = 115  see).",https://ntrs.nasa.gov/citations/20000024924
+20000024924,Experimental Verification of Material Flammability in Space,23,candidate_background,experimental_quantitative_result,experiment,spaceflight_or_microgravity,,candidate_result,requires_manual_review,False,Numerical experimental result detected.,"The  time  r_ of sample   extinction    at flow  shutoff   in microgravity   was  about  11 to 15
+sec, which  is  less than  half  of the extinction   time  in the ground   test  (_ = 30 see).",https://ntrs.nasa.gov/citations/20000024924
+20000024924,Experimental Verification of Material Flammability in Space,23,candidate_background,experimental_quantitative_result,experiment,spaceflight_or_microgravity,,candidate_result,requires_manual_review,False,Numerical experimental result detected.,"The  following   values   for a limiting  flow  velocity   for polyethylene   were  obtained   in
+the ground   testing  in the apparatuses    with  suppressed   convection:    at C  = 21 percent.",https://ntrs.nasa.gov/citations/20000024924
+20000024924,Experimental Verification of Material Flammability in Space,23,candidate_background,experimental_comparative_result,experiment,ground_test,,candidate_result,requires_manual_review,False,Experimental material-property comparison.,"By the end  of the  experiment,
+the diameter   of the melt  ball  is 2 to 2.5 times  greater  than  the  initial  diameter   of the  cylindrical   sample,  and  the
+shape  of the sample  changes   drastically   during  combustion.",https://ntrs.nasa.gov/citations/20000024924
+20000024924,Experimental Verification of Material Flammability in Space,23,candidate_background,experimental_quantitative_result,experiment,spaceflight_or_microgravity,,candidate_result,requires_manual_review,False,Numerical experimental result detected.,"The  flame  maintains   this shape  until  extinction   10 seconds   after  the  fan  is
+turned  off (r=  71 sec).",https://ntrs.nasa.gov/citations/20000024924
+20000024924,Experimental Verification of Material Flammability in Space,23,candidate_background,experimental_quantitative_result,experiment,spaceflight_or_microgravity,,candidate_result,requires_manual_review,False,Numerical experimental result detected.,"The  velocity  of flame-wave   movement    in the downstream    direction    is about
+60 mm/s,   i.e.,  more  than  100-times   higher  than  the  flame-spread    rate  of 0.48 mm/s  that  is noted  tbr  quasi-stable
+combustion    at the maximum   concurrent   flow  velocity   of 8.5 cm/s.",https://ntrs.nasa.gov/citations/20000024924
+20000024924,Experimental Verification of Material Flammability in Space,23,candidate_result,experimental_observation,experiment,spaceflight_or_microgravity,,candidate_result,requires_manual_review,False,Direct observation statement detected.,"Oscillations    of  this  type  with  the frequency   of 2.3 Hz were  observed   during  Polyethylene    sample  #11  combus-
+tion when  the flow  velocity   is close  to limiting  (V = 0.5 and  0.3  cm/s  at C  = 23.6  percent).",https://ntrs.nasa.gov/citations/20000024924
+20000024924,Experimental Verification of Material Flammability in Space,26,candidate_background,experimental_comparative_result,experiment,ground_test,,candidate_result,requires_manual_review,False,Experimental material-property comparison.,"Here,  based  upon  the  results  of ground
+experiments,      it is necessary   to  select  materials   for which  the  velocity   limit  for combustion   Vhmis higher  than  those
+of the melting   thermoplastic   polymers   tested  in  this work.",https://ntrs.nasa.gov/citations/20000024924
+20000024924,Experimental Verification of Material Flammability in Space,27,candidate_background,experimental_quantitative_result,experiment,spaceflight_or_microgravity,,candidate_result,requires_manual_review,False,Numerical experimental result detected.,"The  limiting   flow  velocities   were  obtained   for  tested  materials:
+
+       •     for PMMA,   V,,o, = 0.5 cm/s  at C  = 23.6  percent;
+       •     for polyethylene,   V,,m= 0.3  - 0.5 cm/s  at C  = 25.4  percent:
+       •     for Delrin,  V,,m< 0.3 cm/s  at C  = 25.4  percent.",https://ntrs.nasa.gov/citations/20000024924
+20000024924,Experimental Verification of Material Flammability in Space,27,candidate_result,experimental_quantitative_result,experiment,spaceflight_or_microgravity,ground_test,candidate_result,requires_manual_review,False,Numerical microgravity extinction-time result; ground testing is the comparison reference.,"It has been  demonstrated     that  at flow  shutoff  the  extinction    in microgravity    occurs  in 5 to 20  s, which   is signifi-
+cantly  lower  than  the extinction   time  obtained   during  the ground   testing.",https://ntrs.nasa.gov/citations/20000024924
+20000024924,Experimental Verification of Material Flammability in Space,27,candidate_background,experimental_quantitative_result,experiment,spaceflight_or_microgravity,,candidate_result,requires_manual_review,False,Numerical experimental result detected.,"if the  concurrent   flow  velocity  V decreases,   the  flame-spread    rate V_ will  decrease,   from
+V, = 0.5  to 0.75  mm/s  at V = 8.5 cm/s  to V,: = 0.05  to 0.01 mm/s  at V = 0.3  to 0.5 cm/s.",https://ntrs.nasa.gov/citations/20000024924
+20000024924,Experimental Verification of Material Flammability in Space,29,candidate_background,experimental_quantitative_result,experiment,spaceflight_or_microgravity,,candidate_result,requires_manual_review,False,Numerical experimental result detected.,"TABLE   1.2.--GROUND-TESTING       RESULTS   OF  U.S.-PROVIDED    MATERIAL
+                               FLAMMABILITY        --  LIMITING   VELOCITY      [Vb,,,' ) DETERMINED     IN
+                                     APPARATUSES    WITH  SUPPRESSED    CONVECTION
+                       Number                   Material                                                        Vi.., cm/sec
+                                                                       Narrow   channel              Vertical   combustion    chamber
+
+                                                    C  =21%   C  =23%               Q=21%
+
+                                        Low-density     Polyethylene            16.9            6.8
+                                         HiLzh-density    Polyethylene             8.3             3.6                             4.5
+                            3     PMMA                                    3.3             2.3                              1.1
+                            4         Delrin                                     0.5             0.3                              1.1
+                                    Nylon   6/6                             16.4            5.3
+                           R iLzid Polyurethane                     15.5            4.7
+                                        Glass-epoxy     composite             >25          >25
+
+
+
+                               TABLE   1.3.--GROUND-TESTING       RESULTS   OF U.S.-PROVIDED
+                                 MATERIAL    FLAMMABILITY-       FLAME-SPREAD    RATE   IV,  )
+                                                     IN NARROW   CHANNEL   APPARATUS
+                                                      Material               Flow  velocity    in   V F, mm/sec  @ C.",https://ntrs.nasa.gov/citations/20000024924
+20000024924,Experimental Verification of Material Flammability in Space,30,candidate_background,experimental_quantitative_result,experiment,spaceflight_or_microgravity,,candidate_result,requires_manual_review,False,Numerical experimental result detected.,"sec              115       100          55              75             30          25
+                                 V, = Flame-spread      rate
+                            L  = Time  from  ignition    to flame   front  that covers   half  the sample   length
+                                      ""__, = Time  from  flow  shutoffto    flame  extinguishment
+
+
+
+        TABLE   1.5.--PRELIMINARY      SCHEDULE   FOR  MATERIAL-FLAMMABILITY       EVALUATION     IN SKOROST  ON  MIR
+                                                (FLOW  VELOCITY,     CM/SEC).",https://ntrs.nasa.gov/citations/20000024924
+20000024924,Experimental Verification of Material Flammability in Space,55,candidate_background,experimental_quantitative_result,experiment,spaceflight_or_microgravity,,candidate_result,requires_manual_review,False,Numerical experimental result detected.,"_L                   I         1                  I
+                           0             2             4             6             8             10
+                                                                      V, cm/s
+
+                         Figure  3.21.--Flame-spread       rate  (Vf +) for test  samples  as function    of con-
+                          current  flow  velocity   (V), measured   on space  on the  Skorost  apparatus
+                      and on ground  on the  Narrow-Channel     apparatus.",https://ntrs.nasa.gov/citations/20000024924
+20000024924,Experimental Verification of Material Flammability in Space,60,candidate_background,experimental_comparative_result,experiment,ground_test,,candidate_result,requires_manual_review,False,Experimental material-property comparison.,These   values    are  lower   than   those   obtained     in  prior  ground    testing.,https://ntrs.nasa.gov/citations/20000024924
+20000024924,Experimental Verification of Material Flammability in Space,60,candidate_background,experimental_quantitative_result,experiment,spaceflight_or_microgravity,,candidate_result,requires_manual_review,False,Numerical experimental result detected.,"In  general,    as  the  concurrent     flow   velocity
+     V  decreases,     the  flame-spread       rate V F decreases,    from   an  average    (for   all  three   materials)     of V F =  0.5-0.75   mm/s    at
+     V = 8.5  cm/s   to V F = 0.05-0.01    mm/s    at V = 0.3-0.5    cm/s.",https://ntrs.nasa.gov/citations/20000024924
+20000024924,Experimental Verification of Material Flammability in Space,60,candidate_background,experimental_quantitative_result,experiment,spaceflight_or_microgravity,,candidate_result,requires_manual_review,False,Numerical experimental result detected.,"NUMBER OF PAGES
+                                                                                                                    62
+        Extinction;      Fire   safety;   Flammability;      Flammability        limits;   Flame    propagation;
+                                                                                                                                                                          16.",https://ntrs.nasa.gov/citations/20000024924
+19960008387,"Solid surface combustion experiment flame spread in a quiescent, microgravity environment implications of spread rate and flame structure",1,candidate_background,experimental_quantitative_result,experiment,spaceflight_or_microgravity,,candidate_result,requires_manual_review,False,Numerical experimental result detected.,"N96- 15553
+                                    Solid  Surface  Combustion   Experiment
+                    Flame  Spread  in a Quiescent,   Microgravity   Environment
+                            Implications    of Spread  Rate and Flame  Structure
+
+                      Matthew   Bundy,    Jeff West,  Peter  C.",https://ntrs.nasa.gov/citations/19960008387
+19960008387,"Solid surface combustion experiment flame spread in a quiescent, microgravity environment implications of spread rate and flame structure",1,candidate_background,experimental_observation,experiment,spaceflight_or_microgravity,,candidate_result,requires_manual_review,False,Direct observation statement detected.,Two  orthogonal    views   of the  experiments    were  recorded   on 16 mm  cine-cameras    operating     at 24 frames/s.,https://ntrs.nasa.gov/citations/19960008387
+19960008387,"Solid surface combustion experiment flame spread in a quiescent, microgravity environment implications of spread rate and flame structure",1,candidate_background,experimental_observation,experiment,spaceflight_or_microgravity,,candidate_result,requires_manual_review,False,Direct observation statement detected.,"In addition    to filmed   images   of the  side  view   of the  flames  and  surface  view   of the  burning   samples,    solid-
+and  gas-phase    temperatures    were  recorded   using  thermocouples.",https://ntrs.nasa.gov/citations/19960008387
+19960008387,"Solid surface combustion experiment flame spread in a quiescent, microgravity environment implications of spread rate and flame structure",2,candidate_background,experimental_quantitative_result,experiment,spaceflight_or_microgravity,,candidate_result,requires_manual_review,False,Numerical experimental result detected.,"Thin  Fuel:
+
+ 1.1 Spread  Rate: The  experimental   flame  spread  rates,   Vf.,_,,  over  the  thin cellulosic   fuel  in five different
+ quiescent  environments,    at three  different  ambient  pressures   and  two oxygen  levels,  are plotted  in Fig.",https://ntrs.nasa.gov/citations/19960008387
+19960008387,"Solid surface combustion experiment flame spread in a quiescent, microgravity environment implications of spread rate and flame structure",2,candidate_background,experimental_quantitative_result,experiment,spaceflight_or_microgravity,,candidate_result,requires_manual_review,False,Numerical experimental result detected.,"The
+ spread  rate is computed  using a succession   of models  in which  the major assumptions   in the de Ris theory   - zero
+ hang-distance   (#2), Oseen  flow  (#3), constant  gas density  (#4), no wall blowing   (#5), infinite-rate   chemistry    (#6),
+ constant  vaporization  temperature   (#7), constant  solid  density  (#8), constant  gas conductivity    (#9), and no
+ radiation  (#10-#13)  - are removed  one by one, and  the resulting  spread  rates are plotted  in Fig.",https://ntrs.nasa.gov/citations/19960008387
+19960008387,"Solid surface combustion experiment flame spread in a quiescent, microgravity environment implications of spread rate and flame structure",2,candidate_background,experimental_quantitative_result,experiment,spaceflight_or_microgravity,,candidate_result,requires_manual_review,False,Numerical experimental result detected.,"It is clear from this figure  that many  of the assumptions   in the
+ de Ris theory  have a canceling   affect, and  that  is why  the non-radiative   model  (#9) produces  the same  spread  rate
+ as the de Ris formula  (#1).",https://ntrs.nasa.gov/citations/19960008387
+19960008387,"Solid surface combustion experiment flame spread in a quiescent, microgravity environment implications of spread rate and flame structure",3,candidate_background,experimental_quantitative_result,experiment,spaceflight_or_microgravity,,candidate_result,requires_manual_review,False,Numerical experimental result detected.,"7,  decrease   smoothly,    and  extinction
+
+results   at high   values   of  x.",https://ntrs.nasa.gov/citations/19960008387
+20210017787,Determining the Cause of Reduced Concurrent Flame Spread over Thin Solid Fuels in Low Pressure and Low Gravity,3,candidate_background,experimental_quantitative_result,experiment,spaceflight_or_microgravity,,candidate_result,requires_manual_review,False,Numerical experimental result detected.,"This
+cell size was obtained from uniformly dividing the total domain in 250 cells in the z-direction and 150 cells in the x-
+direction.",https://ntrs.nasa.gov/citations/20210017787
+20210017787,Determining the Cause of Reduced Concurrent Flame Spread over Thin Solid Fuels in Low Pressure and Low Gravity,6,candidate_background,simulation_result,simulation,unknown,,candidate_result,requires_manual_review,False,Simulation outcome or numerical result detected.,"It is
+seen that, in spite of the simplifications included in the model, the simulations are able to qualitatively reproduce the
+overall behavior observed during the experiments: at lower ambient pressures the time evolution of the pyrolysis front
+and burnout front positions over the sample length  is slower, i.e.",https://ntrs.nasa.gov/citations/20210017787
+20210017787,Determining the Cause of Reduced Concurrent Flame Spread over Thin Solid Fuels in Low Pressure and Low Gravity,7,candidate_background,experimental_quantitative_result,experiment,spaceflight_or_microgravity,,candidate_result,requires_manual_review,False,Numerical experimental result detected.,"Because of the size of the samples, and the accelerative characteristics of the flame, an averaged spread rate over the
+last 50% of the sample is presented so that the data are closer to the steady state value and transient effects are
+minimized, as explained in section A.",https://ntrs.nasa.gov/citations/20210017787
+20210017787,Determining the Cause of Reduced Concurrent Flame Spread over Thin Solid Fuels in Low Pressure and Low Gravity,7,candidate_background,simulation_result,simulation,unknown,,candidate_result,requires_manual_review,False,Simulation outcome or numerical result detected.,"From the results, it is seen that the simulations performed using finite rate chemistry underpredict the
+experimental spread rates at the higher pressures, while not even allowing flame spread at the lower pressure
+environments.",https://ntrs.nasa.gov/citations/20210017787
+20210017787,Determining the Cause of Reduced Concurrent Flame Spread over Thin Solid Fuels in Low Pressure and Low Gravity,7,candidate_result,simulation_limitation,simulation,unknown,,candidate_limitation,requires_manual_review,False,Simulation flame blow-off and unavailable spread-rate result.,"It should
+be noted that under this condition only partial burning of the sample near the igniter region was observed in the FDS
+simulations done at 50 kPa, and the flame would eventually blow off about 11 mm away from the igniter, thus no
+spread rate was determined for that condition due to the very short propagation length.",https://ntrs.nasa.gov/citations/20210017787
+20210017787,Determining the Cause of Reduced Concurrent Flame Spread over Thin Solid Fuels in Low Pressure and Low Gravity,7,candidate_background,experimental_quantitative_result,experiment,spaceflight_or_microgravity,,candidate_result,requires_manual_review,False,Numerical experimental result detected.,"[37] the authors
+found that a decrease in the activation energy (Egas) of about 4% increased the flame spread rate in about 0.8%, while
+an increase in the pre-exponential factor (Agas) of about 50% only increased the flame spread rate in less than 1.4%
+affecting in both cases very little the flame spread rate observed.",https://ntrs.nasa.gov/citations/20210017787
+20210017787,Determining the Cause of Reduced Concurrent Flame Spread over Thin Solid Fuels in Low Pressure and Low Gravity,8,candidate_method,experimental_quantitative_result,experiment,spaceflight_or_microgravity,,candidate_result,requires_manual_review,False,Numerical experimental result detected.,Average flame spread rate measurements obtained  [39].,https://ntrs.nasa.gov/citations/20210017787
+20210017787,Determining the Cause of Reduced Concurrent Flame Spread over Thin Solid Fuels in Low Pressure and Low Gravity,8,candidate_background,experimental_quantitative_result,experiment,spaceflight_or_microgravity,,candidate_result,requires_manual_review,False,Numerical experimental result detected.,"From the
+                                                                             figure,  it is seen that as ambient pressure is
+                                                                    reduced, the flame spread rate over the solid
+                                                                approaches that obtained at standard ambient
+                                                                     pressure (100 kPa)  in reduced  gravity.",https://ntrs.nasa.gov/citations/20210017787
+20210017787,Determining the Cause of Reduced Concurrent Flame Spread over Thin Solid Fuels in Low Pressure and Low Gravity,8,candidate_result,mixed_comparison,mixed,experimental_simulation_comparison,experimental_simulation_comparison,candidate_result,requires_manual_review,False,Interpretation supported by experimental and simulation context.,"These  results indicate  that
+                                                                    concurrent flame spread in low pressure and
+                                                             normal    gravity,   may   have    similar
+                                                                            characteristics as those in reduced gravity.",https://ntrs.nasa.gov/citations/20210017787
+20210017787,Determining the Cause of Reduced Concurrent Flame Spread over Thin Solid Fuels in Low Pressure and Low Gravity,8,candidate_background,mixed_comparison,mixed,experimental_simulation_comparison,,candidate_result,requires_manual_review,False,Simulation outcome explicitly compared with experimental evidence.,"The experiments and the FDS simulations show a
+  similar trend, with the pyrolysis length decreasing with decreasing ambient pressure and gravity level.",https://ntrs.nasa.gov/citations/20210017787
+20210017787,Determining the Cause of Reduced Concurrent Flame Spread over Thin Solid Fuels in Low Pressure and Low Gravity,8,candidate_background,experimental_quantitative_result,experiment,spaceflight_or_microgravity,,candidate_result,requires_manual_review,False,Numerical experimental result detected.,"As a result, even though the flame spread rate
+                                                8
+    International Conference on Environmental Systems",https://ntrs.nasa.gov/citations/20210017787
+20210017787,Determining the Cause of Reduced Concurrent Flame Spread over Thin Solid Fuels in Low Pressure and Low Gravity,9,candidate_background,experimental_quantitative_result,experiment,spaceflight_or_microgravity,,candidate_result,requires_manual_review,False,Numerical experimental result detected.,"In such a case, flame spread rates under lunar gravity (0.17g) could be replicated by a
+reduction in ambient pressure to 46 kPa, and flame spread rate in a martian gravity (0.38g) would be similar to that
+encountered at 54 kPa.",https://ntrs.nasa.gov/citations/20210017787
+20210017787,Determining the Cause of Reduced Concurrent Flame Spread over Thin Solid Fuels in Low Pressure and Low Gravity,10,candidate_background,experimental_quantitative_result,experiment,spaceflight_or_microgravity,,candidate_result,requires_manual_review,False,Numerical experimental result detected.,"[15,34] at the lower pressures the flame spread rate is expected
+to be reduced because of a thickening in both the hydrodynamic and thermal boundary layers, moving the flame further
+away from the solid surface and consequently reducing the convective heating from the flame to the solid.",https://ntrs.nasa.gov/citations/20210017787
+20210017787,Determining the Cause of Reduced Concurrent Flame Spread over Thin Solid Fuels in Low Pressure and Low Gravity,10,candidate_background,experimental_quantitative_result,experiment,spaceflight_or_microgravity,,candidate_result,requires_manual_review,False,Numerical experimental result detected.,"4 suggest that the reason for a decreased flame
+spread rate at low pressures may be related to a lower HRR rather than to a change in the thermal boundary layer
+geometry or flame stand-off distance.",https://ntrs.nasa.gov/citations/20210017787
+20210017787,Determining the Cause of Reduced Concurrent Flame Spread over Thin Solid Fuels in Low Pressure and Low Gravity,11,candidate_background,simulation_result,simulation,unknown,,candidate_result,requires_manual_review,False,Simulation outcome or numerical result detected.,"From the figure it is seen that at FDS confirms that, for concurrent flame spread, the
+process is mainly controlled by convective heating of the surface as the flame spreads over it.",https://ntrs.nasa.gov/citations/20210017787
+20210017787,Determining the Cause of Reduced Concurrent Flame Spread over Thin Solid Fuels in Low Pressure and Low Gravity,12,candidate_background,simulation_result,simulation,unknown,,candidate_result,requires_manual_review,False,Simulation outcome or numerical result detected.,"FDS simulations show that at higher ambient pressures the chemistry does not play a significant role
+and the process is mainly controlled by convective heat transfer mechanisms.",https://ntrs.nasa.gov/citations/20210017787
+20210017787,Determining the Cause of Reduced Concurrent Flame Spread over Thin Solid Fuels in Low Pressure and Low Gravity,12,candidate_background,simulation_result,simulation,unknown,experimental_simulation_comparison,candidate_result,requires_manual_review,False,Simulation outcome or numerical result detected.,"The simulation results suggest that
+reducing the pressure decreases the HRR from the flame to the solid surface due to a reduction in convective heat flux
+at low pressures.",https://ntrs.nasa.gov/citations/20210017787
+20210017787,Determining the Cause of Reduced Concurrent Flame Spread over Thin Solid Fuels in Low Pressure and Low Gravity,12,candidate_background,simulation_result,simulation,unknown,experimental_simulation_comparison,candidate_result,requires_manual_review,False,Simulation outcome or numerical result detected.,"Furthermore, the analysis of the FDS simulation results suggest that as gravity levels are reduced, flame spread
+rates also decrease but the explanation behind this observation seems different.",https://ntrs.nasa.gov/citations/20210017787
+20220012861,Determining Flame Temperature By Broadband Two Color Pyrometry in A Flame Spreading Over A Thin Solid in Microgravity,2,candidate_background,experimental_quantitative_result,experiment,spaceflight_or_microgravity,,candidate_result,requires_manual_review,False,Numerical experimental result detected.,"In ad-
+eral process, particularly near extinction [7, 8].",https://ntrs.nasa.gov/citations/20220012861
+20220012861,Determining Flame Temperature By Broadband Two Color Pyrometry in A Flame Spreading Over A Thin Solid in Microgravity,3,candidate_background,experimental_quantitative_result,experiment,spaceflight_or_microgravity,,candidate_result,requires_manual_review,False,Numerical experimental result detected.,"[16] uses a pulsed laser to sequentiallyto observe the full development of the flame over the
+                                                  measure the soot concentration (laser extinction) andmaterial.",https://ntrs.nasa.gov/citations/20220012861
+20220012861,Determining Flame Temperature By Broadband Two Color Pyrometry in A Flame Spreading Over A Thin Solid in Microgravity,7,candidate_limitation,scientific_limitation,unknown,unknown,,candidate_limitation,requires_manual_review,False,Scientific uncertainty or unavailable measurement detected.,"The relative uncertainty asso-
+the flame spreads over the composite fabric, it con-       ciated with the thermocouple reading has been esti-
+sumes most of the cotton, leaving behind the fiber-     mated following the work of Ren et al.",https://ntrs.nasa.gov/citations/20220012861
+20220012861,Determining Flame Temperature By Broadband Two Color Pyrometry in A Flame Spreading Over A Thin Solid in Microgravity,7,candidate_limitation,scientific_limitation,unknown,unknown,,candidate_limitation,requires_manual_review,False,Scientific uncertainty or unavailable measurement detected.,"Dur-       tive uncertainty for a type-R thermocouple of 0.25%
+ing this process, periodic images are taken of the        is considered, thus resulting in an overall correction
+spread process.",https://ntrs.nasa.gov/citations/20220012861
+20220012861,Determining Flame Temperature By Broadband Two Color Pyrometry in A Flame Spreading Over A Thin Solid in Microgravity,7,candidate_limitation,scientific_limitation,experiment,unknown,,candidate_limitation,requires_manual_review,False,Scientific uncertainty or unavailable measurement detected.,"Considering that the initial purpose of the     computed from a Monte Carlo propagation analysis,
+images recorded during the experiments was to use      considering a conservative error of 5% on the signal
+the data to visualize the flame and track its evolu-       ratio ΘG/R, resulting in 117 K of uncertainty for tem-
+tion over time, i.e., pyrolysis length, flame size, etc.,       perature determination.",https://ntrs.nasa.gov/citations/20220012861
+20220012861,Determining Flame Temperature By Broadband Two Color Pyrometry in A Flame Spreading Over A Thin Solid in Microgravity,8,candidate_background,experimental_quantitative_result,experiment,spaceflight_or_microgravity,,candidate_result,requires_manual_review,False,Numerical experimental result detected.,"Axelbaum, Radiative extinction
+ [3] D.",https://ntrs.nasa.gov/citations/20220012861
