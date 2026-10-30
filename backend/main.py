@@ -10,6 +10,7 @@ from backend.services.research_summarizer import (
     build_evidence_brief,
 )
 from backend.services.nasa_ingestion import import_nasa_document
+from backend.services.mission_research import search_mission_research
 
 app = FastAPI(
     title="FlameGuard AI API",
@@ -180,3 +181,18 @@ def nasa_passage_search(
             "manual review. Keyword matching is not semantic AI."
         ),
     }
+
+
+@app.get("/research/mission-search")
+def mission_research_search(
+    q: str = Query(..., min_length=2, max_length=200),
+    limit: int = Query(default=10, ge=1, le=50),
+    fuel: str | None = Query(default=None, min_length=1, max_length=100),
+):
+    """Search Subhan data first, then local NASA research and NASA NTRS."""
+    try:
+        return search_mission_research(q, limit, fuel=fuel)
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    except FileNotFoundError as exc:
+        raise HTTPException(status_code=503, detail=str(exc)) from exc
