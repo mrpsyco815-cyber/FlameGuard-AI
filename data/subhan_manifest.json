@@ -1,0 +1,61 @@
+{
+  "project": "FlameGuard AI",
+  "team": "PAKNOVA AI",
+  "owner": "Subhan Malik",
+  "role": "NASA Data Engineer & Scientific Research Data Specialist",
+  "competition": "NASA Space Apps Challenge 2026",
+  "challenge": "Flame in Freefall: AI-Powered Fire Safety Insights from Microgravity Combustion Data",
+  "version": "v2-complete-core",
+  "date": "2026-10-30",
+  "status": "Verified core complete (10 records, 68 passages from opened PDFs). Extended set preliminary. Backend app test and data-center push still require team/backend input - see documentation/validation_results.md.",
+  "structure": "Team assignment Task 3 data/ tree, plus extra raw folders for spice/sofie_gel/same/flex and extra processed extended files, all documented.",
+  "counts": {
+    "verified_core_records": 10,
+    "verified_core_passages": 68,
+    "core_files": 11,
+    "core_raw_bytes": 63289402,
+    "extended_records": 176,
+    "source_register_rows": 14,
+    "psi_investigations_verified": [
+      "PSI-25",
+      "PSI-98",
+      "PSI-99",
+      "PSI-100",
+      "PSI-107"
+    ]
+  },
+  "psi": {
+    "PSI-25": {
+      "title": "Burning and Suppression of Solids - II (BASS-II), Version 4",
+      "doi": "10.60555/4qc4-de67",
+      "license": "CC0-1.0",
+      "total_size": "255.77 GB (whole set NOT downloaded)"
+    },
+    "PSI-98": {
+      "title": "Spacecraft Fire Safety Experiment-I (SAFFIRE-I), Version 4",
+      "doi": "10.60555/0t15-1z43",
+      "license": "CC0-1.0",
+      "total_size": "11.41 GB (whole set NOT downloaded)"
+    },
+    "PSI-107": {
+      "title": "Smoke Point In Co-flow Experiment (SPICE), Version 4",
+      "doi": "10.60555/9kbh-e962",
+      "license": "CC0-1.0",
+      "total_size": "6.47 GB (whole set NOT downloaded)"
+    }
+  },
+  "files": {
+    "manifest_json": "data/manifest.json",
+    "research_records_json": "data/processed/research_records.json",
+    "research_records_csv": "data/processed/research_records.csv",
+    "extended_records_json": "data/processed/extended_records.json",
+    "extended_records_csv": "data/processed/extended_records.csv",
+    "evidence_passages_json": "data/evidence/evidence_passages.json",
+    "data_dictionary_md": "data/documentation/data_dictionary.md",
+    "source_register_csv": "data/documentation/source_register.csv",
+    "data_quality_report_md": "data/documentation/data_quality_report.md",
+    "backend_handover_md": "data/documentation/backend_handover.md",
+    "validation_results_md": "data/documentation/validation_results.md"
+  },
+  "note": "Do not present extended records as verified. Do not commit very large files to GitHub without team-lead agreement. Do not make safe/unsafe predictions from this data."
+}
