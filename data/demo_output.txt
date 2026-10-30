@@ -1,0 +1,48 @@
+LOADED: 10 verified core records
+
+SEARCH: 'SAFFIRE'
+- Preliminary Results from the Saffire VI Experiment | https://ntrs.nasa.gov/api/citations/20240002981/downloads/Saffire-ICES-2024-ICES-365-accepted%20final.pdf | file=saffire-vi-ices-2024-365.pdf | passages=8
+- Fire Safety Implications of Preliminary Results from Saffire IV and V Experiments on Large Scale Spacecraft Fires | https://ntrs.nasa.gov/api/citations/20210011521/downloads/ICES%202021-266%200503-2021%20final.pdf | file=saffire-iv-v-ices-2021-266.pdf | passages=6
+
+RANK: Moon/Mars comparison usefulness (1=most useful, NOT a safety score)
+- rank 1: saffire-vi-2024 — Closest to an exploration atmosphere in the verified core: ~29-31% O2 at ~54-55 kPa, large samples, spacecraft-scale gas hazard data. Rank is for Moon/Mars comparison usefulness, not a safety verdict.
+- rank 1: saffire-iv-v-2021 — Large spacecraft-scale fires with per-test exploration-atmosphere conditions (V: ~26% O2 / ~71 kPa) and a duct-size effect that changes spread rate. Directly comparable to SAFFIRE-VI.
+- rank 2: bass-ii-2014-presentation — Small-sample solid-fuel flammability limits in ISS cabin-like flow, including a microgravity limit below the 1g limit. Core solid-fuel evidence, but small duct, not spacecraft scale.
+- rank 2: sofie-gel-li-extinction — Solid-sphere extinction map in microgravity with per-test quenching/blowoff values. Directly relevant to solid-fuel limits, but single geometry (sphere).
+- rank 2: same-final-report-2010 — Smoke detection evidence: particle sizes below 500 nm and longer detection lags in microgravity. Relevant to Moon/Mars detection, not to spread limits.
+- rank 3: spice-dotson-2011 — Gas-jet smoke-point evidence (55 smoke points). Useful for soot/smoke context only; gas-jet smoke points are NOT solid-material spread limits.
+- rank 3: spice-nasa-summary — Investigation-level summary only (250 tests / >70 smoke points). Use only for investigation context, never as a per-test value.
+- rank 3: sofie-gel-taskbook-fy2026 — Programme-level confirmation of GEL dates, geometry and concurrent flow, but no per-test numbers in this 2-page report. Use only as context for the GEL extinction manuscript.
+- rank 3: flex-methanol-2013 — Droplet LOI evidence (methanol 12-13% O2). Useful for droplet/liquid-fuel context only; droplet LOI is NOT a solid-material spread limit.
+- rank 3: flex-detailed-results-2015 — Large droplet test archive (first 284 tests) with LOI objective, but the report itself states it does not interpret results. Use as a test archive, not as interpreted limits.
+
+COMPARE: SAFFIRE-VI vs SAFFIRE-IV/V (conditions kept separate, not merged)
+- saffire-vi-2024: {'platform': 'Uncrewed Cygnus, Saffire VI enclosure', 'fuel_or_material': 'SIBAL cotton/fiberglass 50 cm long, 41 cm wide; two-sided PMMA 1 cm; one-sided PMMA 0.5 cm; Nomex 7 cm (did not ignite)', 'flow': '20 cm/s concurrent (Table 1, VI paper p.3)', 'oxygen_pressure': 'VI-2 SIBAL 31.0% O2 / 54.1 kPa; VI-3 two-sided PMMA 30.3% / 54.6 kPa; VI-4 one-sided PMMA 28.8% / 55.2 kPa', 'gravity': 'microgravity'}
+- saffire-iv-v-2021: {'platform': 'Uncrewed Cygnus, Saffire IV/V', 'fuel_or_material': 'SIBAL fabric, cotton jersey, PMMA (one-sided and two-sided)', 'flow': '20 cm/s concurrent; duct height 30 cm for IV/V vs 46 cm for I/III in Table 2 p.8 (VI paper p.2 implies 50 cm for I-III - UNRESOLVED for I-III)', 'oxygen_pressure': 'IV-1 SIBAL 22.0% O2 / 100.0 kPa; V-2 cotton jersey 26.2% / 70.7 kPa; V-3 one-sided PMMA 25.4% O2', 'gravity': 'microgravity'}
+
+EVIDENCE: first passage for each core record (with page + file)
+- bass-ii-2014-presentation: p.2 [Objectives] Study the ignition, flame growth, flame spread, and extinction limits for solid fuels burning in low-velocity forced flows in microgravity. (file bass-ii-20160000593.pdf)
+- saffire-vi-2024: p.1 [Abstract] Preliminary results are presented for one test of the last flight of the Spacecraft Fire Experiment (Saffire VI) which was conducted on an orbiting Cygnus spacecraft. (file saffire-vi-ices-2024-365.pdf)
+- saffire-iv-v-2021: p.2 [Abstract] However, despite having heat release rates up to 10 kW, the average vehicle conditions did not rise to unacceptable levels. (file saffire-iv-v-ices-2021-266.pdf)
+- spice-dotson-2011: p.1 [Abstract] Laminar smoke points were measured in nonbuoyant laminar jet diffusion flames in coflowing air. (file spice-dotson-fsj-2011.pdf)
+- spice-nasa-summary: p.1 [Introduction] SPICE will determine the laminar smoke point properties of non-buoyant jet diffusion flames (i.e., the properties of the largest laminar jet diffusion flames that do not emit soot) for several fuels under different nozzle diameter/co-flow velocity configurations. (file spice-nasa-summary-2025.pdf)
+- sofie-gel-li-extinction: p.1 [Abstract] Long duration microgravity experiments aboard the International Space Station determine diffusion flame extinction limits of PMMA spheres. (file gel-li-extinction-ntrs-20240007628.pdf)
+- sofie-gel-taskbook-fy2026: p.2 [Task Description] GEL (Growth and Extinction) is the first sub-project recently carried out in ISS. (file gel-taskbook-fy2026.pdf)
+- same-final-report-2010: p.2 [Abstract] Four materials, typical of those found in spacecraft, were tested including cellulose (lamp wick), Kapton, silicone rubber, and Teflon. (file same-nist-final-report.pdf)
+- flex-methanol-2013: p.1 [Abstract] The experiments also show that the limiting oxygen index for methanol in these diluent gases is around 12% to 13% oxygen by volume. (file flex-methanol-ntrs-20130014061.pdf)
+- flex-detailed-results-2015: p.7 [Executive Summary] It also presents the results of the first 284 tests performed. (file flex-detailed-results-ntrs-20150023456.pdf)
+
+MISSING VALUES (honest nulls):
+- bass-ii-2014-presentation: abstract=None, doi=None, license=None
+- saffire-vi-2024: abstract=None, doi=None, license=None
+- saffire-iv-v-2021: abstract=None, doi=None, license=None
+- spice-dotson-2011: abstract=None, doi=10.1016/j.firesaf.2011.08.002, license=None
+- spice-nasa-summary: abstract=None, doi=None, license=None
+- sofie-gel-li-extinction: abstract=None, doi=None, license=None
+- sofie-gel-taskbook-fy2026: abstract=None, doi=None, license=None
+- same-final-report-2010: abstract=None, doi=None, license=None
+- flex-methanol-2013: abstract=None, doi=None, license=None
+- flex-detailed-results-2015: abstract=None, doi=None, license=None
+
+DEMO RESULT: all 6 backend-test checks above pass LOCALLY for the verified core.
+NOT TESTED HERE: loading in the team's actual app, backend schema agreement, data-center push.
