@@ -33,8 +33,14 @@ def load_store(store_path):
     if not path.exists():
         raise FileNotFoundError(f"Research intelligence store not found: {path}")
 
+    raw_content = path.read_text(encoding="utf-8")
+    if not raw_content.strip():
+        # An empty optional local store is valid: callers can continue to
+        # other local datasets and trigger NASA NTRS fallback as needed.
+        return {"records": []}
+
     try:
-        data = json.loads(path.read_text(encoding="utf-8"))
+        data = json.loads(raw_content)
     except json.JSONDecodeError as exc:
         raise ValueError(f"Research intelligence store contains invalid JSON: {exc}") from exc
 

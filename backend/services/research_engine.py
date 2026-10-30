@@ -1,4 +1,3 @@
-
 import json
 from pathlib import Path
 from typing import Any
@@ -8,7 +7,7 @@ DATA_FILE = PROJECT_ROOT / "data" / "processed" / "research_records.json"
 
 
 def load_research_records() -> list[dict[str, Any]]:
-    """Load research records from the project's JSON dataset."""
+    """Load research records, excluding explicitly demo-only fixtures."""
     if not DATA_FILE.exists():
         return []
 
@@ -26,7 +25,13 @@ def load_research_records() -> list[dict[str, Any]]:
         if not record.get("title"):
             raise ValueError("Every research record needs a title.")
 
-    return records
+    # Keep demo fixtures in the repository for tests/documentation, but never
+    # present them as research evidence through the production search endpoint.
+    return [
+        record for record in records
+        if record.get("verification_status") != "demo_only"
+    ]
+
 
 def search_research(query: str, limit: int = 5) -> list[dict[str, Any]]:
     """Rank local research records by simple keyword relevance."""

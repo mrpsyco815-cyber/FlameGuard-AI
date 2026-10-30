@@ -1,4 +1,4 @@
-﻿import json
+import json
 import re
 from pathlib import Path
 from typing import Any
@@ -26,8 +26,17 @@ def load_nasa_passages() -> dict[str, Any]:
             f"NASA combined evidence file not found: {DATA_FILE}"
         )
 
-    with DATA_FILE.open("r", encoding="utf-8") as file:
-        data = json.load(file)
+    raw_content = DATA_FILE.read_text(encoding="utf-8")
+    if not raw_content.strip():
+        # No combined NASA passages have been loaded yet.
+        return {"document_count": 0, "documents": []}
+
+    try:
+        data = json.loads(raw_content)
+    except json.JSONDecodeError as exc:
+        raise ValueError(
+            f"NASA combined evidence contains invalid JSON: {exc}"
+        ) from exc
 
     if not isinstance(data, dict):
         raise ValueError("NASA combined evidence must be a JSON object.")
