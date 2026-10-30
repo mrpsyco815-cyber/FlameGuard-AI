@@ -51,10 +51,13 @@ def _build_combined_sources(local_results, online_results):
 
         source = sources[key]
 
-        if "local_research_intelligence_store" not in source["source_presence"]:
-            source["source_presence"].append(
-                "local_research_intelligence_store"
-            )
+        local_origin = (
+            "supplemental_research_collection"
+            if item.get("record_origin") == "supplemental_research_collection"
+            else "local_research_intelligence_store"
+        )
+        if local_origin not in source["source_presence"]:
+            source["source_presence"].append(local_origin)
 
         source["local_passage_count"] += 1
 
