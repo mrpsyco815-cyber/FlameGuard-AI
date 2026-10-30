@@ -1,7 +1,7 @@
 from collections import Counter
 
 from backend.services.nasa_online import search_nasa_online
-from backend.services.research_summarizer import build_evidence_brief
+from backend.services.research_summarizer import DEFAULT_STORE_PATH, build_evidence_brief
 from backend.services.subhan_research import search_subhan_research
 
 
@@ -60,10 +60,7 @@ def search_mission_research(
     )
 
     legacy_brief = build_evidence_brief(
-        legacy_store_path or __import__(
-            "backend.services.research_summarizer",
-            fromlist=["DEFAULT_STORE_PATH"],
-        ).DEFAULT_STORE_PATH,
+        legacy_store_path or DEFAULT_STORE_PATH,
         query,
         limit=100,
     )
