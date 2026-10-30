@@ -43,7 +43,7 @@ class TestSubhanResearchIntegration(unittest.TestCase):
                     "study_id": "saffire-vi-2024",
                     "title": "Preliminary Results from the Saffire VI Experiment",
                     "investigation": "SAFFIRE-VI",
-                    "evidence_text": "Carbon dioxide and carbon monoxide increased during the spacecraft fire experiment.",
+                    "evidence_text": "Microgravity flame spread and carbon dioxide increased during the spacecraft fire experiment.",
                     "source_url": "https://ntrs.nasa.gov/api/citations/20240002981/downloads/file.pdf",
                     "file_name": "saffire-vi.pdf",
                     "page": 2,
