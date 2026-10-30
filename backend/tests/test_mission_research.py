@@ -178,6 +178,52 @@ class TestSubhanResearchIntegration(unittest.TestCase):
             result["local_coverage"]["distinct_source_count"], 2
         )
 
+    @patch("backend.services.mission_research.search_bass2_records")
+    @patch("backend.services.mission_research.search_nasa_online")
+    def test_online_metadata_is_attached_to_matching_local_source(self, online, bass2):
+        online.return_value = {
+            "source": "NASA NTRS",
+            "results": [{
+                "nasa_id": "20240002981",
+                "title": "Preliminary Results from the Saffire VI Experiment",
+                "abstract": "NASA catalogue abstract.",
+                "source_url": "https://ntrs.nasa.gov/citations/20240002981",
+            }],
+        }
+        bass2.return_value = []
+        result = search_mission_research(
+            "smoke alarm 981 seconds",
+            legacy_store_path=self.legacy,
+            **self.mission_subhan_args(),
+        )
+        self.assertTrue(result["fallback_triggered"])
+        self.assertEqual(result["online_search"]["count"], 0)
+        matching = next(
+            item for item in result["local_evidence"]
+            if item["source_id"] == "20240002981"
+        )
+        self.assertIn("online_catalog_metadata", matching)
+        self.assertIn("nasa_ntrs_online", matching["source_presence"])
+
+    @patch("backend.services.mission_research.search_bass2_records")
+    def test_bass2_search_uses_query_and_fuel_filter(self, bass2):
+        bass2.return_value = [{
+            "record": {"Fuel Sample Material": "PMMA"},
+            "matched_terms": ["pmma"],
+            "relevance_score": 1.0,
+        }]
+        result = search_mission_research(
+            "PMMA flame",
+            fuel="PMMA",
+            legacy_store_path=self.legacy,
+            **self.mission_subhan_args(),
+        )
+        bass2.assert_called_once_with(query="PMMA flame", limit=10, fuel="PMMA")
+        self.assertEqual(
+            result["bass2_structured_experimental_data"]["query_relevant_record_count"],
+            1,
+        )
+
     def test_rejects_empty_or_unsearchable_query(self):
         with self.assertRaises(ValueError):
             search_subhan_research("  ", **self.subhan_args())
