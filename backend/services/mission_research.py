@@ -3,6 +3,7 @@ from pathlib import Path
 
 from backend.services.bass2_dataset import search_bass2_records
 from backend.services.evidence_intelligence import build_evidence_intelligence
+from backend.services.condition_comparison import build_condition_comparison
 from backend.services.nasa_online import search_nasa_online
 from backend.services.research_summarizer import build_evidence_brief, tokenize
 from backend.services.subhan_research import search_subhan_research
@@ -178,6 +179,11 @@ def search_mission_research(
         if raw_online.get("error"):
             online_search["error"] = raw_online["error"]
 
+    condition_comparison = build_condition_comparison(
+        evidence=combined_local,
+        bass2_results=bass2_matches,
+    )
+
     evidence_intelligence = build_evidence_intelligence(
         local_evidence=combined_local,
         online_metadata=online_search.get("results", []),
@@ -215,6 +221,7 @@ def search_mission_research(
         },
         "local_evidence": combined_local[:limit],
         "evidence_intelligence": evidence_intelligence,
+        "condition_comparison": condition_comparison,
         "bass2_structured_experimental_data": {
             "query_relevant_record_count": len(bass2_matches),
             "results": [
