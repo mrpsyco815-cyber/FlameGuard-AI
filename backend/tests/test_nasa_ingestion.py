@@ -185,6 +185,37 @@ class TestNASAIngestion(unittest.TestCase):
         self.assertEqual(result["status"], "already_imported")
         get_request.assert_not_called()
 
+
+    def test_does_not_reimport_document_from_primary_dataset(self):
+        primary_path = (
+            self.root / "data" / "processed" / "nasa_combined_evidence.json"
+        )
+        primary_path.parent.mkdir(parents=True, exist_ok=True)
+        primary_path.write_text(
+            json.dumps({
+                "documents": [{
+                    "nasa_id": "20080034883",
+                    "title": self.metadata["title"],
+                }]
+            }),
+            encoding="utf-8",
+        )
+
+        with patch(
+            "backend.services.nasa_ingestion.requests.get"
+        ) as get_request:
+            result = nasa_ingestion.import_nasa_document(
+                "20080034883",
+                project_root=self.root,
+            )
+
+        self.assertTrue(result["success"])
+        self.assertEqual(
+            result["status"],
+            "already_in_primary_collection",
+        )
+        get_request.assert_not_called()
+
     def test_rejects_invalid_nasa_id(self):
         result = nasa_ingestion.import_nasa_document(
             "../bad-id",
