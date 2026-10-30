@@ -1,0 +1,681 @@
+
+==========================================================================================
+NASA ID: 20000024924
+==========================================================================================
+
+
+--- PDF PAGE 6 ---
+        finallyandmostimportant,microgravity-combustionstudiescanleadtothecreationofadvancedfire-
+       safetysystemstbrspacecraftapplications,inparticularforsuchcomplicatedspacecraftastheInternational
+        SpaceStation(ref.9).
+    ThefireincidentsthathaveoccurredontheSpaceShuttleortheOrbitalStation(OS)Mir demonstrate    that  fire
+ is a crucial  concern   in spaceflight    safety.  The most  serious   operational   accident   in the history  of manned   orbital
+ flights  was the  fire  incident   that  happened   on February   23,  1997  on the OS Mir.  This  fire was  caused  by a Solid  Fuel
+Oxygen   Generator   failure  as the result  of the  canister  burnout   during  generator   activation    in the Module   Kvant. A
+tragedy  was  avoided  only  due  to immediate   and  appropriate    reaction  of  the Russian  crew.   It was also  helpful   that  the
+fire  occurred   in Kvant  when  the module  was  not overcrowded.   The  situation  on Mir was  extremely   serious,  and
+immediate    resolution   was  necessary.  The crew  had  either  to  battle  the  fire,  or to abandon   the Space  Station  while
+exit  to the Soyuz  return  vehicle   through  Kvant  was  still  possible.  The  flame  on the Oxygen  Generator   was  pointed   in
+a certain   direction   with  a length  of ~0.5 m, and  the  temperature    of the combustion   products   in the flame  zone  was
+extremely   high  due  to the  constant   intake  of pure  oxygen.   Sparks  and drops  of melting  metal  bright  white  in color
+burst  out  of the flame  zone.  The  fire extinguished    within  a short  period  of time  (- 1.5 rain)  due  to the confident
+actions   of the Russian  crew, who  used  three  extinguishers    to eliminate   the  fire.
+     For  the  International   Space  Station,   the  probability    of  fire  is greater  than  for the  spacecraft   of previous   genera-
+tions,  due  to the  higher  power  and  voltage   of the on-board   power  supplies  and  greater  volume  of scientific    instru-
+mentation   with  high-temperature     operation.
+      Currently,    fire  safety  on Russian   spacecraft    is achieved  by prevention   methods   that exclude   the possibility   of
+fire through   a wide  range  of different   means,  for example:
+
+       •     selecting   structural   materials,   based  on the  results  of ground   testing,  with  priority  given  to
+           materials   with  higher  limiting-oxygen     concentrations     for combustion      (C,,,,,) or/and   higher  oxygen    indices;
+       •     specifying   nonflammable     materials   for the working  components    of the  electrical   systems;
+       •    maintaining   low oxygen   concentrations     in the  spacecraft   pressurized   compartment    during   the launch
+           phase:
+       •    decreasing   the  vent  flow  locally   in the area  of the  electrical   components    that might  be potential   sources
+           of  fire:
+      •     eliminating    potential   sources   of structural   material   ignition  by methods   of current   protection   or by use  of
+          nonflammable    instrumentation    and  cable  harnesses;   and
+      •     preventing   flame  spread   to materials   that  are tlammable    in an oxygen-enriched    environment.
+
+     Lack  of buoyant   flow  in the  spacecraft   environment    reduces  oxygen   transfer   into the combustion   zone  and
+combustion-products       transfer   in the  opposite   direction,   which  leads  to flame  extinction  on  the  surface  of solid  mate-
+rials when  the velocity   of concurrent   vent  flow  is low.  Fifty  years  ago,  Zeldovich    (ref.  10) predicted   the existence    of.
+minimum   and maximum   flow  velocities   to sustain  combustion.    Recently,    this assumption   was  confirmed   both  the
+theoretically     (refs.  11 and  12) and  experimentally     (refs.  13 to  17) for the combustion    of several  nonmetallic    materi-
+als.  In particular,    testing   at the NASA  Glenn  Research   Center  Drop  Tower   (refs.  16 and  17) demonstrated     that,  even
+lor a thermally   thin  material  with  a low C,,m of  12.5 percent  (paper  sheets  0. l-mm   thick),  a limiting  flow  velocity
+V,,mof 0. I to  1.0 cm/s  for combustion    exists  at oxygen   concentrations   C  of  17 to 21 percent.  This   is a result  of the
+relative   increase   in heat  losses  due  to  radiation  from  the  material   surface  and  from  the gas phase   (refs.   I 1 and  12).
+This  loss  is the cause  of the  ignition-source    suppression    in microgravity     at flow  shutoff   in the  spacecraft   pressurized
+compartment.    (This  conclusion    differs  from  that  of the de  Ris model   (ref.  18), which  does  not account   for radiation
+thermal   loss.)  When  the oxygen   concentration    increases  up  to 30  percent,   the  intensity   of the  diffusion   increases   as
+well,  to the  level  where  combustion    of a thermally   thin  material  becomes   possible   without  imposed   flows  to provide
+oxygen   intake.  However,   at these  conditions,   decreases   in concurrent-flow-velocity       lead  to reductions   in combustion
+intensity  and  flame-spread     rate.
+     In the  previous,   second   series  of experiments    in the  Skorost   apparatus   on OS Mir  (ref.  3), the existence   of the
+limiting   velocity   V,,,, for combustion   was  confirmed    for PMMA  and  glass-epoxy-composite        strip  samples  2-mm
+thick  at C  = 21.5  percent.   It was  concluded   that  V,,mdepends  on C.  For PMMA,   with  a low oxygen  index  of
+ 15.5 percent,   the  limiting  flow  velocity   is less than  0.5  cm/s:  and  for glass-epoxy    composite,   with  a high oxygen
+index  of 19 percent,   the  limiting  flow  velocity   is greater  than  15 crn/s. When  the concurrent-air-flow      velocity
+decreases   but  is not  less  than  V,,,,, the combustion    intensity   decreases   in microgravity,    similar  to a thermally   thin
+
+NASA/CR--    1999-209405                                  2
+
+
+--- PDF PAGE 9 ---
+thecontaminationofthespacecraftcompartment,theapparatusisequippedwithtwosetsof filters.Filteroperation
+wasevaluatedontheMir  full-scale  mock-up   (core  module)  during  the ground   preparation    for  the experiment.
+    Two  carousels   are  located  symmetrically    inside  the combustion   chamber.   Six samples   of tested   materials   can  be
+mounted   as cantilevers   on each  carousel.  A sample   is 60 mm  long. (A  strip  sample   is no more  than  3 mm  thick,  and
+a cylindrical   sample  has  a diameter   up  to 5 mm.)  To comply   with  crew-safety   requirements,    the  test sample   is
+selected  and  put  in the  test  position   along  the chamber   centerline   by  rotation  of  the carousel   using  an external   lever
+only. A crew member    is not allowed   to open  the combustion   chamber.   The sample   free end  is ignited  inside  the
+chamber,  and  then combustion   occurs   in a concurrent   unitorm   flow,  which   is parallel   to the sample   axis.  Adjacent
+samples   are  separated   by distances   of 25  to 27 mm, measured   along  their  longitudinal   axes.
+    The prime  and  redundant   igniters   are  built-in  devices   that  consist   of a NiCr  heating   coil  located  on the  bracket.
+The  igniter  coil  wire  diameter    is 0.3 mm,  and  it is heated  by  direct  current.  The  heating   coil  is powered   through   the
+end  terminals  when   it approaches   the sample,  and  it will  ignite  only  the sample   that  is placed   along  the combustion-
+chamber   centerline.   The  igniter  drive  is supplied   with  springs   to  return  the  igniter   to its  initial  position.  The  heating
+coil can  be heated  up to minimum,   nominal,   and maximum   temperatures,    as desired   to provide   a reliable   ignition.
+    The  flow  velocity   is the most  important   parameter   that  can be controlled    in the  test  apparatus.   Skorost  means
+"velocity"   in Russian,   and  it gave  the  apparatus    its name.  The  velocity  can be changed   within  a wide  range  (from
+20-30  to 0.3  to 0.5 cm/s)  during  the  test by  adjusting   the  flow-rate   meter  knob  position  and  the fan-motor   voltage
+drop,  according   to ground   flow  calibrations   performed   prior  to the  tests.
+    To assure  flow  uniformity,   meshes  are  installed   at the combustion-chamber       inlet and  outlet.  In a contingency
+situation,   the combustion-chamber       inlet  can be closed  with a metal  shutter.  A heat  exchanger    installed   at the com-
+bustion-chamber     outlet  cools  the  air  heated  by  the burning   sample.  The  experiment     is monitored   and  recorded   by
+HI-8  and Betacam   cameras  through  two  rectangular  PMMA  windows,   100 x 60 mm  in  size,  that  are  located  on  the
+side and on  the  top of the combustion   chamber.   Pressure  and oxygen   concentration    measured   by  the  standard
+monitoring   instrumentation     in the spacecraft   compartment    are recorded   at the time  of the  test.
+        I. 1.2 Flow  Calibration    in the Skorost  Combustion   Chamber.--Flow      calibration   was  performed    after  the
+installation   of the  igniter  fairings   at the Keldysh   Research   Center,  using  a laser  technique   according   to the diagram
+shown  on  figure   1.3. A laser beam  was transformed    into  a plane  ~ 0.5-1.0 mm  thick  lbr smoke   visualization.   Smoke
+was  led  into  the chamber  from  a box  located   at the combustion-chamber        inlet. The  velocity   of the flow  is actually
+the  velocity  of the  stable  smoke  blobs  flowing  through   the chamber.   Smoke-blob   movements   are  referenced   to a
+scale  grid,  located  on the background   and  recorded   by the video  camera,  The  distance  between   gridlines    is 10 mm.
+Measurements    are done  along  the 30-  to 40-ram  distance   with  an error  of  I to 2 mm. The  accuracy   of the time
+measurement    that a selected  smoke  fragment   takes  to pass  a distance   between   the  gridlines    is defined   by the camera
+frame  rate  of 25  frames/see.   This  error  _Stis less  than 0.04  sec. The  test was  repeated,   and  the  flow-velocity   meas-
+urement   error  appears   to be less than  10 to 15 percent.
+     For  calibration   purposes,   the combustion   chamber  was  filled  with smoke  before  the  fan was  turned   on. The
+smoke  visualization    demonstrated     that, when  the flow  velocity   is above  3 to 4 cm/s,  flow  in the middle   part  of
+Skorost  combustion   chamber   (flow  core)  is fairly  uniform.  The  rear  border  of a smoke  cloud   is practically   undis-
+turbed  when  smoke  passes  through   the combustion   chamber,   which  confirms   flow  unitbrmity.   (The  smoke  moves
+from  the mesh  at chamber   inlet  to the  point  of sample  location  and  farther---see     fig.  1.4.)  When  the flow  velocity   is
+lower  (less  than  3 cm/s),  the smoke  cloud  rear  border   is disturbed,   which  might  be an indication   of flow-core   degen-
+eration  and  Blasius   velocity-profile    formation    at small  Reynolds   numbers.
+    Due  to problems   that  occurred   at the  filter  delivery   to the OS Mir,  the  flight  Skorost  was  equipped   only  with
+two  filters  instead   of lbur.  Therelbre,   one  of two  parallel  combustion-chamber      outlets  was  sealed  on  orbit.  The
+ground   calibration   was  performed   with two  filters  instead   of four,  at the Mir  nominal   voltage  (27 V) and  at the
+lower  voltage   of 25.9 V that was on the Space  Station   at the time  of the experiment,   when  the high  power-
+consuming    "Electron"   electrolysis   system  was  working.  The  lower  voltage  supplied   to the  Skorost  control   board
+permits   the control   of a lower  range  of flow  velocities.
+    The  flow  calibration    results  by smoke  visualization    are shown  on figure   1.5. The  airflow  velocity  V in the
+Skorost   is plotted   versus  q_for two U settings,  where  _  is a flow-rate   meter  knob  position  on  the  control  board,  and
+U  is a voltage  supplied   to the control  board  and  the Skorost  air-pump   motor.  The  flow-velocity    range  from  0.3  to
+10 cm/s  covers   that  desired   for the space  experiment.
+
+
+
+
+
+NASA/CR--    1999-209405                                  5
+
+
+--- PDF PAGE 13 ---
+behaviorduringthespacetest.Thetime"r,,is higher   for materials   that  have  lower  V,,,, at a given  oxygen  concen-
+tration.  This  finding   is verified   for the  tested  polymers.   For  high-density    polyethylene,    Delrin,  and PMMA,   "r_,is
+15 to 20, 45 to 50, and 20 to 25 sec.  respectively.
+    The  length  of the melting   portion   of the material  and  the  mass  of the melt  drop  are smallest   tbr  Delrin,  due  to
+the low  V,.,  for Delrin  compared   to polyethylene   and PMMA.  The  previous   testing  on Mir showed   that  if the flow
+velocity   is small,  a flame  will be shorter;   and.  consequently,    the  heated  and  melted  portion   of the sample   will be
+shorter.   Besides,   the Narrow-Channel     testing  demonstrated     that  the  viscosity   of molten   Delrin   is higher  than  the
+viscosity   of molten PMMA.  Based  on  all these  factors,   the tests  showed   Delrin  to be a most  appropriate    material   for
+the space  experiment,    with  space  testing   starting   at a low  velocity   flow--about    2-3  cm/s.
+    Compared   to the Russian  PMMA,   the U.S. PMMA   melts,  which  makes  the Russian   material  more  suitable   for
+the  testing.  The  Russian PMMA   burns  without   rigid  char  formation,   undergoes   complete   pyrolysis,   and  maintains    its
+shape  when  the flow  velocity   is close  to V,,.  All these  properties   make PMMA  a model  material   for polymer  com-
+bustion  study  in Russia.
+     Both  low-density   and high-density    polyethylene    have  limiting  flow  velocities   greater  than  those  of Delrin  and
+PMMA.   Therefore,    the experiment   has  to start  at a relatively   high  flow  velocity.   Polyethylene    forms  a ball  of molten
+material   in 10 to 15 sec,  because   of  fast  formation   of a lengthy  melting   zone  (10  ram).
+     In summary,   the results  of the ground   testing  in the Narrow-Channel     apparatus   with  suppressed   convection
+demonstrate    that  Delrin,  high-density    polyethylene,    and PMMA  have  a relatively   steady  combustion    zone;  and,
+therefore,   these  materials   are  suitable   for the  space  experiment.
+    One  of the objectives   of the space  experiment   on Mir  is to analyze   the  flame-spread    rate over  the  surface  of the
+selected   materials.  As a part  of flame-propagation     study,  an average  flame-spread    rate was measured   in the Narrow-
+Channel   apparatus.   Measurements    were  taken  for the  initial  phase  of combustion,    the  period  from  sample   insertion
+into  the Channel   to when  the molten  material  drop  touches   the  lower  plate  of the Channel.  The  flow  velocity  was
+from  1 to 4 cm/s  above  V,,mat C  = 21 percent  and from  3 to  1I cm/s  above  V_,mat C,,_= 23 percent.
+    The  results  of flame  propagation    rate  (V_) measurements    for  the three  selected   materials   are  presented   in
+table  1.3. Delrin  has  the  lowest  V_ (0.12  to 0.16  mm/s),  and  polyethylene    has  the highest  Vf (0.52  to 0.60  mm/s).
+   A flame-spread    rate  might  be a function   of a number   of material   characteristics,    such  as material    reactivity,
+melting   temperature,    surface   tension,   viscosity,    etc. Besides.   materials   were  tested  in flows  of different    velocities,
+which   is another  obvious   explanation    of a difference   in V,  values. A higher  flow  velocity   will promote   a longer
+flame  zone.  The  longer   the flame  zone,  the  longer  the  portion  of the sample   that  is heated  up to a melting  tempera-
+ture.  which  will  define  a rate  of molten  material  drop  formation   and  a rate  at which   material   is leaching   out from  the
+sample.  The  analysis  showed   that,  for  selected   materials,   a flame  spread  due  to melting   prevails  over  a flame  spread
+due  to material   escaping   from  the  front  edge  of the sample.
+    The  rates  of material   burning-out    for  Russian-made  PMMA  and  polyethylene    are  less than  0.05  mm/s  at a flow
+velocity  V = 10 cm/s  and C, x= 21 percent,    i.e., 5 to 10 times  lower  than  the  flame-spread    rates  measured   for  the
+melting   materials   that  were  tested.  Therefore,     it can be predicted   that  the diameter   of a drop  formed  by the molten
+material   will be growing   during  the  flight  experiment   on Mir.
+
+
+                                                      1.5 Skorost  Ground  Testing
+
+     Based  on the  results  of the previous   testing   in the apparatuses    with  suppressed   convection   and  accounting    for
+C,,m, only  three  materials,   Deirin,   high-density    polyethylene,    and PMMA,  were  tested  in Skorost  on the ground.  The
+samples  were  1.5 mm x 8 mm  strips and 4.5-mm   diameter   cylinders,   60 mm  long. The  samples  were  tested  in Sko-
+rost  in both  vertical  (downward   combustion,    in concurrent   flow)  and  horizontal   orientation.   Below   is a timeline   for
+the  Skorost   testing:
+
+       •     ignition   of the sample   at the nominal   current  with  the  heating   coil:
+       •    sample  combustion    in a flow  of 8 cm/s:
+       •    sample  combustion    at flow  shutoff,    i.e., when  the flame  propagated   through   half  of the sample,   the  fan was
+          tuned   off, and  the  inlet was closed.
+
+
+
+
+
+NASA/CR--   1999-209405                                  9
+
+
+--- PDF PAGE 16 ---
+           2.SPACEEXPERIMENTSINSKOROST  ON ORBITAL  STATION   (OS) MIR
+
+     The  Skorost   apparatus  was  accepted   tbr  the  flight  test  alter  ground   preparation,   which  included:
+
+       •    space-experiment     procedure   development,
+       •    Skorost   special   testing  for  safety  assessment,   and
+       •    Skorost   electrical   system  development    and  checkout.
+
+    On October   14, 1998,  the OS Mir crew  26 (Cosmonauts   G. Padaika  and  S. Avdeev)   assembled   and  prepared   the
+flight  Skorost   apparatus.     It was  connected    to the Kvant  Module  power  and  telemetry   systems,  and  the  control  board
+was checked   out.  Skorost   functionality   and  readiness   were  confirmed.   The  apparatus  was  prepared   for  microgravity
+flammability    evaluation    of selected  nonmetallic    structural   materials,     i.e.,  the  thermoplastic    polymers,   Delrin,
+PMMA,  and  high-density    polyethylene.
+     Twelve   samples  were  installed   in the  Skorost  combustion   chamber   (four  of each  material;   cylindrical   samples
+4.5-mm   in diameter   and 60-mm   long).  Samples   were mounted   rigidly  on two  carousels   according   to the following
+arrangement:
+
+           Delrin  (Samples   #1,  #2.  #3. and  #4) and PMMA  (Samples   #5 and #6)  were  mounted  on the  first  carousel;
+      PMMA  (Samples  #7 and  #8) and  polyethylene    (Samples   #9, #10,  #1  I, and #12)  were mounted  on the
+          second  carousel.
+
+    The  flight  Skorost   apparatus  was equipped   with  only  one  set of  filters  instead   of two.  Therefore,   one of the two
+parallel   outlets  was  sealed  during  the assembly   procedure.
+     Four  test  cycles  were  accomplished    successfully    in Skorost  on Mir  on October   15-22,  1998.  Each  test cycle
+covered   combustion    of three  samples   (one  of each  material).  The  first  test cycle  was  performed   on October   15,
+ 1998,  with Samples   #1,  #5,  and #9;  the second   test cycle  was  performed   on October   19, 1998,  with  Samples  #2,  #6,
+and  #10:  the  third  and  fourth   test cycles  were  performed   on October   22,  1998,  with Samples   #3,  #8, and #11  and  #4,
+#7,  and #12  respectively.
+    The  experiment   was  monitored   and  recorded   by HI-8  and Betacam   cameras.   Since  the video  recording  was  per-
+Ibrmed   outside   the times  of the communication    window  between   the ground  and  the Space   Station,   real-time   moni-
+toring  of the combustion   experiment   was  not  feasible.
+    Oxygen   concentration    in the Mir compartment   was measured   and  recorded.     It was  higher  than  the expected
+21 percent   (total),  ranging  from  22.5  to 25.4  percent.  The power  supplied   to Skorost  was off-nominal    as well.  There-
+tore,  part  of the  flow-velocity    selection   in the  test  program   (table   1.5) had  to be  modified.   Table  2.1  of the
+report  shows  the changes   that  were  implemented    into  the  test program   as determined   during  communication     ses-
+sions  with  the OS Mir crew  before  the beginning   of each  test  cycle..
+
+
+                                                           2.1 Delrin  Testing
+
+      2. I. I Sample  #1.--The    space  experiment   was done  on October   15, 1998. The  space-compartment     environment
+was  characterized    by a total  pressure  PAtMof 709 mm Hg (94.5  kPa);  an oxygen   partial  pressure    p,,: of 160 mm Hg
+(21.3  kPa,  or 22.5  percent   of the  total  pressure);   a water  partial  pressure   PH.,,,of  7.4 mm Hg  (0.99  kPa);  a carbon-
+dioxide   partial  pressure    Pc,,,_,of 5.2 mm Hg  (0.70  kPa);  and  a temperature  T = 20 °C.
+    The sample  was  ignited   at a velocity V of 2 cm/s. An attempt   to  ignite  the sample  by two  igniters   at nominal
+temperature    failed  after  54  sec, and  then  two  igniters   at maximum   temperature    ignited  the sample   in 22 sec. The
+sample   length  was  divided   into two  halves  by a concentric   mark  in the  middle.  The  first  half  of the  sample  was
+burned   in a flow  velocity   of  ! cm/s,  and  then  the flow  was  stopped.  The  duration   of combustion   was 3 min  and
+33  sec.  After  the flow  shutoff,   the Deirin  sample  #1 continued   to burn  for 2 min: 10 sec,  until combustion    finally
+ceased.
+    The combustion   chamber   observation   windows  were  loggy   initially.  The  heat  from  the  Delrin  sample  #1 com-
+bustion   distorted   the adjacent  PMMA  sample  #7 and  bent  it toward   the combustion   chamber  window.  The  Polyeth-
+ylene  sample  #12 was  also detormed   by heat.
+
+
+NASA/CR--    1999-209405                                 12
+
+
+--- PDF PAGE 20 ---
+r= 180sectoamaximumof2.9atr= 255(thetimeofflowshutoff)andthendecreasesto2.25atr= 310(inthe
+timeperiodwhenthesamplecontinuestoburneventhoughV iszero).
+    ForDelrinsample#1,theflame-propagationrateV,_÷increasesgreatlyfrom0.053to0.092mm/satr= 180sec.
+Thematerial-destructionrateV,_-isconstantandlowat0.036mm/s.However,whentheflowstops,thematerial-
+destructionrateincreasesto0.060mm/s.It isstillunknownwhyDeirinsample#1continuedtoburnfor130sec
+afterflowshutoffuntilfinallyextinguishing.
+      3.2.2  Delrin  Sample  #2.--Combustion     dynamics   for Sample  #2  are shown  in  figure  3.2.  This  sample  was
+ ignited  at a higher  flow  velocity  (V = 4 cm/s  instead  of 2 cm/s).  The  higher  flow  velocity  and  the  experience   gained
+during  Delrin  sample  #1 combustion    helped  the cosmonauts    to ignite  the sample   in only  5 sec.  Figure  3.2  indicates
+that  the diameter   of the melt  ball  d,  increases  from  the  initial   1.0 at "_= 0 to 2.15  at 140 sec during  the  first mode  of
+the  test (V =  I cm/s).  By the end  of the  experiment,     d,, reaches   2.5. The  melt-ball   length  1D(not shown)    is 2.55  at
+first,  and  then   it increases   during  the second  mode  of the  test (V = 0.5  cm/s),  but not  rapidly.  Flame  diameter   and
+length  increase   from  D,: = 2.0 and L,_ = 1.75  at _ = 0 to Dr_ = 3.9 and L,_= 5.3  at 115 sec.
+     Figure  3.2  also  shows  the amplitude   of sample  rear-edge    oscillations   (coordinate   X_:). These  oscillations    are
+caused  by formation   and  eruption   of big bubbles  with  gaseous   products   of material   destruction    inside.  Despite   the
+growing   size  of the melt  ball,  the  material-destruction      rate V r- is constant   at 0.105  mm/s  for both V =  I and
+0.5 cm/s.  which   is three  times  higher  than  the rate  of 0.036  mm/s  measured   for Delrin  sample   #1. The  flame-front
+propagation    rate  V, * (not shown   in fig.  3.2)  is 0.13  mm/s  at V = 1 cm/s  and  0.10  at V = 0.5.
+   A flame  of a light  blue  color  was  observed   during  the  test when  the flow  velocity  was  1 cm/s.  The  flame
+became  almost  transparent   when  the flow  velocity  decreased    to 0.5 cm/s.  The  flame  and  melt  ball  at the  latter  time
+are  illustrated    in figure  3.14.
+      3.2.3  Delrin  Sample  #3.--Combustion     dynamics   for Delrin  sample  #3  are shown   in figure  3.3. The  size  of the
+melt  drop  increases   rapidly  during  the  first  mode,  similar  to that  of Delrin  sample  #2,  up to dD= 2.0 at x = 90  sec.
+The  size  of the flame  increases   as  well and  reaches  D,:=  4.4 and  L,_= 4.8  at "_= 90  s, with  a rate  of change   of the
+flame  length  shown  as 0.21  mm/s.  The gap between   the flame  and sample   surface   _: is  1.0 to 1.15  (not shown   in
+fig.  3.3).  The  material-destruction      rate V,_-shown   in the  figure  remains   the same  at 0.175  mm/s  tor  the V = 2 and
+0.3  cm/s  conditions,   but   it decreases   by almost  a factor  of two (0.075  cm/s)  after  x = 150 sec, when  a piece  of the
+PMMA  sample  #5 stuck  to the Sample  #3 and  the two samples   started  to burn  together.  The  flame-front   propagation
+rate V, _ (not shown)  decreases   by almost  a factor  of three  (i.e.,  from  0.25  to 0.085  mm/s)  when  the flow  velocity
+changes   from  2 to 0.3 cm/s.
+      3.2.4  Delrin  Sample  #4.--The     last Deirin  sample  was  tested   at a maximum   flow  velocity   of 7 cm/s.  Combustion
+dynamics   lor  Delrin  sample  #4 are shown   in figure   3.4. The  diameter   of the boiling   melt  drop  d,  increases
+constantly   from  an  initial  1.0 to 2.0  at "t= 60 sec  (the end  of the  first mode)  to 2.4  at "_ = 160  (near  the end  of the
+second  mode).  The  size  of the flame  reaches  D_ = 4.5 and L_ = 6.5  at z = 60. The  flame-front    propagation    rate  V, _ is
+0.4  cm/s  during  the  first mode  (not shown   in the  figure).  The  material-destruction      rate  Vj  of 0.185   is the same  lbr
+both  modes,  about  half  of the  flame-propagation      rate.
+   A  bright  flame  of a light  blue  color  was  observed  when  the flow  velocity  was 7 cm/s   (fig.  3.15).  The  brightness
+of the flame  decreased  when  the flow  velocity  was reduced   to 0.3 cm/s   (fig.  3.16).
+      3.2.5 PMMA  Sample  #5.--A    picture   of the PMMA  flame  when V = 2 cm/s   is shown  on figure  3.17. The  rear
+part of the flame  was  of a white  color  with  well-defined    border,  but  the front  part  of the flame  was  unstable,   red-
+orange   in color,  with  a poorly-defined    border.  Soot  particles   were  ejected  from  the  flame,  tbrming   strands.   Bright
+spurts  were  also  visible.  A high-temperature     zone,  visualized   by tiny  bubbles  appearing   in the  transparent  PMMA
+material,  was  located   in front  of the main  swollen   collar  of melting   material.  Tiny  drops  of molten  material   were
+noticeable   within   this  zone.  These  drops  moved  away  from  the sample   axis;  but,  being  unable   to overcome   a sur-
+lace-tension    force,  they  returned   to the  points  of their  origin   (fig.  3.18).
+     Combustion   dynamics   for PMMA  sample  #5 are shown   in figure   3.5. The  melt-drop   diameter   d,, increases
+gradually   and  reaches   2.0 by r=  70  sec.  Simultaneously,    both  the diameter   and  length  of the  hemispherical    flame
+increase   from  2.0  at r=  0 to 4.0  at 40  sec.  After  that  time,  the  flame  diameter  remains   constant   at 4.0  to 4.1, but the
+length  of the flame  continues   to increase   at a small  rate. The  flame-front   propagation    rate  is a constant   lbr  the  entire
+test  at V_÷ = 0.26  mm/s,  but the  material-destruction      rate V_:-increases   from  0.06 mm/s  measured   during  the time
+interval   of r= 20  to 45 sec  to 0.2  after  r=  45.
+
+
+
+
+
+NASA/CR--    1999-209405                                  16
+
+
+--- PDF PAGE 23 ---
+combustionchamber.Withtheexceptionof the  first  Delrin  sample  (Sample   #1, which  might  be overheated),
+ r. = 13 to 24 sec  for Delrin,  which   is several  times  lower  than  the  extinction   time  in the ground   test (_ = 115  see).
+   A limiting   flow  velocity   V,,, has been  identified   for PMMA.  When  the oxygen   concentration   C  was  23.6
+and  25.4  percent,   V,,,, was  close  to 0.5  cm/s. The  flame  did not decay  when  the flow  velocity  was 2 cm/s  at
+C  = 22.5  percent    (i.e.,  V,,m< 2 cm/s),  nor when  the flow  velocity  was  0.75  at C_ = 25.4  percent   (V,,,, < 0.75  cm/s).
+The  limiting  flow  velocity   obtained   in the ground   testing   is higher:   at C  = 21 percent.  V,m_= 3.3 cm/s,  and  at
+C  = 23 percent.  V,,m= 2.3 cm/s.  The  time  r_ of sample   extinction    at flow  shutoff   in microgravity   was  about  11 to 15
+sec, which  is  less than  half  of the extinction   time  in the ground   test  (_ = 30 see).
+   A limiting   flow  velocity  V_,mhas been  identified   for high-density   polyethylene    as well. When  the oxygen  con-
+centration   was  25.4  percent,   V,,o, was about  0.3  to 0.5 cm/s,  while  at C  = 23.6  percent,   combustion   was  still  going  at
+V = 1 cm/s,   (i.e.. V,,m<  I cm/s).  The  following   values   for a limiting  flow  velocity   for polyethylene   were  obtained   in
+the ground   testing  in the apparatuses    with  suppressed   convection:    at C  = 21 percent.   V,,,, = 8.3 cm/s,  and  at
+C  = 23 percent,   V,,,, = 3.6 cm/s. The  elevated   limiting-flow-velocity      data  from  the Narrow  Channel   test  might  be
+explained   by high  thermal   losses  from  the flame  to the cooled  copper   plates  that  formed  the Channel   (ref.  3).
+Table  3.1 shows   that  "t. tor polyethylene     is very  short  (v_.< 10 s). That  means   that,  in microgravity    at low oxygen
+concentrations    (C  = 21 percent),   diffusion    is not  sufficient   to sustain  combustion,   and  additional   oxygen   intake  by
+forced  convection    is required.
+
+
+                        3.4 Non-Steadiness    and Other  Characteristics    of Combustion    in Microgravity
+
+    The  nonsteadiness    of polymer   combustion    observed   in the space  experiment   might  be explained   by two
+reasons:   (1)  the formation   of the  melt  drop,  which   is almost   spherical   tbr  Delrin  and PMMA   (see  figs.  3.14  and
+3.18)  or ellipsoidal    for polyethylene    (see  fig.  3.20),  and  (2) a violent  (especially    for Delrin  and PMMA)   boiling
+within  the volume   of molten   material.
+     Figures  3.1  to 3.12 show  (whenever   possible)   the dimensionless    diameter  and  length  of the melt  drop,  d,, and
+1,,. measured   at the time  of the experiments.   The  drop  size  is not enough   to achieve   steadiness   even  after  100  to
+150 sec.  Theretbre,    lbr flammability    evaluations    of these  types  of materials,   the  length  of the sample  and  the  time  of
+the experiment   should  be increased.  The  dimensionless    drop  diameter   increases   rapidly   in the beginning   of the
+experiment,   and  the diameter   of the flame  and  length  of the flame  increase   as well. By the end  of the  experiment,
+the diameter   of the melt  ball  is 2 to 2.5 times  greater  than  the  initial  diameter   of the  cylindrical   sample,  and  the
+shape  of the sample  changes   drastically   during  combustion.   The  gas dynamics   of combustion   changes   as well,
+which  should  be accounted   for  in the  analysis  and comparison    with  the  test  data.
+     Polyethylene    has the  most  stable  and  steady  combustion.   Although   the gaseous  bubbles  lormed   inside  the  melt.
+there   is no significant    ejection   of material   from  the fuel  surface.   However.   in the quenching   mode,   intense   longitu-
+dinal  oscillations   of the flame  occur.  Figure  3.22  shows  the  results  of flame-length   measurements    and  presents   the
+dynamics   of the  Polyethylene    sample  #9 extinction,   when  the flow  velocity  changed  from  8.5 cm/s  to 0. The  length
+of the  part of the flame  that  is white  due  to the presence   of soot  particles   decreases   rapidly   ( z = 60  to 63 see);  and,  in
+three  seconds,   the  entire  flame  becomes   blue  and  transparent,   with  L, = 2.8 and D, = 2.6,   i.e..  it acquires   a shape
+close  to a hemisphere    (see  fig.  3.23).  The  flame  maintains   this shape  until  extinction   10 seconds   after  the  fan  is
+turned  off (r=  71 sec).  Combustion     is stationary.   However,   along  with  the  stationary   process,  flame  fluctuations    are
+observed   (r=  64 to 71  sec). The  flame  wave  moves  from  x = 0 (edge  of the sample)   to x = 6.3  (the  front  of the
+flame  when  the  fan was  turned   off) with  a frequency   of  1.3  to  i.4 Hz (see  figs.  3.23  and  3.24).  The  accumulation    of
+flammable   gases  next  to the  surface   of the sample   in the  area where  stationary   combustion    has  already  occurred   and
+the inability   of diffusion   to provide  enough  oxygen  to the  fuel  without   torced  convection   might  explain   these   sell'-
+sustained   flame   fluctuations.   There  are about  ten fluctuations    of the flame  front  within  7 sec  (r = 64  to 71  sec)  with
+periods   of 0.72  sec  (fig.  3.22).  The  velocity  of flame-wave   movement    in the downstream    direction    is about
+60 mm/s,   i.e.,  more  than  100-times   higher  than  the  flame-spread    rate  of 0.48 mm/s  that  is noted  tbr  quasi-stable
+combustion    at the maximum   concurrent   flow  velocity   of 8.5 cm/s.  Gradually,    the  brightness   of the flame  decreases,
+and  the flame  decays  beginning    at  its upstream   end.  In a short  time,  a thick  white  smoke  that  consists   of the cooled
+products   of polyethylene    pyrolysis    fills  the chamber---a    reliable   indication    that combustion    of polyethylene    has
+stopped.
+      Oscillations    of  this  type  with  the frequency   of 2.3 Hz were  observed   during  Polyethylene    sample  #11  combus-
+tion when  the flow  velocity   is close  to limiting  (V = 0.5 and  0.3  cm/s  at C  = 23.6  percent).  The  similar  process  was
+
+NASA/CR--1999-209405                                     19
+
+
+--- PDF PAGE 25 ---
+       5.RECOMMENDATIONSONCONTINUINGRESEARCHONFLAMMABILITYOF
+                NONMETALLICMATERIALSINMICROGRAVITY
+
+   Aswasnotedinreference9,themainobstacletocreatingareliablefire-safetysysteminthepressurizedcom-
+partmentsofInternationalSpaceStationmodulesisthelimitedunderstandingoftheunusualcharacteristicsofthe
+processofcombustionofsolidsinmicrogravity.Combustionofthermallythinlayersoffuel(sheetsof paper
+~0.l-ramthick)hasbeentheprimarystudyinexperiments.Thisisduetotheshorttimer,duringwhichit ispossi-
+bletomaintainastateofweightlessnessinfreefallingroundfacilities(r< 10secindroptowersandr< 25secin
+laboratoryaircraft).Thedataobtainedareundoubtedlyofgreattheoreticalinterest,butasarule,materialsinthe
+formofthermallythicklayersareusedinrealstructures.Forcombustiontests,theserequireamuchlongerduration
+ofweightlessness,whichcanonlybeprovidedduringexpensiveandcomparativelyrareflightsofsoundingrockets
+(r= 6to 10min)andspacecraft(r---->_).
+      Therefore,    in  all, only  six materials   in the form  of specimens   with  a sufficiently    large  cross-section    have  been
+tested  to date  under  conditions    of prolonged   weightlessness     (refs.  2, 3, 28 to  30), and three  of these  were  tested  in
+the  last  series  of combustion   experiments   on  the Skorost   experimental    unit  aboard  the Mir  Space  Station.  The  results
+are analyzed   in this  report  and are  presented   as reports   to the  Fifth  International   Microgravity    Combustion   Work-
+shop  held  in May  1999  in Cleveland   U.S.A.   (refs.  29 and  30). As was  noted  in reference   30, ground   facilities   with  a
+reduced   natural-convection      effect   (the Narrow  Channel  experimental    unit)  can  apparently   be used  only  for com-
+parative   testing  of the flammability    of materials.
+     Most  often,  experiments    in weightlessness    have  investigated   the combustion    of a reference   or model  material
+(PMMA,   polymethylmethacrylate),       the thermal  and  kinetic  characteristics    of which  have  been  studied   in the  greatest
+detail.  Planar  specimens    (plates  with  width  b = 8 mm and  thicknesses   h = 1, 2, and 3 mm)  were  tested  in the  first
+series  of space  experiments   on  the  Skorost  experimental    unit  aboard   the Mir  Space  Station   (ref.  2).  It was  observed
+that  the flame  was  not extinguished     at a velocity  V of the oncoming   flow  that  (as per updated   data)  exceeded   5 cm/s.
+The  flame  was  extinguished    only when  the flow  decayed   after  the  fan had been  switched   off.  In the second   series
+of space  experiments   on  the same  apparatus   aboard   the Mir Space   Station,  burning  planar  specimens   of PMMA
+(b = 2 mm)  were  extinguished   when  the  air-flow   rate  with  an oxygen   concentration   C  = 21.5  percent  decreased   to
+V = 0.5 cm/s.  This  agrees  with  the  results  of  this  study,  which  find  that a limiting   velocity  V_,,o= 0.5 cm/s  at C  =
+23.6  percent   for  cylindrical   specimens   with  diameter  d = 4.5 mm. A tendency   for extinction   of a flame  on  the  sur-
+face  ofa PMMA  specimen   with  thickness   h = 3.2 mm  in a stagnant   atmosphere   with  a very  high  oxygen   concentra-
+tion C  = 50 percent   at p = 202  kPa  (2 atm)  was  observed   in experiments    under  the  Solid  Surface  Combustion
+Experiments   program   (ref.  28).
+     Thus,   at least  tor the  reference   material  (PMMA),   the results  of the space  experiments   confirmed   the presence
+of a lower  velocity   limit  for combustion    V,,mpredicted   by the  theory   (refs.  11 and  12). However,     it should  be noted
+that  the  velocity   V,,,,,only  characterizes    the combustion    limit  lbr specimens  made  of the same  material   and  with  the
+same  geometrical    shape.
+     Figure  5. I presents   the results  of numerical   calculations   from   (ref.  I 1) on  the combustion    limits  of PMMA   in
+the  vicinity   of the  stagnation   point  of the oncoming   flow  of a gaseous  mixture  containing   oxygen.  The  results  are  in
+the Ibrm  of a map  of the mass  concentration    of oxygen  C   in the oncoming   gas flow  as a function   of the  velocity
+gradient   of the  external  flow  at the  critical   (stagnation)    point  a (the  derivative   of the  tangential   component    of the gas
+velocity  u calculated   in the  direction   of the  axis  of the  streamlined   body),  which  characterizes    the flow  in the  vicin-
+ity of the  critical   point.  The  velocity   at the  border  of  the boundary   layer  increases   linearly  with  the  distance  x from
+the  critical   point,   i.e., u = ax.
+    The  values  of the inverse   dimensionless    diagnostic    variable,   the Damk6hler   number
+
+                                              Da=    fl/  a
+
+are  actually   plotted  along  the  x-axis  of the graph   in figure  5.1,  where  ,6 is the modified   pre-exponential     factor  in the
+expression    for the  rate  of the chemical   reaction   (ref.   I i ). The  Damk6hler   number   is the  ratio  of the  characteristic
+gas-dynamic    time,  which   is proportional    to  1/a,  to the  characteristic    chemical-reaction     time, which   is proportional    to
+ 1//3. If the  value  of/3   is fixed,  which  corresponds    to the combustion    of any one  selected   material,   then  the  tollowing
+relation   is  valid.
+
+                                             Da 1 ~ a
+
+NASA/CR--   1999-209405                                 21
+
+
+--- PDF PAGE 26 ---
+    The  results  of the calculations   show  that  the relative   role  of heat losses  to radiation   from  the  surface  of the  solid
+body  increases   as the  velocity   gradient  a decreases.   This  leads  to a decrease   in the  temperature    of the flame  and
+extinction   of the flame  as a result  of the  decrease   in the  rate  of the chemical   reaction.   If there  is no radiation   from
+the  surface  (emissivity   e = 0), then  only  the upper  velocity   limit  of combustion    is observed----the   flame   is extin-
+guished   at low  Damk6hler   numbers   because   the time  that  the  reacting   particles  remain   in the reaction   zone becomes
+negligible   with  respect   to the characteristic    chemical-reaction     time  ("flame   blowout").
+     The  velocity   gradient  a at the  critical  point  is a function   of both  the  velocity  of the oncoming   flow V and  the
+characteristic    dimension   d and shape  of the  streamlined   body.  For  example:
+
+       •    For a streamlined    sphere,  a = 3V/d;
+       •    For a streamlined    cylinder   perpendicular     to  its generatrix,   a = 4V/d;
+       •    For  a streamlined    disk  along  the normal   to its plane,  a = nV/2d.
+
+    As the  calculation    results  given  in figure  5.1 show,   at a given  oxygen   concentration    Co_, the flame   is extin-
+guished   in the  vicinity   of the  critical  point  at a definite,   fixed  value  a. Hence,    it tollows   that  the combustion    velocity
+limit  V,lmchanges   proportionally     to the  characteristic    dimension   of the upstream   side  of the  streamlined   body.  This
+means   that  V,,,, is not constant   for a material   at a given  concentration    of oxidizer,   but  rather   it is dependent   on the
+streamlining    conditions   and the  characteristic    linear  dimension    of the  body  (the  scale  factor),   in  particular.
+    As  is noted  above,   little  reliable  experimental    data  are  available   to date on the combustion    limits  of non-
+metallic   materials   in microgravity    in order  to generalize   them  to obtain  a theoretical   Damk6hler   number.   Space
+experiments    should  be continued   with  variation   of the Damk6hler   number  through   selection   of materials   with  dif-
+ferent  combustion    reaction-rate    constants  and  variation   of the  cross-section    of the specimens.
+    Above   all,  it is necessary   to study  the  effect  of the scale  factor.  For  this  purpose,   flammability    tests  should  be
+conducted   on  cylindrical   specimens   with  various  diameters   (d = 2 to 8 mm).  Here,  based  upon  the  results  of ground
+experiments,      it is necessary   to  select  materials   for which  the  velocity   limit  for combustion   Vhmis higher  than  those
+of the melting   thermoplastic   polymers   tested  in  this work.  As  the results  from  the second   series  of experiments   on
+the  Skorost  experimental    unit  aboard   the Mir  Space  Station  show   (ref.  3),  the fiberglass   and  fabric-based    laminates
+used  extensively    in the  pressurized   compartments    of the ISS  modules  may  be suitable   for  this  purpose.
+   A study  of the combustion    of nonmetallic    materials   with  only  frontal   ventilation   of the specimens   could  be con-
+ducted  on the  Skorost   experimental    unit.  Of course,   this  is the most  hazardous  mode  of streamlining   from  the  fire
+standpoint,   but  questions   regarding   the outbreak   of  fire on  the  lateral  surface   structural   elements   are also  of great
+interest.   It has been  demonstrated    in theoretical   works  that two  flame   fronts  are formed  immediately    after  ignition,
+and  these  fronts  spread  in opposite   directions   along  the surface   of a thermally   thin  layer  of  fuel.  The  trailing  edge  of
+the  flame,  which  moves  downstream,     is less  intense  than  the leading  edge,  and  it soon  degenerates   because   of  insuf-
+ficient  oxygen  inflow   into  this  area. As a result,   at a certain  time  after  ignition,   the flame  spreads  only  in the  direc-
+tion  opposite   to the slow-moving    flow  of oxidizing   gas  (ref. 31 ).
+    The  theoretical    results  presented   need  to be verified  by experiments    under  natural  conditions;    but,  to do  so,  the
+Skorost   experimental    unit must  be modernized   by expanding     its experimental     capabilities   and by eliminating    the
+circuit  and  structural   deficiencies    that were  revealed   during  the  operations   of the  present  model.
+      In order  to make  the modernized   Skorost-M   unit  universal   and  suitable   for conducting    studies  on combustion    in
+a downstream   flow  in microgravity    both  on the  front  and  the  lateral  surfaces   of specimens,    the design  of the  ignit-
+ing devices   will be changed,   and  these  devices   will be tucked  into  special   niches  to increase   the  uniformity   and  sta-
+bility  of the  flow.
+    When  the combustion   chamber   of the  Skorost  experimental    unit  is modernized,      it is proposed    that  the diameter
+of  the rotating  drums  be increased  by a factor  of  1.5 (from  60  to 90 mm),  and  accordingly,    the  cross-section    of the
+combustion   chamber   be increased  by a factor  of  1.5 (from  80×  150  to  i 10 × 200 mm).  This  will  make   it possible
+to prevent   the  undesirable   heating   effect  of a burning  specimen  on neighboring   specimens   as observed   in these
+experiments,    and  it will  also make   it possible   to expand   the flow  nucleus   in the combustion   chamber.  An  increase   in
+the  distance   between   specimens   by a factor  of  1.5 is also  necessary    to expand  the  field  of view  of the compact   inter-
+ferometer   with  a laser-light   source  proposed   for Skorost-M.    in order  to determine   the  temperature    fields  in the flame
+zone  of specimens   burning   in microgravity.    This  will markedly   increase   the  information    that can  be derived  from
+expensive   space  experiments.
+
+
+NASA/CR--    1999-209405                                 22
+
+
+--- PDF PAGE 27 ---
+                         CONCLUSION
+
+    ThethirdseriesofspaceexperimentintheSkorost   apparatus  was  conducted   and  videotaped    in October   of
+1998  on the  Orbital   Station  Mir. The combustion    of twelve   selected   cylindrical   samples   of three  plastic   materials,
+Delrin, PMMA,  and  high-density    polyethylene,   was  observed   in microgravity.   The  diameter   of each  sample  was
+4.5 mm,  the flow  velocity  was from  0.3  to 8.5 cm/s,  and oxygen   concentration   was  elevated   (ranging   from  22.5  to
+25.4  percent).
+     The  characteristics    of melting   material  combustion   were  identified   in microgravity    for the modes  close  to lim-
+iting.  The  limiting   flow  velocities   were  obtained   for  tested  materials:
+
+       •     for PMMA,   V,,o, = 0.5 cm/s  at C  = 23.6  percent;
+       •     for polyethylene,   V,,m= 0.3  - 0.5 cm/s  at C  = 25.4  percent:
+       •     for Delrin,  V,,m< 0.3 cm/s  at C  = 25.4  percent.
+
+    The  values  for a limiting   flow  velocity  obtained   in the space  experiment   appear  to be lower  that  the  values
+obtained   in the ground   testing  with  apparatus   with  suppressed   convection    (horizontal   Narrow  Channel).
+        It has been  demonstrated     that  at flow  shutoff  the  extinction    in microgravity    occurs  in 5 to 20  s, which   is signifi-
+cantly  lower  than  the extinction   time  obtained   during  the ground   testing.  The  shorter  extinction   time  is favorable   lot
+fire-safety   system  operation   in space  compartments,    where  the  fire-system   response    is based  on vent-flow    shutoff.
+        It has been shown   that.  if the  concurrent   flow  velocity  V decreases,   the  flame-spread    rate V_ will  decrease,   from
+V, = 0.5  to 0.75  mm/s  at V = 8.5 cm/s  to V,: = 0.05  to 0.01 mm/s  at V = 0.3  to 0.5 cm/s.
+     Based  on the  analysis  of data  obtained  on nonmetallic    material   flammability    in space,   it is proposed   to continue
+the space-experiment    program   in Skorost  and  Skorost-M.
+
+
+                                        REFERENCES
+
+   I.   A.Yu.  Belyaev,   S.D.  Egorov,  A.V.  Ivanov,   et al.: Main  Trends   of Investigations    of Materials'   Combustion    in
+      Reduced   Gravity   for Orbital   Station   Fire Assurance.   Proc.  MicrograviO'   Science  and Appl.   Sess./lnter.   Aero-
+      space  Cong.,  Moscow,   1995,  pp.  237-240.
+  2.   S.D.  Egorov,   et  al.:  Fire  Safety  Experiments   on "MIR"  Orbital   Station,   in H.D.  Ross,  ed.:  Third  International
+      Microgravit  3"Workshop,  NASA  CP-10174,   Aug.  1995,  pp.  195-199.
+  3.   A.V.  Ivanov,   V.F. Alymov,   A.B.  Smirnov,   et  al.: Study  of Materials'   Combustion    Processes   in Microgravity.
+      Proc.  Joint  Tenth European   and  Sixth  Russian   Syrup. on Phons. Sci.  in Microgravit3",  Moscow,   vol.  1, 1997,
+       pp. 401-408.
+ 4.   M.  Shipp,  H. Spearpoint:   Fires  in Microgravity.    Fire  Safety  Eng.,  vol.  1, no. 4, Aug.  1994,  pp. 41-45.
+  5.   K,  Ito, O.  Fujita:  Research   of Ignition  and  Flame  Spread  of  Solid  Materials   in Japan.   in H.D.  Ross,  ed.:  Third
+       International    Microgravitv    Workshop,  NASA  CP-10174,   Aug.  1995,  pp. 201-206.
+ 6.   M.K.  King  and H.D.  Ross:  Overview   of the NASA  Microgravity    Combustion   Program.AIAA    Jour.,   vol.  35,
+       1998,  pp.  1337-1345.
+  7.   M.K.  King: NASA  Microgravity   Combustion   Program,   in K.R.  Sacksteder,    ed.:  Fourth  International   Micro-
+       gravity  Combustion   Workshop.  NASA  CP-10194,   May  1997,  pp.  3-20.
+  8.   H.D.  Ross:  Combustion   and  Fire  Safety  in Microgravity,     in R.K.  Crouch,   V.I.  Polezhaev,    eds.:  Proc.  Micro-
+       gravity   Sci. and Appl.  Sess./lnter.   Aerospace   Cong.,  Moscow,   1995,  pp. 225-236.
+ 9.   R. Friedman:   Fire  Safety  in Spacecraft.   Fire  and  Materials,    vol.  20,  1996,  pp. 235-243.
+10.   Ya.B.  Zeldovich:   Unmixed   Gases  Combustion   Theory.   Tech.  Physics  Magazine,    vol. XIX,  rev.  10,  1949,
+       pp.  1199-1210.
+11.    J.S.  T'ien:  Diffusion   Flame  Extinction    at Small  Stretch  Rate:  The Mechanism    of Radiative   Loss.  Comb.  and
+      Flame,   vol. 65,  1986.  pp. 31-34.
+12.   S.S.  Rybanin:  The  Multi-Dimensional     Theory  of Macro-Heterogeneous      Systems  Combustion.   Chem.  Sci.
+       Diss.,  Institute   of Chemical   Physics,   1987  (in  Russian).
+13.   A.S.  Melikhov,    V.I.  Potyakin:   Limit  Modes  for  Solid  Materials   Combustion    in Microgravity.   Chemical   Phys-
+       ics  of Combustion   and Explosion.   Proc.  VI All-Union   Symp.  on Comb.  and Explosion,   Alma-Ata.   1980,
+       pp. 48-51.
+
+NASA/CR--    1999-209405                                 23
+
+==========================================================================================
+NASA ID: 20210017787
+==========================================================================================
+
+
+--- PDF PAGE 7 ---
+Figure 5: Comparison of the time evolution of the (a) pyrolysis front position and (b) burnout front position of
+FDS simulations with infinitely fast chemistry and experimental data. The shaded area in the experimental
+data represents the variability of the experiments.
+   The pyrolysis front data from Figure 5 (a) is used to determine the flame spread rates. Figure 6 shows average
+flame spread rate obtained as a function of ambient pressure for both the experiments and the FDS simulations.
+Because of the size of the samples, and the accelerative characteristics of the flame, an averaged spread rate over the
+last 50% of the sample is presented so that the data are closer to the steady state value and transient effects are
+minimized, as explained in section A. Experimental and numerical flame spread rates decrease with ambient pressure,
+although only the results obtained with DNS and infinitely fast kinetics seem to agree well in terms of order of
+magnitude. From the results, it is seen that the simulations performed using finite rate chemistry underpredict the
+experimental spread rates at the higher pressures, while not even allowing flame spread at the lower pressure
+environments. This underprediction of the experimental data is likely associated with the selection of the chemical
+parameters chosen for the model and the differences that could exist between cellulose and the cotton fabric. It should
+be noted that under this condition only partial burning of the sample near the igniter region was observed in the FDS
+simulations done at 50 kPa, and the flame would eventually blow off about 11 mm away from the igniter, thus no
+spread rate was determined for that condition due to the very short propagation length.
+   Looking to decrease the effect of ambient pressure on the simplified global one step Arrhenius reaction rate, in
+Ref. [37] different approaches were taken, looking into changes of the pre-exponential factor and the activation energy
+values as well as changes in the reaction order. As part of the sensitivity analysis performed in Ref. [37] the authors
+found that a decrease in the activation energy (Egas) of about 4% increased the flame spread rate in about 0.8%, while
+an increase in the pre-exponential factor (Agas) of about 50% only increased the flame spread rate in less than 1.4%
+affecting in both cases very little the flame spread rate observed. Additional results presented also in Ref. [37] showed
+that decreasing the order from 2 to 1 described the experimental results very well. This indicates that different
+pathways are able to reach the same experimental behavior: either using infinitely fast chemistry or with an appropriate
+(reduced) reaction order. The implications are varied. If conditions are far from extinction, it can be assumed that
+kinetic effects are non-dominant and can be neglected in a first order analysis. As hypothesized, transport processes
+determine the spread rates. Thus, the rest of the study will focus on infinitely fast chemistry for simplicity. This
+assumption will not hold near extinction conditions.
+   As the flame spreads over the solid surface there are multiple complex mechanisms that involve the interaction
+between the solid phase (heat transfer, thermal decomposition, gasification) and the gas phase (transport, mixing,
+chemical kinetics) [1–3]. Depending of the conditions, some of these mechanisms can be more or less relevant for the
+general process. The following results are only presented for simulations using DNS with infinitely fast gas phase
+kinetics, because they show good agreement with the experimental results.
+
+
+
+
+
+                                              7
+   International Conference on Environmental Systems
+
+
+--- PDF PAGE 8 ---
+                                                                        In the past, reduced pressure environments
+                                                             have been proposed  as an  opportunity  to
+                                                                           replicate  the  low  buoyancy  environment
+                                                                 encountered  in  partial  or  reduced  gravity
+                                                                       [13,15,38]. The reasoning behind this relies in
+                                                                       the similarities between the flames observed
+                                                                under  both  conditions  in  terms  of  flame
+                                                                   appearance/luminosity  and  reduced  spread
+                                                                                  rate. Figure 7 shows the average flame spread
+                                                                             rate results obtained from the simulations at
+                                                                           different ambient pressures and  at different
+                                                                       gravity levels. In both cases, when ambient
+                                                                     pressure or gravity level are reduced, flame
+                                                                  spread rate is decreased. This agrees with the
+                                                                 experiments  at  1  g  at  a  range  of  sub
+                                                                 atmospheric pressures (as shown in Fig. 7) and
+ Figure 6: Comparison of simulated flame spread rates with  with   Saffire experiments  for microgravity
+ experiments. Average flame spread rate measurements obtained  [39]. Saffire experiments correspond to Sibal, a
+ from the FDS simulations as a function of ambient pressure for  cotton-fiberglass composite material, and not
+  different kinetic models.                                          pure cotton as the experiments and model
+                                                                    presented here. Therefore, one can expect a
+                                                                reduced  flame  spread  rate  in  the  Saffire
+                                                                 experiments compared  to  cotton. From the
+                                                                             figure,  it is seen that as ambient pressure is
+                                                                    reduced, the flame spread rate over the solid
+                                                                approaches that obtained at standard ambient
+                                                                     pressure (100 kPa)  in reduced  gravity. A
+                                                                     reduction in ambient pressure to 33 kPa results
+                                                                          in similar flame spread rates as those observed
+                                                                          in microgravity. These  results indicate  that
+                                                                    concurrent flame spread in low pressure and
+                                                             normal    gravity,   may   have    similar
+                                                                            characteristics as those in reduced gravity. It
+                                                                 should be kept in mind however, that the total
+                                                                     pressure  reduction  necessary  to  see  these
+                                                                              similarities will vary depending of the material
+                                                                            characteristics as well as other environmentalFigure  7:  Average  flame  spread  rate  measurements  and
+                                                                        conditions.simulations as a function of ambient pressure on cotton fabric.
+                                                               Another important parameter for concurrentSimulations at 1 g for a range of pressures and at 100 kPa and 0g are
+                                                                flame spread is the pyrolysis length because itincluded. Microgravity experiments obtained during the Saffire II test
+                                                              can be directly related to the flame size/height[39] for another cotton-based fabric (Sibal) are included in here for
+                                                            and the portion of the material that is burningreference.
+                                                                     as  the  flame  spreads.  Furthermore,  the
+  pyrolysis length can be correlated to the heat that is transferred from the flame to the solid. Experimentally, this
+  pyrolysis length is obtained by subtracting the burnout front position from the pyrolysis front position. In the
+  simulation results, the pyrolysis length is determined similarly, by subtracting the burnout front position from the
+  pyrolysis front position. Because of the accelerative characteristic of the spread process, the pyrolysis length is
+  obtained toward the end of the test when it is closest to steady state. Figure 8 shows simultaneously pyrolysis length
+ measurements for both the experiments and the simulation results. The experiments and the FDS simulations show a
+  similar trend, with the pyrolysis length decreasing with decreasing ambient pressure and gravity level. It is also
+  interesting to see that the pyrolysis length seems to be more sensitive to changes in gravity than to ambient pressure.
+ From these results it can be inferred that, despite the pyrolysis front spreading at similar rates between reduced gravity
+ and reduced pressure conditions, the burnout front seems to spread significantly slower in reduced pressure
+ environment that in reduced gravity conditions. In other words, the area affected by the flame preheating and
+  pyrolyzing the solid surface is more sensitive to reductions in gravity. As a result, even though the flame spread rate
+                                                8
+    International Conference on Environmental Systems
+
+
+--- PDF PAGE 9 ---
+is comparable between these conditions (see Fig. 7), bigger differences arise when looking into the pyrolysis length
+or flame height measurements.
+
+
+
+
+
+Figure 8: Pyrolysis length measurements and simulations as a function of ambient pressure. Simulations at 1 g
+for a range of pressures and at 100 kPa and 0g are included. Microgravity experiments obtained during Saffire II test
+[39] for another cotton-based fabric (Sibal) are included in here for reference.
+
+C. Effect of reduced ambient gravity
+
+   The results of Fig. 7 agree with the hypothesis that suggest that reduced pressure can be used to replicate the flame
+spread behavior observed at reduced gravity level. Continuing with this analysis, different gravity levels are also
+simulated using FDS to explore the similarities and differences between reduced pressure and gravity. Fig. 9 shows
+the average flame spread rate obtained from the FDS simulations at normal ambient pressure, i.e. 100 kPa, for different
+gravity levels. As a comparison, the experimental data obtained in 1g at different ambient pressures and that of Saffire
+in microgravity are also included. It is seen that as the gravity level is reduced the flame spread rate follows a linear
+trend, similar to what was observed when reducing ambient pressure (experimentally and through the simulations). It
+is also seen that flame spread rates obtained at different gravity levels could be comparable to those obtained at
+different ambient pressures. In such a case, flame spread rates under lunar gravity (0.17g) could be replicated by a
+reduction in ambient pressure to 46 kPa, and flame spread rate in a martian gravity (0.38g) would be similar to that
+encountered at 54 kPa.
+
+
+
+
+
+Figure 9: Average flame spread rate measurements as a function of gravity level. Microgravity experiments
+obtained during Saffire II test [39] for another cotton based fabric (Sibal) are included in here for reference.
+
+
+                                              9
+   International Conference on Environmental Systems

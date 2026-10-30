@@ -1,0 +1,59 @@
+FLAMEGUARD AI — NASA PSI-25 BASS-II DATA VALIDATION REPORT
+====================================================================
+
+Scope: transcription, structuring, and consistency checks only.
+Not an independent verification of NASA's experimental findings.
+
+Source file: PSI-25_Experimental table_BASS-II.csv
+Source data rows (excluding header): 129
+Successfully parsed records (exactly 17 fields): 129
+Column count: 17
+Parsing errors: 0
+Blank cells: 19
+Literal 'none' cells: 16
+Duplicate PI + Test # identifiers: 0
+Quality flags: 172
+Unique records with at least one quality flag: 115
+NASA page stated entry count: 130
+Difference from stated count: -1
+
+PI-WISE RECORD COUNTS
+------------------------------
+Bhattacharjee: 22
+Ferkul: 4
+Miller: 20
+Olson: 27
+Fernandez-Pello: 27
+T'ien: 29
+
+VALIDATION RESULTS
+------------------------------
+Every accepted record has exactly 17 fields: PASS
+CSV matches source records: PASS
+JSON matches source records: PASS
+Excel Raw Data matches source records: PASS (blank CSV strings represented as empty Excel cells)
+Records lost from accepted source rows: 0
+
+QUALITY REVIEW NOTES
+------------------------------
+Flags identify entries for human review; they do not assert that a value is erroneous.
+Blank cells remain empty; literal 'none' remains the text 'none'.
+Non-numeric values in selected measurement/count columns remain unchanged.
+Complex Fan display and Air display values remain intact in their original cells.
+Alphabetic sample-ID suffixes, unusual oxygen readings, negative CO readings, and dates outside 2014 are flagged for review only.
+Duplicate-looking records are retained; composite PI + Test # duplicates are separately reported.
+
+PARSING ISSUES
+------------------------------
+None. All source data rows parsed into exactly 17 fields.
+
+INTEGRATION ASSESSMENT
+------------------------------
+Structurally ready for backend ingestion as a raw transcription dataset, subject to
+application-level schema mapping and human review of flagged values. Preserve raw strings.
+
+Generated files:
+- FlameGuard_BASSII_Experimental_Dataset.xlsx
+- FlameGuard_BASSII_Experimental_Dataset.csv
+- FlameGuard_BASSII_Experimental_Dataset.json
+- FlameGuard_BASSII_Validation_Report.txt
