@@ -1,8 +1,9 @@
 from collections import Counter
 from pathlib import Path
 
+from backend.services.bass2_dataset import search_bass2_records
 from backend.services.nasa_online import search_nasa_online
-from backend.services.research_summarizer import build_evidence_brief
+from backend.services.research_summarizer import build_evidence_brief, tokenize
 from backend.services.subhan_research import search_subhan_research
 
 
@@ -46,6 +47,7 @@ def search_mission_research(
     subhan_core_path=None,
     subhan_passages_path=None,
     subhan_extended_path=None,
+    fuel=None,
     min_local_passages=DEFAULT_MIN_LOCAL_PASSAGES,
     min_local_sources=DEFAULT_MIN_LOCAL_SOURCES,
     min_query_term_coverage=DEFAULT_MIN_QUERY_TERM_COVERAGE,
@@ -89,7 +91,7 @@ def search_mission_research(
         if item.get("source_id")
     }
 
-    query_terms = set(query.casefold().split())
+    query_terms = tokenize(query)
     matched_terms = {
         term
         for item in combined_local
@@ -104,6 +106,8 @@ def search_mission_research(
         reasons.append("insufficient_distinct_local_source_coverage")
     if query_term_coverage < min_query_term_coverage:
         reasons.append("insufficient_query_term_coverage")
+
+    bass2_matches = search_bass2_records(query=query, limit=limit, fuel=fuel)
 
     fallback_triggered = bool(reasons)
     online_search = {
@@ -187,6 +191,20 @@ def search_mission_research(
             "evidence_modality_counts": dict(modality_counts),
         },
         "local_evidence": combined_local[:limit],
+        "bass2_structured_experimental_data": {
+            "query_relevant_record_count": len(bass2_matches),
+            "results": [
+                {
+                    **item,
+                    "source_owner": "FlameGuard BASS-II dataset",
+                    "source_dataset": "BASS-II structured experimental dataset",
+                    "scientific_findings_verified": False,
+                    "raw_values_preserved": True,
+                }
+                for item in bass2_matches
+            ],
+            "notice": "BASS-II rows are raw structured experiment records. Original values are preserved; quality flags and units require inspection before comparison.",
+        },
         "subhan_data": {
             "core_record_count": subhan["core_record_count"],
             "core_passage_count": subhan["core_passage_count"],
@@ -207,6 +225,7 @@ def search_mission_research(
             "subhan_verified_core_matches": subhan["verified_core_evidence_count"],
             "existing_local_matches": len(legacy_results),
             "combined_unique_local_passages": len(combined_local),
+            "query_relevant_bass2_records": len(bass2_matches),
             "online_ntrs_unique_metadata_records": online_search["count"],
         },
         "limitations": [
@@ -214,6 +233,7 @@ def search_mission_research(
             "Subhan's extended index is preliminary and is never treated as verified findings.",
             "NASA NTRS fallback currently returns catalog metadata and abstracts, not analysed full-text PDFs.",
             "NASA catalog metadata is attached to matching local source IDs instead of duplicated as a second finding.",
+            "BASS-II structured rows are returned separately and are not mixed with PDF evidence passages.",
             "Online discoveries are not automatically added to the permanent local dataset.",
             "Lexical match scores indicate word overlap, not scientific quality, confidence, or mission safety.",
             "This search is a research aid, not an operational fire-safety certification or safe/unsafe prediction.",
