@@ -79,7 +79,7 @@ def search_subhan_research(
         evidence_results.append({
             "record_id": f"SUBHAN-EVIDENCE-{study_id}-{passage.get('page', 'NA')}-{len(evidence_results) + 1}",
             "study_id": study_id,
-            "source_id": study_id,
+            "source_id": (re.search(r"/(?:api/)?citations/(\d+)", str(source_url or "")) or [None, study_id])[1],
             "source_title": passage.get("title") or study.get("title"),
             "investigation": passage.get("investigation") or study.get("investigation"),
             "citation_url": source_url,
