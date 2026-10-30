@@ -1,11 +1,15 @@
 from fastapi import FastAPI, Query, HTTPException
 
-from backend.services.research_engine import search_research
 from backend.services.nasa_online import search_nasa_online
 from backend.services.nasa_evidence_search import search_nasa_evidence
 from backend.services.bass2_dataset import get_bass2_summary, search_bass2_records
 from backend.services.nasa_passage_search import search_nasa_passages
 from backend.services.research_federation import search_research_with_fallback
+from backend.services.research_summarizer import (
+    DEFAULT_STORE_PATH,
+    build_evidence_brief,
+)
+from backend.services.nasa_ingestion import import_nasa_document
 
 app = FastAPI(
     title="FlameGuard AI API",
@@ -36,12 +40,16 @@ def research_search(
     q: str = Query(..., min_length=2),
     limit: int = Query(default=5, ge=1, le=20),
 ):
-    results = search_research(q, limit)
-    return {
-        "query": q,
-        "count": len(results),
-        "results": results,
-    }
+    try:
+        return build_evidence_brief(
+            DEFAULT_STORE_PATH,
+            q,
+            limit=limit,
+        )
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    except FileNotFoundError as exc:
+        raise HTTPException(status_code=503, detail=str(exc)) from exc
 
 
 @app.get("/research/online-search")
@@ -64,6 +72,25 @@ def combined_research_search(
             status_code=400,
             detail=str(exc),
         ) from exc
+
+
+@app.post("/research/import/{nasa_id}")
+def import_nasa_research_document(nasa_id: str):
+    """
+    Import one discovered NASA NTRS paper into the supplemental collection.
+    Imported passages remain pending manual review.
+    """
+    result = import_nasa_document(nasa_id)
+
+    if not result.get("success"):
+        status = result.get("status", "")
+        http_status = 400 if status == "invalid_nasa_id" else 502
+        raise HTTPException(
+            status_code=http_status,
+            detail=result,
+        )
+
+    return result
 
 
 @app.get("/research/evidence-search")
