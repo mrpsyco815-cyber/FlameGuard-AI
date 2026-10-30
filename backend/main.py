@@ -7,6 +7,7 @@ from backend.services.bass2_dataset import get_bass2_summary, search_bass2_recor
 from backend.services.nasa_passage_search import search_nasa_passages
 from backend.services.research_federation import search_research_with_fallback
 from backend.services.mission_research import search_mission_research
+from backend.services.nasa_ingestion import import_nasa_document
 
 app = FastAPI(
     title="FlameGuard AI API",
@@ -169,3 +170,19 @@ def mission_research_search(
         raise HTTPException(status_code=400, detail=str(exc)) from exc
     except FileNotFoundError as exc:
         raise HTTPException(status_code=503, detail=str(exc)) from exc
+
+
+@app.post("/research/nasa-import/{nasa_id}")
+def nasa_document_import(nasa_id: str):
+    """Download, identity-check and index one official NASA NTRS PDF."""
+    result = import_nasa_document(nasa_id)
+    if not result.get("success"):
+        status = result.get("status")
+        if status == "invalid_nasa_id":
+            raise HTTPException(status_code=400, detail=result.get("error"))
+        if status in {"citation_lookup_failed", "pdf_unavailable"}:
+            raise HTTPException(status_code=502, detail=result)
+        if status == "already_imported":
+            return result
+        raise HTTPException(status_code=422, detail=result)
+    return result
