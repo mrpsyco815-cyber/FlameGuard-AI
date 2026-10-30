@@ -198,6 +198,46 @@ def import_nasa_document(
             "error": str(exc),
         }
 
+    # Do not duplicate a paper already present in the audited primary dataset.
+    primary_dataset_path = (
+        root / "data" / "processed" / "nasa_combined_evidence.json"
+    )
+    if primary_dataset_path.exists():
+        try:
+            primary_dataset = json.loads(
+                primary_dataset_path.read_text(encoding="utf-8-sig")
+            )
+        except (OSError, json.JSONDecodeError) as exc:
+            return {
+                "success": False,
+                "status": "primary_dataset_read_failed",
+                "nasa_id": nasa_id,
+                "error": str(exc),
+            }
+
+        primary_ids = {
+            str(document.get("nasa_id"))
+            for document in primary_dataset.get("documents", [])
+            if isinstance(document, dict) and document.get("nasa_id")
+        }
+        if nasa_id in primary_ids:
+            return {
+                "success": True,
+                "status": "already_in_primary_collection",
+                "nasa_id": nasa_id,
+                "title": next(
+                    (
+                        document.get("title")
+                        for document in primary_dataset.get("documents", [])
+                        if isinstance(document, dict)
+                        and str(document.get("nasa_id")) == nasa_id
+                    ),
+                    None,
+                ),
+                "passage_count": 0,
+                "collection_path": str(primary_dataset_path),
+            }
+
     existing_document = next(
         (
             document
