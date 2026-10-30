@@ -81,7 +81,7 @@ def load_nasa_passages() -> dict[str, Any]:
 
 
 def make_snippet(text: str, matched_terms: list[str], max_length: int = 320) -> str:
-    clean_text = re.sub(r"\\s+", " ", text).strip()
+    clean_text = re.sub(r"\s+", " ", text).strip()
 
     if len(clean_text) <= max_length:
         return clean_text
