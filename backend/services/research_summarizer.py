@@ -22,6 +22,11 @@ STOP_WORDS = {
 }
 
 
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+DEFAULT_STORE_PATH = PROJECT_ROOT / "data" / "processed" / "research_intelligence_store.json"
+DEFAULT_SUPPLEMENTAL_PATH = PROJECT_ROOT / "data" / "processed" / "supplemental_research_collection.json"
+
+
 def tokenize(text):
     words = re.findall(r"[a-z0-9]+", str(text).lower())
     return {word for word in words if len(word) > 1 and word not in STOP_WORDS}
@@ -55,7 +60,7 @@ def _review_status(record, classification):
     )
 
 
-def _make_result(record, query_terms):
+def _make_result(record, query_terms, record_origin):
     source = record.get("source") or {}
     content = record.get("content") or {}
     classification = record.get("classification") or {}
@@ -73,6 +78,8 @@ def _make_result(record, query_terms):
 
     return {
         "record_id": record.get("record_id"),
+        "record_origin": record_origin,
+        "import_origin": (record.get("provenance") or {}).get("import_origin"),
         "source_id": source.get("source_id"),
         "source_title": source.get("title"),
         "citation_url": source.get("citation_url"),
@@ -94,7 +101,7 @@ def _make_result(record, query_terms):
     }
 
 
-def build_evidence_brief(store_path, query, limit=20):
+def build_evidence_brief(store_path=None, query="", limit=20):
     if not isinstance(query, str) or not query.strip():
         raise ValueError("A non-empty research query is required.")
 
@@ -105,19 +112,55 @@ def build_evidence_brief(store_path, query, limit=20):
     if not query_terms:
         raise ValueError("Query must contain at least one meaningful search term.")
 
-    store = load_store(store_path)
-    records = store["records"]
-
-    nasa_records = [
-        record for record in records
+    selected_store = Path(store_path) if store_path else DEFAULT_STORE_PATH
+    store = load_store(selected_store)
+    primary_records = [
+        record for record in store["records"]
         if record.get("record_type") == "nasa_passage"
     ]
+
+    supplemental_path = selected_store.parent / "supplemental_research_collection.json"
+    supplemental_records = []
+    if supplemental_path.exists():
+        try:
+            supplemental = json.loads(
+                supplemental_path.read_text(encoding="utf-8")
+            )
+        except json.JSONDecodeError as exc:
+            raise ValueError(
+                f"Supplemental research collection contains invalid JSON: {exc}"
+            ) from exc
+
+        if not isinstance(supplemental, dict) or not isinstance(
+            supplemental.get("records"), list
+        ):
+            raise ValueError(
+                "Invalid supplemental collection: expected a records list."
+            )
+
+        supplemental_records = [
+            record for record in supplemental["records"]
+            if isinstance(record, dict)
+            and record.get("record_type") == "nasa_passage"
+        ]
+
+    all_records = (
+        [(record, "primary_research_intelligence_store") for record in primary_records]
+        + [(record, "supplemental_research_collection") for record in supplemental_records]
+    )
 
     all_role_counts = Counter()
     eligible_role_counts = Counter()
     results = []
+    seen_record_ids = set()
 
-    for record in nasa_records:
+    for record, record_origin in all_records:
+        record_id = record.get("record_id")
+        if record_id and record_id in seen_record_ids:
+            continue
+        if record_id:
+            seen_record_ids.add(record_id)
+
         classification = record.get("classification") or {}
         role = classification.get("evidence_role", "unclassified")
         all_role_counts[role] += 1
@@ -127,7 +170,7 @@ def build_evidence_brief(store_path, query, limit=20):
 
         eligible_role_counts[role] += 1
 
-        result = _make_result(record, query_terms)
+        result = _make_result(record, query_terms, record_origin)
         if result:
             results.append(result)
 
@@ -177,7 +220,9 @@ def build_evidence_brief(store_path, query, limit=20):
             "evidence_modality_counts": dict(modality_counts),
         },
         "search_audit": {
-            "nasa_passages_examined": len(nasa_records),
+            "nasa_passages_examined": len(primary_records) + len(supplemental_records),
+            "primary_nasa_passages_examined": len(primary_records),
+            "supplemental_nasa_passages_examined": len(supplemental_records),
             "eligible_role_counts": dict(eligible_role_counts),
             "all_nasa_role_counts": dict(all_role_counts),
             "result_limit": limit,
@@ -189,6 +234,7 @@ def build_evidence_brief(store_path, query, limit=20):
             "Extracted PDF text may contain OCR, formatting, or context errors.",
             "Experimental findings and simulation results are identified separately.",
             "BASS-II structured records are not included in this text-passage search.",
+            "Supplemental NASA passages are searched alongside the primary store when available.",
             "This version does not generate scientific conclusions or fire-safety recommendations.",
         ],
     }

@@ -168,5 +168,67 @@ class TestResearchSummarizer(unittest.TestCase):
             build_evidence_brief(self.store_path, "flame", limit=0)
 
 
+
+    def test_search_includes_supplemental_nasa_passages(self):
+        supplemental_path = (
+            self.store_path.parent / "supplemental_research_collection.json"
+        )
+        supplemental_record = {
+            "record_id": "NASA-ONLINE-PASSAGE-999999-0001-001",
+            "record_type": "nasa_passage",
+            "source": {
+                "source_id": "999999",
+                "title": "Supplemental NASA Flame Study",
+                "citation_url": "https://ntrs.nasa.gov/citations/999999",
+                "pdf_page_number": 3,
+            },
+            "content": {
+                "text": "Microgravity flame spread changed under low oxygen conditions."
+            },
+            "classification": {
+                "evidence_role": "experimental_observation",
+                "evidence_modality": "experiment",
+                "classification_version": "3.4",
+                "review_status": "requires_manual_review",
+                "scientific_findings_verified": False,
+            },
+            "review": {
+                "source_review_status": "requires_manual_review",
+                "scientific_findings_verified": False,
+            },
+            "provenance": {"import_origin": "live_nasa_ntrs"},
+        }
+        supplemental_path.write_text(
+            json.dumps({
+                "collection_name": "Test supplemental collection",
+                "schema_version": "1.0",
+                "documents": [],
+                "records": [supplemental_record],
+            }),
+            encoding="utf-8",
+        )
+
+        result = build_evidence_brief(
+            self.store_path,
+            "microgravity flame spread oxygen",
+        )
+        item = next(
+            item for item in result["results"]
+            if item["record_id"] == supplemental_record["record_id"]
+        )
+
+        self.assertEqual(
+            item["record_origin"],
+            "supplemental_research_collection",
+        )
+        self.assertEqual(item["import_origin"], "live_nasa_ntrs")
+        self.assertEqual(item["source_id"], "999999")
+        self.assertEqual(item["pdf_page_number"], 3)
+        self.assertFalse(item["scientific_findings_verified"])
+        self.assertEqual(
+            result["search_audit"]["supplemental_nasa_passages_examined"],
+            1,
+        )
+
 if __name__ == "__main__":
     unittest.main()

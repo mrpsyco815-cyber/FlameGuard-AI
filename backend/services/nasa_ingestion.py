@@ -1,5 +1,4 @@
 import json
-import re
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -13,6 +12,7 @@ from backend.services.document_parser import (
 from backend.services.evidence_classifier_v3_4 import (
     classify_passage_v3_4,
 )
+from backend.services.evidence_extractor import extract_page_evidence
 from backend.services.nasa_documents import download_nasa_pdf
 
 
@@ -104,28 +104,6 @@ def _save_collection(
     return output_path
 
 
-def _split_page_into_passages(page_text: str) -> list[str]:
-    """Create candidate sentences while retaining their source page."""
-
-    passages = []
-
-    for paragraph in re.split(r"\n\s*\n+", page_text or ""):
-        normalized = re.sub(r"\s+", " ", paragraph).strip()
-
-        if not normalized:
-            continue
-
-        sentences = re.split(r"(?<=[.!?])\s+", normalized)
-
-        for sentence in sentences:
-            sentence = sentence.strip()
-
-            if len(sentence) >= 20:
-                passages.append(sentence)
-
-    return passages
-
-
 def _extract_authors(metadata: dict[str, Any]) -> list[dict[str, Any]]:
     authors = []
 
@@ -197,6 +175,46 @@ def import_nasa_document(
             "status": "collection_error",
             "error": str(exc),
         }
+
+    # Do not duplicate a paper already present in the audited primary dataset.
+    primary_dataset_path = (
+        root / "data" / "processed" / "nasa_combined_evidence.json"
+    )
+    if primary_dataset_path.exists():
+        try:
+            primary_dataset = json.loads(
+                primary_dataset_path.read_text(encoding="utf-8-sig")
+            )
+        except (OSError, json.JSONDecodeError) as exc:
+            return {
+                "success": False,
+                "status": "primary_dataset_read_failed",
+                "nasa_id": nasa_id,
+                "error": str(exc),
+            }
+
+        primary_ids = {
+            str(document.get("nasa_id"))
+            for document in primary_dataset.get("documents", [])
+            if isinstance(document, dict) and document.get("nasa_id")
+        }
+        if nasa_id in primary_ids:
+            return {
+                "success": True,
+                "status": "already_in_primary_collection",
+                "nasa_id": nasa_id,
+                "title": next(
+                    (
+                        document.get("title")
+                        for document in primary_dataset.get("documents", [])
+                        if isinstance(document, dict)
+                        and str(document.get("nasa_id")) == nasa_id
+                    ),
+                    None,
+                ),
+                "passage_count": 0,
+                "collection_path": str(primary_dataset_path),
+            }
 
     existing_document = next(
         (
@@ -298,38 +316,76 @@ def import_nasa_document(
     retrieved_at = datetime.now(timezone.utc).isoformat()
     authors = _extract_authors(metadata)
     new_records = []
-    empty_page_count = 0
+    empty_page_count = sum(
+        1 for page in pages
+        if not str(page.get("text") or "").strip()
+    )
 
-    for page in pages:
-        page_number = page.get("pdf_page_number")
-        page_text = page.get("text") or ""
+    try:
+        extracted_evidence = extract_page_evidence(nasa_id)
+    except (OSError, ValueError, json.JSONDecodeError) as exc:
+        return {
+            "success": False,
+            "status": "evidence_extraction_failed",
+            "nasa_id": nasa_id,
+            "title": metadata["title"],
+            "citation_url": citation_url,
+            "error": str(exc),
+        }
 
-        if not isinstance(page_number, int) or page_number < 1:
+    candidate_passages = extracted_evidence.get("passages") or []
+    if not candidate_passages:
+        return {
+            "success": False,
+            "status": "no_text_passages",
+            "nasa_id": nasa_id,
+            "title": metadata["title"],
+            "citation_url": citation_url,
+            "error": "The page evidence extractor returned no candidate passages.",
+            "empty_pages": empty_page_count,
+        }
+
+    page_text_lookup = {
+        page.get("pdf_page_number"): page.get("text") or ""
+        for page in pages
+    }
+    page_counters = {}
+
+    for passage in candidate_passages:
+        page_number = passage.get("pdf_page_number")
+        sentence = passage.get("text")
+
+        if (
+            not isinstance(page_number, int)
+            or page_number < 1
+            or not isinstance(sentence, str)
+            or not sentence.strip()
+        ):
             continue
 
-        if not isinstance(page_text, str) or not page_text.strip():
-            empty_page_count += 1
-            continue
+        page_counters[page_number] = page_counters.get(page_number, 0) + 1
+        sentence_index = page_counters[page_number]
+        page_text = page_text_lookup.get(page_number, "")
 
-        sentences = _split_page_into_passages(page_text)
+        classification = classify_passage_v3_4(
+            {
+                "text": sentence,
+                "pdf_page_number": page_number,
+            },
+            page_context=page_text,
+        )
 
-        for sentence_index, sentence in enumerate(sentences, start=1):
-            classification = classify_passage_v3_4(
-                {"text": sentence},
-                page_context=page_text,
-            )
+        classification = dict(classification)
+        classification["classification_version"] = "3.4"
+        classification["review_status"] = "requires_manual_review"
+        classification["scientific_findings_verified"] = False
 
-            classification = dict(classification)
-            classification["classification_version"] = "3.4"
-            classification["review_status"] = "requires_manual_review"
-            classification["scientific_findings_verified"] = False
+        record_id = (
+            f"NASA-ONLINE-PASSAGE-{nasa_id}-"
+            f"{page_number:04d}-{sentence_index:03d}"
+        )
 
-            record_id = (
-                f"NASA-ONLINE-PASSAGE-{nasa_id}-"
-                f"{page_number:04d}-{sentence_index:03d}"
-            )
-
-            new_records.append({
+        new_records.append({
                 "record_id": record_id,
                 "record_type": "nasa_passage",
                 "source": {
@@ -359,6 +415,13 @@ def import_nasa_document(
                     ),
                     "authors": authors,
                     "abstract_available": bool(metadata.get("abstract")),
+                    "research_status": passage.get("research_status"),
+                    "page_context_classification_status": passage.get(
+                        "classification_status"
+                    ),
+                    "page_context_classification_basis": passage.get(
+                        "classification_basis"
+                    ),
                     "copyright_metadata": metadata.get("copyright"),
                     "dissemination_status": metadata.get("disseminated"),
                 },
@@ -372,6 +435,7 @@ def import_nasa_document(
                     "nasa_id": nasa_id,
                     "pdf_page_number": page_number,
                     "passage_index_on_page": sentence_index,
+                    "research_status": passage.get("research_status"),
                     "pdf_path": extraction.get("pdf_path"),
                     "identity_audit_status": identity.get(
                         "identity_audit_status"

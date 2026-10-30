@@ -57,6 +57,7 @@ class TestNASAIngestion(unittest.TestCase):
 
         return response, pages
 
+    @patch("backend.services.nasa_ingestion.extract_page_evidence")
     @patch("backend.services.nasa_ingestion.classify_passage_v3_4")
     @patch("backend.services.nasa_ingestion.extract_pdf_pages")
     @patch("backend.services.nasa_ingestion.audit_pdf_identity")
@@ -69,6 +70,7 @@ class TestNASAIngestion(unittest.TestCase):
         identity_audit,
         extract_pages,
         classify,
+        extract_evidence,
     ):
         response, pages = self.configure_successful_import()
         get_request.return_value = response
@@ -79,6 +81,25 @@ class TestNASAIngestion(unittest.TestCase):
             "identity_audit_status": "identity_consistent",
         }
         extract_pages.return_value = pages
+        extract_evidence.return_value = {
+            "passage_count": 2,
+            "passages": [
+                {
+                    "text": "Experimental flame spread changed with the ambient pressure.",
+                    "pdf_page_number": 1,
+                    "research_status": "unclassified",
+                    "classification_status": "requires_manual_review",
+                    "classification_basis": "No recognized page heading found.",
+                },
+                {
+                    "text": "Oxygen concentration affected the flame behaviour.",
+                    "pdf_page_number": 1,
+                    "research_status": "unclassified",
+                    "classification_status": "requires_manual_review",
+                    "classification_basis": "No recognized page heading found.",
+                },
+            ],
+        }
         classify.return_value = {
             "evidence_role": "experimental_quantitative_result",
             "evidence_modality": "experiment",
@@ -95,6 +116,10 @@ class TestNASAIngestion(unittest.TestCase):
         self.assertEqual(result["status"], "imported_pending_review")
         self.assertEqual(result["passage_count"], 2)
         self.assertEqual(result["empty_pages"], 1)
+        self.assertEqual(
+            classify.call_args_list[0].args[0]["pdf_page_number"],
+            1,
+        )
 
         collection_path = (
             self.root / nasa_ingestion.COLLECTION_RELATIVE_PATH
@@ -117,6 +142,10 @@ class TestNASAIngestion(unittest.TestCase):
         self.assertEqual(
             record["provenance"]["import_origin"],
             "live_nasa_ntrs",
+        )
+        self.assertEqual(
+            record["source_metadata"]["research_status"],
+            "unclassified",
         )
 
     @patch("backend.services.nasa_ingestion.requests.get")
@@ -183,6 +212,37 @@ class TestNASAIngestion(unittest.TestCase):
 
         self.assertTrue(result["success"])
         self.assertEqual(result["status"], "already_imported")
+        get_request.assert_not_called()
+
+
+    def test_does_not_reimport_document_from_primary_dataset(self):
+        primary_path = (
+            self.root / "data" / "processed" / "nasa_combined_evidence.json"
+        )
+        primary_path.parent.mkdir(parents=True, exist_ok=True)
+        primary_path.write_text(
+            json.dumps({
+                "documents": [{
+                    "nasa_id": "20080034883",
+                    "title": self.metadata["title"],
+                }]
+            }),
+            encoding="utf-8",
+        )
+
+        with patch(
+            "backend.services.nasa_ingestion.requests.get"
+        ) as get_request:
+            result = nasa_ingestion.import_nasa_document(
+                "20080034883",
+                project_root=self.root,
+            )
+
+        self.assertTrue(result["success"])
+        self.assertEqual(
+            result["status"],
+            "already_in_primary_collection",
+        )
         get_request.assert_not_called()
 
     def test_rejects_invalid_nasa_id(self):
