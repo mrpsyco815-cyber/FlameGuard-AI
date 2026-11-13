@@ -1,0 +1,6 @@
+[
+  {"id": "pmma-microgravity", "text": "PMMA flame spread in microgravity at 21 percent oxygen", "relevant": true},
+  {"id": "pe-microgravity", "text": "Polyethylene flame spread in microgravity at 21 percent oxygen", "relevant": false},
+  {"id": "pmma-ground", "text": "PMMA flame spread in normal gravity at 21 percent oxygen", "relevant": false},
+  {"id": "generic", "text": "The study and the result are described here", "relevant": false}
+]

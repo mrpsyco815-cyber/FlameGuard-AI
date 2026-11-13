@@ -64,6 +64,12 @@ class TestResearchFederation(unittest.TestCase):
         return {
             "source": "NASA NTRS",
             "query": "flame spread",
+            "original_query": "How does flame spread behave?",
+            "nasa_query": "flame spread",
+            "fallback_attempted": True,
+            "fallback_reason": "original_query_returned_zero_results",
+            "original_result_count": 0,
+            "fallback_result_count": 2,
             "count": 2,
             "results": [
                 {
@@ -99,6 +105,40 @@ class TestResearchFederation(unittest.TestCase):
         self.assertFalse(result["fallback_triggered"])
         self.assertEqual(result["counts"]["local_passages_returned"], 3)
         self.assertFalse(result["online_search"]["performed"])
+        self.assertFalse(result["online_search"]["fallback_attempted"])
+        self.assertEqual(result["online_search"]["original_query"], "flame spread")
+
+    @patch("backend.services.research_federation.search_nasa_online")
+    def test_fallback_metadata_survives_combined_search(self, online_search):
+        self.write_store(1)
+        online_search.return_value = self.online_payload()
+
+        result = search_research_with_fallback(
+            "flame spread",
+            store_path=self.store_path,
+        )
+
+        online = result["online_search"]
+        self.assertEqual(online["original_query"], "How does flame spread behave?")
+        self.assertEqual(online["nasa_query"], "flame spread")
+        self.assertTrue(online["fallback_attempted"])
+        self.assertEqual(
+            online["fallback_reason"],
+            "original_query_returned_zero_results",
+        )
+        self.assertEqual(online["original_result_count"], 0)
+        self.assertEqual(online["fallback_result_count"], 2)
+        first_record = online["results"][0]
+        self.assertEqual(first_record["nasa_id"], "20000024924")
+        self.assertEqual(
+            first_record["source_url"],
+            "https://ntrs.nasa.gov/citations/20000024924",
+        )
+        self.assertEqual(
+            first_record["evidence_scope"],
+            "bibliographic_metadata_and_abstract_only",
+        )
+        self.assertFalse(first_record["scientific_findings_verified"])
 
     @patch("backend.services.research_federation.search_nasa_online")
     def test_insufficient_local_passages_triggers_fallback(self, online_search):
@@ -208,6 +248,11 @@ class TestResearchFederation(unittest.TestCase):
         self.assertTrue(result["fallback_triggered"])
         self.assertEqual(result["counts"]["local_passages_returned"], 1)
         self.assertEqual(result["online_search"]["status"], "unavailable")
+        self.assertFalse(result["online_search"]["fallback_attempted"])
+        self.assertEqual(
+            result["online_search"]["fallback_reason"],
+            "technical_error",
+        )
         self.assertEqual(len(result["combined_sources"]), 1)
 
     def test_invalid_limits_are_rejected(self):
@@ -217,6 +262,19 @@ class TestResearchFederation(unittest.TestCase):
                 limit=0,
                 store_path=self.store_path,
             )
+
+    @patch("backend.services.research_federation.search_nasa_online")
+    def test_missing_quantitative_oxygen_context_triggers_fallback(self, online_search):
+        online_search.return_value = self.online_payload()
+        result = search_research_with_fallback(
+            "limiting oxygen concentration for flame extinction",
+            store_path=self.store_path,
+        )
+        online_search.assert_called_once()
+        self.assertIn(
+            "required_quantitative_measurement_not_covered",
+            result["fallback_reason"],
+        )
 
 
 if __name__ == "__main__":

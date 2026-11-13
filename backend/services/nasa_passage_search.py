@@ -3,6 +3,11 @@ import re
 from pathlib import Path
 from typing import Any
 
+from backend.services.query_understanding import parse_query, score_text
+from backend.services.ranking_contract import (
+    annotate_duplicate_sources,
+    build_ranking_contract,
+)
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
@@ -12,10 +17,6 @@ DATA_FILE = (
     / "processed"
     / "nasa_combined_evidence.json"
 )
-
-
-def tokenize(value: str) -> list[str]:
-    return re.findall(r"[a-z0-9]+", value.lower())
 
 
 def load_nasa_passages() -> dict[str, Any]:
@@ -112,9 +113,9 @@ def search_nasa_passages(
     if limit < 1 or limit > 100:
         raise ValueError("limit must be between 1 and 100.")
 
-    query_terms = list(dict.fromkeys(tokenize(query)))
+    scientific_query = parse_query(query) if query.strip() else None
 
-    if not query_terms and not nasa_id and not classification:
+    if not scientific_query and not nasa_id and not classification:
         return []
 
     data = load_nasa_passages()
@@ -139,28 +140,24 @@ def search_nasa_passages(
                 continue
 
             original_text = passage["text"]
-            passage_terms = set(tokenize(original_text))
-
-            matched_terms = [
-                term for term in query_terms
-                if term in passage_terms
-            ]
+            relevance = (
+                score_text(scientific_query, original_text)
+                if scientific_query else
+                {"matched_terms": [], "score": 0.0, "matching_reasons": []}
+            )
+            matched_terms = relevance["matched_terms"]
 
             # Do not return a passage just because its document title matches.
-            if query_terms and not matched_terms:
+            if scientific_query and not matched_terms:
                 continue
 
-            normalized_text = " ".join(tokenize(original_text))
-            normalized_query = " ".join(query_terms)
-
             exact_phrase_match = (
-                bool(normalized_query)
-                and normalized_query in normalized_text
+                bool(scientific_query)
+                and scientific_query.normalized in original_text.lower()
             )
 
             relevance_score = (
-                round(len(matched_terms) / len(query_terms), 3)
-                if query_terms else 0.0
+                relevance["score"]
             )
 
             citation_url = (
@@ -169,8 +166,9 @@ def search_nasa_passages(
                 or document.get("citation_url")
             )
 
-            results.append({
+            result = {
                 "nasa_id": document_id,
+                "source_type": "nasa_extracted_passage",
                 "title": document_title,
                 "pdf_page_number": passage.get("pdf_page_number"),
                 "citation_url": citation_url,
@@ -195,7 +193,17 @@ def search_nasa_passages(
                 "scientific_findings_verified": passage.get(
                     "scientific_findings_verified", False
                 ),
-            })
+                "relevance_components": relevance,
+                "matching_reasons": relevance["matching_reasons"],
+            }
+            result["ranking_contract"] = build_ranking_contract(
+                query=scientific_query,
+                original_score=relevance_score,
+                record=result,
+                source_text=original_text,
+                evidence_scope_name=passage.get("evidence_type"),
+            )
+            results.append(result)
 
     results.sort(
         key=lambda item: (
@@ -206,4 +214,7 @@ def search_nasa_passages(
         reverse=True,
     )
 
+    results = annotate_duplicate_sources(results)
+    for item in results:
+        item["ranking_contract"]["duplicate_source"] = item["duplicate_source"]
     return results[:limit]

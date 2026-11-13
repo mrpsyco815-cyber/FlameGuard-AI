@@ -255,6 +255,7 @@ def import_nasa_document(
         return {
             "success": False,
             "status": "pdf_unavailable",
+            "extraction_status": "download_or_import_failed",
             "nasa_id": nasa_id,
             "title": metadata["title"],
             "citation_url": citation_url,
@@ -270,6 +271,7 @@ def import_nasa_document(
         return {
             "success": False,
             "status": "pdf_identity_audit_failed",
+            "extraction_status": "identity_validation_failed",
             "nasa_id": nasa_id,
             "title": metadata["title"],
             "citation_url": citation_url,
@@ -280,6 +282,7 @@ def import_nasa_document(
         return {
             "success": False,
             "status": "pdf_identity_requires_manual_review",
+            "extraction_status": "identity_validation_failed",
             "nasa_id": nasa_id,
             "title": metadata["title"],
             "citation_url": citation_url,
@@ -296,6 +299,9 @@ def import_nasa_document(
         return {
             "success": False,
             "status": "pdf_text_extraction_failed",
+            "extraction_status": extraction.get(
+                "extraction_status", "invalid_pdf"
+            ),
             "nasa_id": nasa_id,
             "title": metadata["title"],
             "citation_url": citation_url,
@@ -307,6 +313,9 @@ def import_nasa_document(
         return {
             "success": False,
             "status": "no_pdf_pages",
+            "extraction_status": extraction.get(
+                "extraction_status", "invalid_pdf"
+            ),
             "nasa_id": nasa_id,
             "title": metadata["title"],
             "citation_url": citation_url,
@@ -337,7 +346,14 @@ def import_nasa_document(
     if not candidate_passages:
         return {
             "success": False,
-            "status": "no_text_passages",
+            "status": (
+                "no_extractable_text"
+                if extraction.get("extraction_status") == "no_extractable_text"
+                else "no_text_passages"
+            ),
+            "extraction_status": extraction.get(
+                "extraction_status", "no_extractable_text"
+            ),
             "nasa_id": nasa_id,
             "title": metadata["title"],
             "citation_url": citation_url,
@@ -366,6 +382,20 @@ def import_nasa_document(
         page_counters[page_number] = page_counters.get(page_number, 0) + 1
         sentence_index = page_counters[page_number]
         page_text = page_text_lookup.get(page_number, "")
+        section = next(
+            (
+                item for item in extraction.get("sections", [])
+                if page_number in item.get("page_numbers", [])
+                and sentence in item.get("text", "")
+            ),
+            next(
+                (
+                    item for item in extraction.get("sections", [])
+                    if page_number in item.get("page_numbers", [])
+                ),
+                None,
+            ),
+        )
 
         classification = classify_passage_v3_4(
             {
@@ -422,12 +452,20 @@ def import_nasa_document(
                     "page_context_classification_basis": passage.get(
                         "classification_basis"
                     ),
+                    "section_name": section.get("section_name") if section else None,
+                    "section_heading": section.get("heading") if section else None,
+                    "section_page_start": section.get("page_start") if section else None,
+                    "section_page_end": section.get("page_end") if section else None,
+                    "section_detection_uncertain": (
+                        section.get("detection_uncertain") if section else None
+                    ),
                     "copyright_metadata": metadata.get("copyright"),
                     "dissemination_status": metadata.get("disseminated"),
                 },
                 "review": {
                     "source_review_status": "requires_manual_review",
                     "classification_review_status": "requires_manual_review",
+                    "claim_summary": extraction.get("claim_summary"),
                     "scientific_findings_verified": False,
                 },
                 "provenance": {
@@ -505,6 +543,8 @@ def import_nasa_document(
         "authors": authors,
         "pdf_path": extraction.get("pdf_path"),
         "pdf_page_count": extraction.get("pdf_page_count"),
+        "extraction_status": extraction.get("extraction_status"),
+        "extraction_message": extraction.get("extraction_message"),
         "pages_with_extracted_text": extraction.get(
             "pages_with_extracted_text"
         ),
@@ -516,6 +556,12 @@ def import_nasa_document(
         "identity_audit": identity,
         "source_review_status": "requires_manual_review",
         "scientific_findings_verified": False,
+        "sections": extraction.get("sections", []),
+        "unclassified_text": extraction.get("unclassified_text", []),
+        "section_extraction_status": extraction.get(
+            "section_extraction_status"
+        ),
+        "structured_findings": extraction.get("structured_findings"),
     }
 
     # Append only. Existing documents and passages remain unchanged.
@@ -540,6 +586,8 @@ def import_nasa_document(
         "citation_url": citation_url,
         "passage_count": len(new_records),
         "document_page_count": extraction.get("pdf_page_count"),
+        "extraction_status": extraction.get("extraction_status"),
+        "extraction_message": extraction.get("extraction_message"),
         "empty_pages": empty_page_count,
         "identity_audit_status": identity.get("identity_audit_status"),
         "source_review_status": "requires_manual_review",

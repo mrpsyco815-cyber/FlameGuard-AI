@@ -2,6 +2,8 @@ from collections import Counter
 from pathlib import Path
 
 from backend.services.nasa_online import search_nasa_online
+from backend.services.conflict_reporting import build_conflict_report
+from backend.services.query_understanding import parse_query
 from backend.services.research_summarizer import build_evidence_brief
 
 
@@ -12,6 +14,7 @@ DEFAULT_STORE_PATH = (
 
 DEFAULT_MIN_LOCAL_PASSAGES = 3
 DEFAULT_MIN_LOCAL_SOURCES = 2
+DEFAULT_MIN_RELEVANCE_SCORE = 0.20
 
 
 def _source_key(nasa_id, citation_url):
@@ -194,6 +197,7 @@ def search_research_with_fallback(
     store_path=None,
     min_local_passages=DEFAULT_MIN_LOCAL_PASSAGES,
     min_local_sources=DEFAULT_MIN_LOCAL_SOURCES,
+    min_relevance_score=DEFAULT_MIN_RELEVANCE_SCORE,
 ):
     if not isinstance(query, str) or len(query.strip()) < 2:
         raise ValueError("Query must contain at least two characters.")
@@ -206,6 +210,10 @@ def search_research_with_fallback(
 
     if not isinstance(min_local_sources, int) or min_local_sources < 0:
         raise ValueError("min_local_sources must be a non-negative integer.")
+    if not isinstance(min_relevance_score, (int, float)) or not 0 <= min_relevance_score <= 1:
+        raise ValueError("min_relevance_score must be between 0 and 1.")
+
+    scientific_query = parse_query(query)
 
     selected_store = Path(store_path) if store_path else DEFAULT_STORE_PATH
 
@@ -221,19 +229,63 @@ def search_research_with_fallback(
     )
 
     probe_results = local_brief["results"]
+    relevant_results = [
+        item for item in probe_results
+        if item.get("query_match_score", 0) >= min_relevance_score
+    ]
     local_source_ids = {
         item["source_id"]
-        for item in probe_results
+        for item in relevant_results
         if item.get("source_id")
     }
 
     insufficient_reasons = []
 
-    if len(probe_results) < min_local_passages:
+    if len(relevant_results) < min_local_passages:
         insufficient_reasons.append("too_few_local_passages")
 
     if len(local_source_ids) < min_local_sources:
         insufficient_reasons.append("insufficient_local_source_coverage")
+
+    if scientific_query.materials and not any(
+        item.get("relevance_components", {}).get("material_matches")
+        for item in relevant_results
+    ):
+        insufficient_reasons.append("required_material_not_covered")
+
+    if scientific_query.conditions and not any(
+        item.get("relevance_components", {}).get("condition_matches")
+        for item in relevant_results
+    ):
+        insufficient_reasons.append("required_experimental_conditions_not_covered")
+
+    if scientific_query.environments and not any(
+        item.get("relevance_components", {}).get("environment_matches")
+        for item in relevant_results
+    ):
+        insufficient_reasons.append("required_environment_not_covered")
+
+    if scientific_query.measurement_required and not any(
+        item.get("relevance_components", {}).get(
+            "quantitative_measurement_matches"
+        )
+        for item in relevant_results
+    ):
+        insufficient_reasons.append("required_quantitative_measurement_not_covered")
+
+    covered_concepts = {
+        concept
+        for item in relevant_results
+        for concept in item.get("relevance_components", {}).get(
+            "concept_matches", []
+        )
+    }
+    missing_concepts = [
+        concept for concept in scientific_query.concepts
+        if concept not in covered_concepts
+    ]
+    if missing_concepts:
+        insufficient_reasons.append("required_scientific_concepts_not_covered")
 
     fallback_triggered = bool(insufficient_reasons)
 
@@ -244,6 +296,12 @@ def search_research_with_fallback(
         "performed": False,
         "source": "NASA NTRS",
         "query": query,
+        "original_query": query,
+        "nasa_query": None,
+        "fallback_attempted": False,
+        "fallback_reason": None,
+        "original_result_count": 0,
+        "fallback_result_count": 0,
         "count": 0,
         "results": [],
         "content_scope": "not_searched",
@@ -260,6 +318,27 @@ def search_research_with_fallback(
             "performed": True,
             "source": raw_online.get("source", "NASA NTRS"),
             "query": query,
+            "original_query": raw_online.get("original_query", query),
+            "nasa_query": raw_online.get(
+                "nasa_query",
+                raw_online.get("normalized_query"),
+            ),
+            "fallback_attempted": raw_online.get(
+                "fallback_attempted",
+                False,
+            ),
+            "fallback_reason": raw_online.get(
+                "fallback_reason",
+                "technical_error" if raw_online.get("error") else None,
+            ),
+            "original_result_count": raw_online.get(
+                "original_result_count",
+                len(online_items),
+            ),
+            "fallback_result_count": raw_online.get(
+                "fallback_result_count",
+                0,
+            ),
             "count": len(online_items),
             "results": [
                 {
@@ -290,13 +369,19 @@ def search_research_with_fallback(
         "search_strategy": "local_first_with_nasa_ntrs_fallback",
         "fallback_triggered": fallback_triggered,
         "fallback_reason": insufficient_reasons,
+        "missing_query_concepts": missing_concepts,
         "fallback_thresholds": {
             "minimum_local_passages": min_local_passages,
             "minimum_distinct_local_sources": min_local_sources,
+            "minimum_relevance_score": min_relevance_score,
+            "relevant_local_passages": len(relevant_results),
         },
         "local_evidence_brief": local_brief,
         "online_search": online_response,
         "combined_sources": combined_sources,
+        "conflict_report": build_conflict_report(
+            local_results + online_items
+        ),
         "counts": {
             "local_passages_returned": len(local_results),
             "local_sources_returned": len(local_source_ids),

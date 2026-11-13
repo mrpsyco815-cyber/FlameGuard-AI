@@ -159,6 +159,34 @@ class TestResearchSummarizer(unittest.TestCase):
         )
         self.assertIn("not a measure of scientific quality", result["ranking_note"])
 
+    def test_prefers_distinct_sources_before_repeating_a_source(self):
+        data = json.loads(self.store_path.read_text(encoding="utf-8"))
+        data["records"].append({
+            "record_id": "NASA-OTHER-001",
+            "record_type": "nasa_passage",
+            "source": {
+                "source_id": "20300000001",
+                "title": "Independent Flame Study",
+                "citation_url": "https://ntrs.nasa.gov/citations/20300000001",
+                "pdf_page_number": 1,
+            },
+            "content": {"text": "Experimental flame spread flow velocity result."},
+            "classification": {
+                "evidence_role": "experimental_observation",
+                "evidence_modality": "experiment",
+                "scientific_findings_verified": False,
+            },
+            "review": {"scientific_findings_verified": False},
+        })
+        self.store_path.write_text(json.dumps(data), encoding="utf-8")
+
+        result = build_evidence_brief(
+            self.store_path, "flame spread flow velocity", limit=2
+        )
+        self.assertEqual(
+            len({item["source_id"] for item in result["results"]}), 2
+        )
+
     def test_rejects_empty_query(self):
         with self.assertRaises(ValueError):
             build_evidence_brief(self.store_path, "   ")

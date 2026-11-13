@@ -3,6 +3,10 @@ import json
 import re
 from pathlib import Path
 from typing import Any
+from backend.services.ranking_contract import (
+    annotate_duplicate_sources,
+    build_ranking_contract,
+)
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -96,7 +100,19 @@ def search_nasa_evidence(
             "relevance_score": round(
                 len(matched_terms) / len(terms), 3
             ),
+            "source_type": "reviewed_evidence",
         }
+        result["ranking_contract"] = build_ranking_contract(
+            query=query,
+            original_score=result["relevance_score"],
+            record={
+                **result,
+                "exact_source_excerpt": record.get("finding"),
+                "evidence_type": "independently_reviewed_evidence",
+            },
+            source_text=str(record.get("finding") or ""),
+            evidence_scope_name="independently_reviewed_evidence",
+        )
 
         results.append(result)
 
@@ -105,4 +121,7 @@ def search_nasa_evidence(
         reverse=True,
     )
 
+    results = annotate_duplicate_sources(results)
+    for item in results:
+        item["ranking_contract"]["duplicate_source"] = item["duplicate_source"]
     return results[:limit]

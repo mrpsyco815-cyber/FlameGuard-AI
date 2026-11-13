@@ -1,14 +1,14 @@
-# FlameGuard AI
+# AeroGuard AI
 
 Evidence-grounded research intelligence for NASA microgravity combustion and spacecraft fire-safety research.
 
 ## Project objective
 
-FlameGuard AI is being developed for the NASA Space Apps challenge. Its intended dashboard will help users discover, summarize, compare, rank, and interpret NASA fire/combustion research and turn appropriately qualified evidence into fire-safety insights for human space exploration.
+AeroGuard AI is being developed for the NASA Space Apps challenge. Its dashboard helps users discover, summarize, compare, rank, and interpret NASA fire/combustion research while keeping experimental, simulated, and unverified evidence distinct.
 
 ## Current repository contents
 
-This repository currently contains the **Python/FastAPI backend and research data**. A production dashboard frontend and the final AI synthesis / mission insight workflow are not yet implemented.
+This repository contains the Python/FastAPI backend, React/TypeScript/Vite frontend, research data, NASA media assets, and supporting documentation.
 
 The backend currently provides:
 
@@ -17,6 +17,7 @@ The backend currently provides:
 - Live NASA NTRS catalogue search when local evidence coverage is insufficient.
 - NASA PDF download, identity checking, page-level text extraction, and supplemental ingestion.
 - A separate BASS-II dataset summary and search service.
+- A read-only demo dashboard with Overview, NASA Research, BASS-II, Insights, Comparison, and Mission Intelligence routes.
 - Unit tests for store integrity, extraction search, NASA fallback, and supplemental document ingestion.
 
 ## Research data flow
@@ -64,6 +65,20 @@ python -m uvicorn backend.main:app --reload
 API root: http://127.0.0.1:8000  
 Interactive API documentation: http://127.0.0.1:8000/docs
 
+### Start the frontend
+
+In a second PowerShell window:
+
+```powershell
+cd C:\Users\User\FlameGuard-AI\frontend
+npm install
+npm run dev
+```
+
+The Vite development server normally runs at http://127.0.0.1:5173 and uses
+the local API at http://127.0.0.1:8000. Do not treat either localhost URL as
+a public deployment URL.
+
 ## API endpoints
 
 | Endpoint | Purpose |
@@ -78,6 +93,11 @@ Interactive API documentation: http://127.0.0.1:8000/docs
 | `GET /research/nasa-passage-search?q=...` | Search extracted passages from the original combined NASA dataset |
 | `GET /bass2/summary` | BASS-II dataset overview |
 | `GET /bass2/search?q=...` | Search BASS-II experiment records |
+| `POST /research/insights` | Build an evidence-grounded research insight |
+| `POST /research/insights/compare` | Compare evidence across research results |
+| `POST /research/mission-intelligence` | Build a mission-intelligence brief |
+| `GET /research/mission-search?q=...` | Search mission research data |
+| `GET /dashboard/mission-brief?...` | Build a dashboard mission brief |
 
 Example:
 
@@ -115,11 +135,12 @@ GitHub Actions runs the same unit-test suite on pushes and pull requests.
 - `backend/services/evidence_classifier_v3.py` through `evidence_classifier_v3_4.py` — chained heuristic evidence classification.
 - `backend/services/bass2_dataset.py` — BASS-II dataset access.
 
-## Remaining challenge-critical work
+## Demo limitations
 
-1. AI-assisted, citation-constrained research summarization.
-2. Transparent evidence-strength and mission-relevance ranking.
-3. Structured comparison of experiments and simulations, including conditions and limitations.
-4. Evidence-backed fire-safety insights for selected Moon, Mars, and spacecraft scenarios.
-5. Integrate future teammate-provided research data through validated, additive ingestion.
-6. Build the interactive dashboard after the backend workflow is complete and tested.
+- The dashboard is an evidence-research demonstrator, not a certified
+  fire-detection, fire-suppression, or operational flight-safety system.
+- Review creation, review revision, and NASA import controls remain disabled in
+  the local judge demo.
+- NASA Research and BASS-II views are read-only and preserve source limitations.
+- Scientific conclusions must be checked against the cited NASA source and page;
+  heuristic scores and catalogue abstracts are not scientific validation.

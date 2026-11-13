@@ -1,8 +1,14 @@
 import json
 import re
+from functools import lru_cache
 from collections import Counter
 from pathlib import Path
 
+from backend.services.query_understanding import parse_query, score_text
+from backend.services.ranking_contract import (
+    annotate_duplicate_sources,
+    build_ranking_contract,
+)
 
 ELIGIBLE_EVIDENCE_ROLES = {
     "experimental_quantitative_result",
@@ -15,6 +21,10 @@ ELIGIBLE_EVIDENCE_ROLES = {
     "simulation_limitation",
 }
 
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+DEFAULT_STORE_PATH = PROJECT_ROOT / "data" / "processed" / "research_intelligence_store.json"
+DEFAULT_SUPPLEMENTAL_PATH = PROJECT_ROOT / "data" / "processed" / "supplemental_research_collection.json"
+
 STOP_WORDS = {
     "a", "an", "and", "are", "as", "at", "be", "by", "for",
     "from", "in", "is", "it", "of", "on", "or", "that", "the",
@@ -22,22 +32,15 @@ STOP_WORDS = {
 }
 
 
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
-DEFAULT_STORE_PATH = PROJECT_ROOT / "data" / "processed" / "research_intelligence_store.json"
-DEFAULT_SUPPLEMENTAL_PATH = PROJECT_ROOT / "data" / "processed" / "supplemental_research_collection.json"
-
-
 def tokenize(text):
+    """Provide the legacy token interface used by remote research services."""
     words = re.findall(r"[a-z0-9]+", str(text).lower())
     return {word for word in words if len(word) > 1 and word not in STOP_WORDS}
 
 
-def load_store(store_path):
-    path = Path(store_path)
-
-    if not path.exists():
-        raise FileNotFoundError(f"Research intelligence store not found: {path}")
-
+@lru_cache(maxsize=8)
+def _load_store_cached(path_string, modified_ns, file_size):
+    path = Path(path_string)
     try:
         data = json.loads(path.read_text(encoding="utf-8"))
     except json.JSONDecodeError as exc:
@@ -47,6 +50,20 @@ def load_store(store_path):
         raise ValueError("Invalid research store: expected a records list.")
 
     return data
+
+
+def load_store(store_path):
+    path = Path(store_path)
+
+    if not path.exists():
+        raise FileNotFoundError(f"Research intelligence store not found: {path}")
+
+    metadata = path.stat()
+    return _load_store_cached(
+        str(path.resolve()),
+        metadata.st_mtime_ns,
+        metadata.st_size,
+    )
 
 
 def _review_status(record, classification):
@@ -60,7 +77,7 @@ def _review_status(record, classification):
     )
 
 
-def _make_result(record, query_terms, record_origin):
+def _make_result(record, scientific_query, record_origin):
     source = record.get("source") or {}
     content = record.get("content") or {}
     classification = record.get("classification") or {}
@@ -70,19 +87,19 @@ def _make_result(record, query_terms, record_origin):
     if not isinstance(excerpt, str) or not excerpt.strip():
         return None
 
-    matched_terms = sorted(query_terms.intersection(tokenize(excerpt)))
-    if not matched_terms:
+    relevance = score_text(scientific_query, excerpt)
+    if not relevance["matched_terms"]:
         return None
 
-    score = len(matched_terms) / len(query_terms)
-
-    return {
+    result = {
         "record_id": record.get("record_id"),
         "record_origin": record_origin,
         "import_origin": (record.get("provenance") or {}).get("import_origin"),
         "source_id": source.get("source_id"),
+        "nasa_id": source.get("source_id"),
         "source_title": source.get("title"),
         "citation_url": source.get("citation_url"),
+        "source_url": source.get("citation_url"),
         "pdf_page_number": source.get("pdf_page_number"),
         "evidence_role": classification.get("evidence_role", "unclassified"),
         "evidence_modality": classification.get("evidence_modality", "unknown"),
@@ -91,14 +108,71 @@ def _make_result(record, query_terms, record_origin):
         "classification_version": classification.get("classification_version"),
         "classification_review_status": _review_status(record, classification),
         "source_review_status": review.get("source_review_status", "not_recorded"),
+        "evidence_type": (
+            classification.get("evidence_role")
+            or classification.get("evidence_modality")
+        ),
         "scientific_findings_verified": (
             classification.get("scientific_findings_verified") is True
             and review.get("scientific_findings_verified") is True
         ),
-        "matched_query_terms": matched_terms,
-        "query_match_score": round(score, 4),
+        "matched_query_terms": relevance["matched_terms"],
+        "query_match_score": relevance["score"],
+        "relevance_components": relevance,
+        "matching_reasons": relevance["matching_reasons"],
         "exact_source_excerpt": excerpt,
     }
+    result["ranking_contract"] = build_ranking_contract(
+        query=scientific_query,
+        original_score=relevance["score"],
+        record={
+            **source,
+            "source_id": source.get("source_id"),
+            "nasa_id": source.get("source_id"),
+            "source_type": "local_nasa_passage",
+            "citation_url": source.get("citation_url"),
+            "source_url": source.get("citation_url"),
+            "pdf_page_number": source.get("pdf_page_number"),
+            "exact_source_excerpt": excerpt,
+            "evidence_type": classification.get("evidence_type"),
+            "evidence_modality": classification.get("evidence_modality"),
+            "classification": classification,
+            "review": review,
+            "provenance": record.get("provenance"),
+            "scientific_findings_verified": result[
+                "scientific_findings_verified"
+            ],
+        },
+        source_text=excerpt,
+    )
+    return result
+
+
+def _diversify_results(results, limit):
+    """Prefer one high-ranked passage per source before filling the limit."""
+    if len(results) <= limit:
+        return results
+
+    diversified = []
+    deferred = []
+    seen_sources = set()
+    for item in results:
+        source_id = (
+            item.get("ranking_contract", {})
+            .get("source_identity", {})
+            .get("group_key")
+            or item.get("source_id")
+            or item.get("citation_url")
+        )
+        if source_id not in seen_sources:
+            diversified.append(item)
+            seen_sources.add(source_id)
+        else:
+            deferred.append(item)
+        if len(diversified) == limit:
+            return diversified
+
+    return diversified + deferred[:limit - len(diversified)]
 
 
 def build_evidence_brief(store_path=None, query="", limit=20):
@@ -108,9 +182,7 @@ def build_evidence_brief(store_path=None, query="", limit=20):
     if not isinstance(limit, int) or isinstance(limit, bool) or not 1 <= limit <= 100:
         raise ValueError("limit must be an integer between 1 and 100.")
 
-    query_terms = tokenize(query)
-    if not query_terms:
-        raise ValueError("Query must contain at least one meaningful search term.")
+    scientific_query = parse_query(query)
 
     selected_store = Path(store_path) if store_path else DEFAULT_STORE_PATH
     store = load_store(selected_store)
@@ -170,21 +242,29 @@ def build_evidence_brief(store_path=None, query="", limit=20):
 
         eligible_role_counts[role] += 1
 
-        result = _make_result(record, query_terms, record_origin)
+        result = _make_result(record, scientific_query, record_origin)
         if result:
             results.append(result)
 
-    # This is lexical query matching, not scientific-quality ranking.
     results.sort(
         key=lambda item: (
             -item["query_match_score"],
+            -len(item["matching_reasons"]),
             str(item.get("source_id") or ""),
             item.get("pdf_page_number") or 0,
             str(item.get("record_id") or ""),
         )
     )
 
-    results = results[:limit]
+    results = annotate_duplicate_sources(results)
+    for item in results:
+        item["ranking_contract"]["duplicate_source"] = item["duplicate_source"]
+
+    pre_diversification_count = len(results)
+    distinct_sources_before_display = len({
+        item["source_id"] for item in results if item.get("source_id")
+    })
+    results = _diversify_results(results, limit)
 
     modality_counts = Counter(
         item["evidence_modality"] for item in results
@@ -208,9 +288,9 @@ def build_evidence_brief(store_path=None, query="", limit=20):
         "query": query,
         "retrieval_method": "lexical_token_overlap",
         "ranking_note": (
-            "Query match score measures word overlap only. "
-            "It is not a measure of scientific quality, certainty, "
-            "mission relevance, or evidence strength."
+            "Ranking combines normalized scientific terms, defensible "
+            "concepts, materials, conditions, and numeric matches. It is "
+            "not a measure of scientific quality, certainty, or evidence strength."
         ),
         "summary": {
             "overview": overview,
@@ -226,6 +306,12 @@ def build_evidence_brief(store_path=None, query="", limit=20):
             "eligible_role_counts": dict(eligible_role_counts),
             "all_nasa_role_counts": dict(all_role_counts),
             "result_limit": limit,
+            "matched_passage_count_before_display_limit": pre_diversification_count,
+            "distinct_sources_before_display": distinct_sources_before_display,
+            "source_diversification": (
+                "one top-ranked passage per source is preferred before "
+                "remaining ranked passages fill the display limit"
+            ),
         },
         "results": results,
         "limitations": [
